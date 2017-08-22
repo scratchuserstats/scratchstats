@@ -1,9 +1,16 @@
 #navbar {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #25aff4;
 }
 
 .navbar-item {
     display: inline-block;
+    padding: 8px;
+    color: white;
+    font-family: Arial;
 }
