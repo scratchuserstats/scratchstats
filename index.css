@@ -1,16 +1,38 @@
+/*Start Navigation Bar CSS*/
 #navbar {
-  list-style-type: none;
-  margin: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #25aff4;
+    list-style-type: none;
+    display: table;
+}
+
+#outerNavBar {
+    width: 100%;
+    background-color: #25aff4;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#outerNavBar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-item:hover, .navbar-item:active {
+  background-color: #219DDB;
 }
 
 .navbar-item {
-    display: inline-block;
-    padding: 8px;
+    display: table-cell;
+    padding-left: 8px;
+    padding-right: 8px;
     color: white;
     font-family: Arial;
+    vertical-align: middle;
 }
+
+.navbar-text {
+    line-height: 45px;
+}
+
+/*End Navigation Bar CSS*/
