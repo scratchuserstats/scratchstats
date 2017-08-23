@@ -1,6 +1,12 @@
+/*Imports*/
+@import url("https://fonts.googleapis.com/css?family=Encode Sans");
+@import url("./sweetalert2.min.css");
+/*End Imports*/
+
 /*Start General CSS*/
 body {
   font-family: Arial;
+  font-weight:lighter;
 }
 #page {
   padding-left: 70px;
@@ -8,10 +14,10 @@ body {
 }
 h1 {
   font-size: 85px;
-  font-weight:normal;
 }
-h2, h3 {
-  font-weight:normal;
+h1, h2, h3 {
+  font-weight:500;
+  font-family: 'encode sans';
 }
 
 .text-block {
