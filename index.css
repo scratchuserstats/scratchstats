@@ -93,3 +93,18 @@ h2, h3 {
 }
 
 /*End stats.html specific CSS*/
+
+
+/*Start user-stats.html specific CSS*/
+#in {
+  outline: none;
+  border-radius: 5px;
+  border: solid #666666;
+  height: 30px;
+  width: 290px;
+  font-size: 20px;
+}
+#in:focus {
+  border: solid #848484;
+}
+/*End user-stats.html specific CSS*/
