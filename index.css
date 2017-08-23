@@ -7,12 +7,10 @@ body {
   left:50%;
 }
 h1 {
-  text-shadow: 1px 1px 2px black;
   font-size: 85px;
   font-weight:normal;
 }
-h2 {
-  text-shadow: 1px 1px 2px black;
+h2, h3 {
   font-weight:normal;
 }
 
@@ -56,6 +54,7 @@ h2 {
     color: white;
     font-family: Arial;
     vertical-align: middle;
+    width: 70px;
 }
 
 .navbar-text {
@@ -69,3 +68,28 @@ h2 {
 .examples {
   padding:5px;
 }
+
+/*End index.html specific CSS*/
+
+/*Start stats.html specific CSS*/
+
+.button {
+  border-radius: 20px;
+  height: 75px;
+  width: 150px;
+  border: none;
+  background-color: #25aff4;
+  color: white;
+  font-size: 20px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  cursor:pointer;
+  background-color: #219DDB;
+}
+
+/*End stats.html specific CSS*/

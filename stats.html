@@ -9,30 +9,42 @@
   </head>
 
   <body>
-  <nav>
-    <ul id="outerNavBar">
-      <ul id="navbar">
-        <li class="navbar-item">
-          <a href="./index.html">
-            <img src="./icon.png" width="50px"></img>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="./stats.html">
-            <div class="navbar-text">Stats</div>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="./credits.html">
-            <div class="navbar-text">Credits</div>
-          </a>
-        </li>
+    <nav>
+      <ul id="outerNavBar">
+        <ul id="navbar">
+          <li class="navbar-item">
+            <a href="./index.html">
+              <center><img src="./icon.png" width="50px"></img></center>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="./stats.html">
+              <div class="navbar-text"><center>Stats</center></div>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="./credits.html">
+              <div class="navbar-text"><center>Credits</center></div>
+            </a>
+          </li>
+        </ul>
       </ul>
-    </ul>
-  </nav>
+    </nav>
   <div id="page">
     <br>
     <br>
+    <br>
+    <br>
+    <div class="text-block">
+      <h3>Choose which type of <a href="scratch.mit.edu">Scratch</a> statistics, you would like to view: </h3>
+      <center>
+      <input id="User-Specific" class="button" type="button" value="User-Specific" onclick="window.location.href = './user-stats.html'"></input>
+      &nbsp;
+      &nbsp;
+      <input id="Global" class="button" type="button" value="Global" onclick="window.location.href = './global-stats.html'"></input>
+    </center>
+      <p></p>
+    </div>
   </div>
   </body>
 </html>
