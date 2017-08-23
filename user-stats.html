@@ -24,7 +24,7 @@
   });
   document.getElementById('user').innerHTML = "<a href= 'https://scratch.mit.edu/users/"+ document.getElementById('i2n').innerHTML + "/'>"  + "<b>@" + document.getElementById('i2n').innerHTML+"</b>"+"</a>";
 
-
+  userStatsUpdate(document.getElementById('i2n').innerHTML);
 });
 }
 </script>
@@ -58,8 +58,43 @@
     <br>
     <br>
     <div class="text-block">
-        <h2 style="display:inline;">Displaying results for: </h2>
-        <h2 style="display:inline;" id="user" >@GriffPatch</h2>
+        <h2 style="display:inline-block;">Displaying results for: </h2>
+        <h2 style="display:inline-block;" id="user" >@GriffPatch</h2>
+    </div>
+    <br><br>
+    <div style="display:inline-block;"  class="text-block" id="followers-content">
+          <h3 class="noBottomMargin">Follower Releated Items:</h3><hr>
+            <div style="display:inline-block;">Followers: </div>
+            <div style="display:inline-block;" id="followers"></div><br>
+              <div style="display:inline-block;">Following: </div>
+              <div style="display:inline-block;" id="following"></div><br>
+              <div style="display:inline-block;">Average Followers Per Hour: </div>
+              <div style="display:inline-block;" id="avgFollowersHour"></div><br>
+              <div style="display:inline-block;">Average Followers Per Day: </div>
+              <div style="display:inline-block;" id="avgFollowersDay"></div><br>
+              <div style="display:inline-block;">Average Followers Per Month: </div>
+              <div style="display:inline-block;" id="avgFollowersMonth"></div><br>
+              <div style="display:inline-block;">Average Followers Per Year: </div>
+              <div style="display:inline-block;" id="avgViewsYear"></div><br>
+    </div>
+    &nbsp;
+    &nbsp;
+    <div style="display:inline-block;" class="text-block" id="average-content">
+          <h3 class="noBottomMargin">Views Releated Items:</h3><hr><br>
+
+            <div style="display:inline-block;">Most Viewed: </div>
+            <div style="display:inline-block;" id="mostViewed"></div>
+            <div style="display:inline-block;">Total Views: </div>
+            <div style="display:inline-block;" id="totalViews"></div><br>
+            <div style="display:inline-block;">Average Views Per Project: </div>
+            <div style="display:inline-block;" id="avgViewsProject"></div><br>
+
+              <div style="display:inline-block;">Average Views Per Day: </div>
+              <div style="display:inline-block;" id="avgViewsDay"></div><br>
+              <div style="display:inline-block;">Average Views Per Month: </div>
+              <div style="display:inline-block;" id="avgViewsMonth"></div><br>
+              <div style="display:inline-block;">Average Views Per Year: </div>
+              <div style="display:inline-block;" id="avgViewsYear"></div>
     </div>
   </div>
   </body>
