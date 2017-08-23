@@ -1,3 +1,24 @@
+/*Start General CSS*/
+body {
+  font-family: Arial;
+}
+#page {
+  padding-left: 70px;
+}
+h1 {
+  text-shadow: 1px 1px 2px black;
+  font-size: 75px;
+  font-weight:normal;
+}
+.text-block {
+  background-color: #F1F1F1;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display:inline-block;
+}
+/*End General CSS*/
+
 /*Start Navigation Bar CSS*/
 #navbar {
     list-style-type: none;
