@@ -22,7 +22,7 @@
     html: "<div id='i2n'>" + document.getElementById('in').value + "</div>",
     type: 'success'
   });
-  document.getElementById('user').innerHTML = "<b>" + document.getElementById('i2n').innerHTML+"</b>";
+  document.getElementById('user').innerHTML = "<a href= 'https://scratch.mit.edu/users/"+ document.getElementById('i2n').innerHTML + "/'>"  + "<b>@" + document.getElementById('i2n').innerHTML+"</b>"+"</a>";
 });
 }
 </script>
@@ -57,7 +57,7 @@
     <br>
     <div class="text-block">
         <div style="display:inline;">Displaying results for: </div>
-        <div style="display:inline;" id="user" ></div>
+        <div style="display:inline;" id="user" >@GriffPatch</div>
     </div>
   </div>
   </body>
