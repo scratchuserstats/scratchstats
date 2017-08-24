@@ -64,21 +64,53 @@ function avgFollows(username) {
             var month = parseInt(date.substring(5,7));
             var day = parseInt(date.substring(8,10));
             var hour = parseInt(date.substring(11,13));
-            console.log('followers: '+followers);
-            console.log('year ' + year);
-            console.log('hour ' + hour);
-            console.log('day ' + day);
-            console.log('month ' + month);
-            console.log('avgyear ' + (followers/(year + (month/12) + (day/365))));
             var avgFollowsPerYear = (followers/(year + (month/12) + (day/365)));
             var avgFollowsPerMonth = avgFollowsPerYear/12;
             var avgFollowsPerDay = avgFollowsPerMonth/30;
-            var avgFollowsPerHour = avgFollowsPerDay/24 + hour/24;
+            var avgFollowsPerHour = avgFollowsPerDay/24;
 
-            document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-            document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-            document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
-            document.getElementById('avgFollowersYear').innerHTML = avgFollowsPerYear;
+            if (year < 1) {
+              document.getElementById('avgFollowersYear').innerHTML = 'Error: User is newer than a year';
+              if ((curDate.getUTCMonth()+1) - month == 0) {
+                document.getElementById('avgFollowersMonth').innerHTML = 'Error: User is newer than a month';
+                if (curDate.getUTCDate() == day) {
+                  document.getElementById('avgFollowersDay').innerHTML = 'Error: User is newer than a day';
+                  if (curDate.getUTCHours() == hour) {
+                    document.getElementById('avgFollowersDay').innerHTML = 'Error: User is newer than a hour';
+                  }
+                  else {
+                    document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+                  }
+                }
+                else {
+                  document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+                  document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+                }
+              }
+              else if ((curDate.getUTCMonth()+1) - month == 1) {
+                 if (curDate.getUTCDate() < day) {
+                   document.getElementById('avgFollowersMonth').innerHTML = 'Error: User is newer than a month';
+                   document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+                   document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+                 }
+                 else {
+                   document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+                   document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+                   document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
+                 }
+              }
+              else {
+                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+                document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
+              }
+            }
+            else {
+              document.getElementById('avgFollowersYear').innerHTML = avgFollowsPerYear;
+              document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+              document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+              document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
+            }
           }
     }
 }

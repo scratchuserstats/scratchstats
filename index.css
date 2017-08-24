@@ -123,11 +123,15 @@ h1, h2, h3 {
 }
 
 .statstable {
-  height: 200px;
+  height: 400px;
   width: 400px;
 }
 
 #in:focus {
   border: solid #848484;
+}
+
+.answer {
+  font-weight:bold;
 }
 /*End user-stats.html specific CSS*/
