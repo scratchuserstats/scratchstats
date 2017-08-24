@@ -22,8 +22,6 @@
     html: "<div id='i2n'>" + document.getElementById('in').value + "</div>",
     type: 'success'
   });
-  document.getElementById('user').innerHTML = "<a href= 'https://scratch.mit.edu/users/"+ document.getElementById('i2n').innerHTML + "/'>"  + "<b>@" + document.getElementById('i2n').innerHTML+"</b>"+"</a>";
-
   userStatsUpdate(document.getElementById('i2n').innerHTML);
 });
 }
@@ -62,7 +60,10 @@
         <h2 style="display:inline-block;" id="user" >Loading...</h2>
     </div>
     <br><br>
-    <div style="display:inline-block;"  class="text-block" id="followers-content">
+    <table>
+<tr>
+  <td>
+    <div class="text-block statstable" id="followers-content">
           <h3 class="noBottomMargin">Follower Releated Items:</h3><hr>
             <div style="display:inline-block;">Followers: </div>
             <div style="display:inline-block;" id="followers">Loading...</div><br>
@@ -75,12 +76,14 @@
               <div style="display:inline-block;">Average Followers Per Month: </div>
               <div style="display:inline-block;" id="avgFollowersMonth">Loading...</div><br>
               <div style="display:inline-block;">Average Followers Per Year: </div>
-              <div style="display:inline-block;" id="avgViewsYear">Loading...</div><br>
+              <div style="display:inline-block;" id="avgFollowersYear">Loading...</div><br>
     </div>
-    &nbsp;
-    &nbsp;
-    <div style="display:inline-block;" class="text-block" id="average-content">
-          <h3 class="noBottomMargin">Views Releated Items:</h3><hr><br>
+  </td>
+    <td>
+      &nbsp;
+      &nbsp;
+    <div class="text-block statstable" id="average-content">
+          <h3 class="noBottomMargin">Views Releated Items:</h3><hr>
 
             <div style="display:inline-block;">Most Viewed: </div>
             <div style="display:inline-block;" id="mostViewed">Loading...</div><br>
@@ -96,6 +99,9 @@
               <div style="display:inline-block;">Average Views Per Year: </div>
               <div style="display:inline-block;" id="avgViewsYear">Loading...</div>
     </div>
+  </td>
+</tr>
+  </table>
   </div>
   </body>
 </html>

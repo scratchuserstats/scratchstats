@@ -121,6 +121,12 @@ h1, h2, h3 {
   width: 290px;
   font-size: 20px;
 }
+
+.statstable {
+  height: 200px;
+  width: 400px;
+}
+
 #in:focus {
   border: solid #848484;
 }
