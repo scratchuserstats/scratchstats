@@ -166,7 +166,7 @@ function messageCount(username) {
     }
 }
 
-function activity() {
+function activity(username) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://scratch.mit.edu/messages/ajax/user-activity/?user=' + username + '&max=1000000', true);
     xmlhttp.send();
