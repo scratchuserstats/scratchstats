@@ -26,16 +26,16 @@ function followers(username) {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var response = xmlhttp.responseText;
             var find = response.search("<h2>");
-            var followers = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
 
-            document.getElementById("followers").innerHTML = followers;
-            following(username);
+            document.getElementById("followers").innerHTML = followersnum;
+            following(username, followersnum);
         }
     };
 
 }
 
-function following(username) {
+function following(username, followersnum) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://scratch.mit.edu/users/' + username + '/following/', true);
     xmlhttp.send();
@@ -46,13 +46,13 @@ function following(username) {
             var following = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
 
             document.getElementById("following").innerHTML = following;
-            avgFollows(username);
+            avgFollows(username,followersnum);
         }
     };
 
 }
 
-function avgFollows(username) {
+function avgFollows(username,followersnum) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username, true);
     xmlhttp.send();
@@ -68,7 +68,7 @@ function avgFollows(username) {
             var month = parseInt(date.substring(5, 7));
             var day = parseInt(date.substring(8, 10));
             var hour = parseInt(date.substring(11, 13));
-            var avgFollowsPerYear = (followers / (year + (month / 12) + (day / 365)));
+            var avgFollowsPerYear = (followersnum / (year + (month / 12) + (day / 365)));
             var avgFollowsPerMonth = avgFollowsPerYear / 12;
             var avgFollowsPerDay = avgFollowsPerMonth / 30;
             var avgFollowsPerHour = avgFollowsPerDay / 24;
@@ -139,7 +139,6 @@ function idNumber(username) {
 }
 
 function messageCount(username) {
-    activity(username);
     if (username.toLowerCase() !== "griffpatch"){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open('GET','https://api.scratch.mit.edu/users/'+username+'/messages/count',true);
@@ -149,6 +148,7 @@ function messageCount(username) {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
                 document.getElementById('messageCount').innerHTML = obj.count;
+                    activity(username);
             }
         };
     }
@@ -161,6 +161,7 @@ function messageCount(username) {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
                 document.getElementById('messageCount').innerHTML = obj.msg_count;
+                    activity(username);
             }
         };
     }
