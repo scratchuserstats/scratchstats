@@ -61,7 +61,7 @@ function avgFollows(username,followersnum) {
             // Get id
             var response = xmlhttp.responseText;
             var obj = JSON.parse(response);
-            document.getElementById('id').innerHTML = c(obj.id);
+            document.getElementById('id').innerHTML = obj.id;
             messageCount(username);
             //
             var obj = JSON.parse(response);
@@ -119,10 +119,10 @@ function avgFollows(username,followersnum) {
                     document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
                 }
             } else {
-                document.getElementById('avgFollowersYear').innerHTML = avgFollowsPerYear;
+                document.getElementById('avgFollowersYear').innerHTML = c(avgFollowsPerYear);
                 document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
                 document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-                document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
+                document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
             }
         }
     };
@@ -137,7 +137,7 @@ function messageCount(username) {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
-                document.getElementById('messageCount').innerHTML = obj.count;
+                document.getElementById('messageCount').innerHTML = c(obj.count);
                     activity(username);
             }
         };
@@ -150,7 +150,7 @@ function messageCount(username) {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
-                document.getElementById('messageCount').innerHTML = obj.msg_count;
+                document.getElementById('messageCount').innerHTML = c(obj.msg_count);
                     activity(username);
             }
         };
