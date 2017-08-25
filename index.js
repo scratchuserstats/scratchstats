@@ -81,12 +81,16 @@ function avgFollows(username) {
             avgFollowsPerHour = avgFollowsPerHour.toFixed(3);
 
             if (year < 1) {
-                document.getElementById('avgFollowersYear').innerHTML = 'Error: User is newer than a year';
+              document.getElementById('avgFollowersYear').style.fontSize = "x-large";
+                document.getElementById('avgFollowersYear').innerHTML = 'Error: User under one year';
                 if ((curDate.getUTCMonth() + 1) - month == 0) {
+                  document.getElementById('avgFollowersMonth').style.fontSize = "x-large";
                     document.getElementById('avgFollowersMonth').innerHTML = 'Error: User is newer than a month';
                     if (curDate.getUTCDate() == day) {
+                      document.getElementById('avgFollowersDay').style.fontSize = "x-large";
                         document.getElementById('avgFollowersDay').innerHTML = 'Error: User is newer than a day';
                         if (curDate.getUTCHours() == hour) {
+                          document.getElementById('avgFollowersHour').style.fontSize = "x-large";
                             document.getElementById('avgFollowersDay').innerHTML = 'Error: User is newer than a hour';
                         } else {
                             document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
@@ -97,6 +101,7 @@ function avgFollows(username) {
                     }
                 } else if ((curDate.getUTCMonth() + 1) - month == 1) {
                     if (curDate.getUTCDate() < day) {
+                      document.getElementById('avgFollowersMonth').style.fontSize = "x-large";
                         document.getElementById('avgFollowersMonth').innerHTML = 'Error: User is newer than a month';
                         document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
                         document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
