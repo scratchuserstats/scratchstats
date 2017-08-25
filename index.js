@@ -75,10 +75,10 @@ function avgFollows(username) {
             var avgFollowsPerDay = avgFollowsPerMonth / 30;
             var avgFollowsPerHour = avgFollowsPerDay / 24;
 
-            avgFollowsPerYear = avgFollowsPerYear.toFixed(3);
-            avgFollowsPerMonth = avgFollowsPerMonth.toFixed(3);
-            avgFollowsPerDay = avgFollowsPerDay.toFixed(3);
-            avgFollowsPerHour = avgFollowsPerHour.toFixed(3);
+            avgFollowsPerYear = avgFollowsPerYear.toFixed(0);
+            avgFollowsPerMonth = avgFollowsPerMonth.toFixed(1);
+            avgFollowsPerDay = avgFollowsPerDay.toFixed(1);
+            avgFollowsPerHour = avgFollowsPerHour.toFixed(2);
 
             if (year < 1) {
               document.getElementById('avgFollowersYear').style.fontSize = "x-large";
