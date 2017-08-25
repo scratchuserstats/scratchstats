@@ -58,7 +58,12 @@ function avgFollows(username,followersnum) {
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            // Get id
             var response = xmlhttp.responseText;
+            var obj = JSON.parse(response);
+            document.getElementById('id').innerHTML = c(obj.id);
+            messageCount(username);
+            //
             var obj = JSON.parse(response);
             var curDate = new Date();
             var date = (obj.history.joined).substring(0, 15);
@@ -175,8 +180,16 @@ function activity(username) {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var responseactivity  = xmlhttp.responseText;
             var countloves = (responseactivity.match(/icon-xs black love/g) || []).length;
-            document.getElementById("amtOfLovedProjects").innerHTML = countloves;
+            document.getElementById("amtOfLovedProjects").innerHTML = c(countloves);
             /*var countshares = (responseactivity.match(/icon-xs black project/g) || []).length;
             document.getElementById("unsharedprojs").innerHTML = "Projects that were unshared: <b>" + String(countshares-totalProjects) + "</b> (BETA)";*/
         }};
+}
+
+
+
+
+
+function c(x) { // Add comma
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
