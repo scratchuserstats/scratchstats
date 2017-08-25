@@ -18,7 +18,11 @@
          confirmButtonColor: '#3085d6',
          confirmButtonText: 'Submit'
          }).then(function () {
-         
+         swal({
+           title: 'Showing statistics for: ',
+           html: "<div id='i2n'>" + document.getElementById('in').value + "</div>",
+           type: 'success'
+         });
          userStatsUpdate(document.getElementById('i2n').innerHTML);
          });
          }
