@@ -141,14 +141,28 @@ function idNumber(username) {
 }
 
 function messageCount(username) {
+  if (username.toLowerCase() != "griffpatch"){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET','https://api.scratch.mit.edu/users/'+username+'/messages/count',true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var obj = JSON.parse(response);
+        document.getElementById('messageCount').innerHTML = obj.count;
+      }
+  }
+}
+else {
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET','https://api.scratch.mit.edu/users/'+username+'/messages/count',true);
+  xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/griffpatch/activity/count?'+Math.floor(Date.now() / 1000),true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
       var response = xmlhttp.responseText;
       var obj = JSON.parse(response);
-      document.getElementById('messageCount').innerHTML = obj.count;
+      document.getElementById('messageCount').innerHTML = obj.msg_count;
     }
-  }
+}
+}
 }
