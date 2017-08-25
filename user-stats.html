@@ -1,110 +1,147 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Stats | ScratchStats.cf</title>
-  <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="./sweetalert2.min.css">
-  <script src="./index.js"></script>
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"></link>
-  <script src="./sweetalert2.min.js"></script>
-<script>
-  function getUser() {
-  swal({
-  title: 'Enter a Scratch Username',
-  type: 'warning',
-  html: '<br><input id="in" /> ',
-  showCancelButton: false,
-  confirmButtonColor: '#3085d6',
-  confirmButtonText: 'Submit'
-}).then(function () {
-  swal({
-    title: 'Showing statistics for: ',
-    html: "<div id='i2n'>" + document.getElementById('in').value + "</div>",
-    type: 'success'
-  });
-  userStatsUpdate(document.getElementById('i2n').innerHTML);
-});
-}
-</script>
-  </head>
+   <head>
+      <title>Stats | ScratchStats.cf</title>
+      <link rel="stylesheet" href="./index.css">
+      <link rel="stylesheet" href="./sweetalert2.min.css">
+      <script src="./index.js"></script>
+      <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+      </link>
+      <script src="./sweetalert2.min.js"></script>
+      <script>
+         function getUser() {
+         swal({
+         title: 'Enter a Scratch Username',
+         type: 'warning',
+         html: '<br><input id="in" /> ',
+         showCancelButton: false,
+         confirmButtonColor: '#3085d6',
+         confirmButtonText: 'Submit'
+         }).then(function () {
+         swal({
+           title: 'Showing statistics for: ',
+           html: "<div id='i2n'>" + document.getElementById('in').value + "</div>",
+           type: 'success'
+         });
+         userStatsUpdate(document.getElementById('i2n').innerHTML);
+         });
+         }
+      </script>
+   </head>
+   <body onload="getUser()">
+      <nav>
+         <ul id="outerNavBar">
+            <ul id="navbar">
+               <li class="navbar-item">
+                  <a href="./index.html">
+                     <center><img src="./icon.png" width="50px"></img></center>
+                  </a>
+               </li>
+               <li class="navbar-item">
+                  <a href="./stats.html">
+                     <div class="navbar-text">
+                        <center>Stats</center>
+                     </div>
+                  </a>
+               </li>
+               <li class="navbar-item">
+                  <a href="./credits.html">
+                     <div class="navbar-text">
+                        <center>Credits</center>
+                     </div>
+                  </a>
+               </li>
+            </ul>
+         </ul>
+      </nav>
+      <div id="page">
+         <br>
+         <br>
+         <br>
+         <br>
+         <div class="text-block">
+            <h2 style="display:inline-block;font-size:50px;" class="century">Current User: &nbsp;</h2>
+            <h2 style="display:inline-block;font-size:50px;" id="user" class="century" ><b>Default</b></h2>
+         </div>
+         <br><br>
+         <div class="text-block statstable" id="followers-content">
+            <h3 class="noBottomMargin">Follower Releated Items:</h3>
+            <hr>
+            <table>
+               <td>
+                  <div style="display:block;" id="followers" class="answer">...</div>
+                  <div style="display:block;" class="question">Followers</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="following" class="answer">...</div>
+                  <div style="display:block;" class="question">Following</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgFollowersHour" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Followers Per Hour</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgFollowersDay" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Followers Per Day: </div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgFollowersMonth" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Followers Per Month: </div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgFollowersYear" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Followers Per Year: </div>
+               </td>
+            </table>
+         </div>
+         <br>
+         <br>
+         <br>
+         <div class="text-block statstable" id="average-content">
+            <h3 class="noBottomMargin">Views Releated Items:</h3>
+            <hr>
+            <table>
+               <td>
+                  <div style="display:block;" id="mostViewed" class="answer">...</div>
+                  <div style="display:block;" class="question">Most Viewed</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="totalViews" class="answer">...</div>
+                  <div style="display:block;" class="question">Total Views</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgViewsProject" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Views Per Project</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgViewsDay" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Views Per Day</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgViewsMonth" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Views Per Month</div>
+               </td>
+               <td>
+                  <div style="display:block;" id="avgViewsYear" class="answer">...</div>
+                  <div style="display:block;" class="question">Average Views Per Year</div>
+               </td>
+            </table>
+         </div>
 
-  <body onload="getUser()">
-    <nav>
-      <ul id="outerNavBar">
-        <ul id="navbar">
-          <li class="navbar-item">
-            <a href="./index.html">
-              <center><img src="./icon.png" width="50px"></img></center>
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a href="./stats.html">
-              <div class="navbar-text"><center>Stats</center></div>
-            </a>
-          </li>
-          <li class="navbar-item">
-            <a href="./credits.html">
-              <div class="navbar-text"><center>Credits</center></div>
-            </a>
-          </li>
-        </ul>
-      </ul>
-    </nav>
-  <div id="page">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="text-block">
-        <h2 style="display:inline-block;">Displaying results for: </h2>
-        <h2 style="display:inline-block;" id="user" >Loading...</h2>
-    </div>
-    <br><br>
-    <table>
-<tr>
-  <td>
-    <div class="text-block statstable" id="followers-content">
-      <center>
-          <h3 class="noBottomMargin">Follower Releated Items:</h3><hr><br><br>
-            <div style="display:inline-block;" class="question">Followers: </div>
-            <div style="display:inline-block;" id="followers" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Following: </div>
-              <div style="display:inline-block;" id="following" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Followers Per Hour: </div>
-              <div style="display:inline-block;" id="avgFollowersHour" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Followers Per Day: </div>
-              <div style="display:inline-block;" id="avgFollowersDay" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Followers Per Month: </div>
-              <div style="display:inline-block;" id="avgFollowersMonth" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Followers Per Year: </div>
-              <div style="display:inline-block;" id="avgFollowersYear" class="answer">Loading...</div><br></center>
-    </div>
-  </td>
-    <td>
-      &nbsp;
-      &nbsp;
-    <div class="text-block statstable" id="average-content">
-      <center>
-          <h3 class="noBottomMargin">Views Releated Items:</h3><hr><br><br>
-
-            <div style="display:inline-block;" class="question">Most Viewed: </div>
-            <div style="display:inline-block;" id="mostViewed" class="answer">Loading...</div><br><br>
-            <div style="display:inline-block;" class="question">Total Views: </div>
-            <div style="display:inline-block;" id="totalViews" class="answer">Loading...</div><br><br>
-            <div style="display:inline-block;" class="question">Average Views Per Project: </div>
-
-            <div style="display:inline-block;" id="avgViewsProject" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Views Per Day: </div>
-              <div style="display:inline-block;" id="avgViewsDay" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Views Per Month: </div>
-              <div style="display:inline-block;" id="avgViewsMonth" class="answer">Loading...</div><br><br>
-              <div style="display:inline-block;" class="question">Average Views Per Year: </div>
-              <div style="display:inline-block;" id="avgViewsYear" class="answer">Loading...</div>
-            </center>
-    </div>
-  </td>
-</tr>
-  </table>
-  </div>
-  </body>
+         <br>
+         <br>
+         <br>
+         <div class="text-block statstable" id="average-content">
+           <h3 class="noBottomMargin">Miscellaneous:</h3>
+           <hr>
+           <table>
+             <td>
+               <div style="display:block;" id="i" class="answer">
+         <img id="icon" src="https://cdn2.scratch.mit.edu/get_image/user/2641_60x60.png"></img>
+       </div>
+       <div style="display:block;" class="question">Icon</div>
+       </table>
+       </div>
+      </div>
+   </body>
 </html>

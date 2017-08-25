@@ -1,137 +1,135 @@
 /*Imports*/
 @import url("https://fonts.googleapis.com/css?family=Encode Sans");
 /*End Imports*/
-
 /*Start General CSS*/
-body {
-  font-family: Arial;
-  font-weight:lighter;
-  background-color:orange;
-}
-#page {
-  padding-left: 70px;
-  left:50%;
-}
-h1 {
-  font-size: 85px;
-}
-h2 {
-  font-size: 40px;
-}
-h3 {
-  font-size: 30px;
-}
-h1, h2, h3 {
-  font-weight:500;
-  font-family: 'encode sans';
-}
 
-.noBottomMargin {
-  margin-bottom:0px;
-}
+body {
+	font-family: Arial;
+	font-weight: lighter;
+	background-color: orange;
+ }
+
+#page {
+	padding-left: 70px;
+	left: 50%;
+ }
+
+hr {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #345;
+ }
+
+.century {font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;}
+
+h1 {font-size: 85px;}
+
+h2 {font-size: 40px;}
+
+h3 {font-size: 30px;}
+
+h1, h2, h3 {
+	font-weight: 500;
+	font-family: 'encode sans';
+ }
+
+.noBottomMargin {margin-bottom: 0px;}
 
 .text-block {
-  background-color: #F1F1F1;
-  border-radius: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
-  display:inline-block;
-}
-/*End General CSS*/
+	background-color: #F1F1F1;
+	border-radius: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	display: inline-block;
+ }
 
+/*End General CSS*/
 /*Start Navigation Bar CSS*/
 #navbar {
-    list-style-type: none;
-    display: table;
-}
+	list-style-type: none;
+	display: table;
+ }
 
 #outerNavBar {
-    width: 100%;
-    background-color: #25aff4;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
+	width: 100%;
+	background-color: #25aff4;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+ }
 
-#outerNavBar a {
-    text-decoration: none;
-    color: white;
-}
+	#outerNavBar a {
+		text-decoration: none;
+		color: white;
+	 }
 
-.navbar-item:hover, .navbar-item:active {
-  background-color: #219DDB;
-}
+.navbar-item:hover, .navbar-item:active {background-color: #219DDB;}
 
 .navbar-item {
-    display: table-cell;
-    padding-left: 8px;
-    padding-right: 8px;
-    color: white;
-    font-family: Arial;
-    vertical-align: middle;
-    width: 70px;
-}
+	display: table-cell;
+	padding-left: 8px;
+	padding-right: 8px;
+	color: white;
+	font-family: Arial;
+	vertical-align: middle;
+	width: 70px;
+ }
 
-.navbar-text {
-    line-height: 45px;
-}
+.navbar-text {line-height: 45px;}
 
 /*End Navigation Bar CSS*/
-
 /*Start index.html specific CSS*/
-
-.examples {
-  padding:5px;
-}
+.examples {padding: 5px;}
 
 /*End index.html specific CSS*/
-
 /*Start stats.html specific CSS*/
-
 .button {
-  border-radius: 20px;
-  height: 75px;
-  width: 150px;
-  border: none;
-  background-color: #25aff4;
-  color: white;
-  font-size: 20px;
-}
+	border-radius: 20px;
+	height: 75px;
+	width: 150px;
+	border: none;
+	background-color: #25aff4;
+	color: white;
+	font-size: 20px;
+ }
 
-.button:focus {
-  outline: none;
-}
+	.button:focus {outline: none;}
 
-.button:hover {
-  cursor:pointer;
-  background-color: #219DDB;
-}
+	.button:hover {
+		cursor: pointer;
+		background-color: #219DDB;
+	 }
 
 /*End stats.html specific CSS*/
-
-
 /*Start user-stats.html specific CSS*/
 #in {
-  outline: none;
-  border-radius: 5px;
-  border: solid #666666;
-  height: 30px;
-  width: 290px;
-  font-size: 20px;
-}
+	outline: none;
+	border-radius: 5px;
+	border: solid #666666;
+	height: 30px;
+	width: 290px;
+	font-size: 20px;
+ }
 
 .statstable {
-  height: 400px;
-  width: 400px;
-}
+	height: 200px;
+	width: 1100px;
+	overflow-x: hidden;
+ }
 
-#in:focus {
-  border: solid #848484;
-}
+td {
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+ }
+
+#in:focus {border: solid #848484;}
 
 .answer {
-  font-weight:bold;
-}
+	font-weight: bold;
+	font-size: 50px;
+ }
+
 /*End user-stats.html specific CSS*/
