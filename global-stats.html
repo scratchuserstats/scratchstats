@@ -88,7 +88,7 @@ xmlhttp.onreadystatechange = function() {
 
 function projectsAndStuff() {
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', 'http://anyorigin.com/go/?url=https://scratch.mit.edu/statistics/data/daily/', true);
+  xmlhttp.open('GET', 'http://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/daily/', true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
