@@ -64,9 +64,9 @@ function avgFollows(followersnum,response) {
     var obj = JSON.parse(response);
     var curDate = new Date();
     var date = (obj.history.joined).split("T")[0].split("-");
-    var year = date[0];
-    var month = date[1];
-    var day = date[2];
+    var year = Number(date[0]);
+    var month = Number(date[1]);
+    var day = Number(date[2]);
     console.log(year);
     console.log(month);
     console.log(day);
