@@ -305,11 +305,11 @@ function showProjectStats(){
     averageComments = totalComments/totalProjects;
     averageLikes = Number(totalLoves)/Number(totalViews)*100;
 
-    document.getElementById("averageLoves").innerHTML = averageLoves.toFixed();
-    document.getElementById("averageFaves").innerHTML = averageFaves.toFixed();
-    document.getElementById("averageViews").innerHTML = averageViews.toFixed();
-    document.getElementById("averageCommented").innerHTML = averageComments.toFixed();
-    document.getElementById("averageLiked").innerHTML = averageLikes.toFixed()+"%";
+    document.getElementById("averageLoves").innerHTML = averageLoves.toFixed()+"💖";
+    document.getElementById("averageFaves").innerHTML = averageFaves.toFixed()+"⭐";
+    document.getElementById("averageViews").innerHTML = averageViews.toFixed()+"👁️";
+    document.getElementById("averageCommented").innerHTML = averageComments.toFixed()+"💬";
+    document.getElementById("averageLiked").innerHTML = averageLikes.toFixed()+"%👍";
 }
 
 
