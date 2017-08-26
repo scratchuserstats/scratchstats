@@ -12,6 +12,7 @@
      function getUser() {
 
     if(location.hash===""){
+        document.getElementById('in').select();
         swal({
             title: 'Enter a Scratch Username',
             type: 'warning',
@@ -20,7 +21,6 @@
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Get stats'
         }).then(function () {
-          document.getElementById('in').select();
             username = document.getElementById('in').value;
             userStatsUpdate(username);
             location.hash=username;
