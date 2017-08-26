@@ -130,8 +130,12 @@ td {
 	padding-left: 8px;
 	padding-right: 8px;
 	text-align: center;
-	width: 260px;
  }
+
+.project {
+
+	width: 260px;
+}
 
 #in:focus {border: solid #848484;}
 
