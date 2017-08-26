@@ -5,6 +5,7 @@ function userStatsUpdate(user) {
     following();
     messageCount();
     activity();
+    showProjectStats();
 }
 
 // SendAPIreq -> getIcon & getID & getJoinDate & followers
@@ -53,7 +54,7 @@ function followers(responseforavg) {
             var response = xmlhttp.responseText;
             var find = response.search("<h2>");
             var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            document.getElementById("followers").innerHTML = followersnum;
+            document.getElementById("followers").innerHTML = c(followersnum);
             avgFollows(followersnum,responseforavg);
         }
     };
@@ -182,8 +183,90 @@ function activity() {
         }};
 }
 
+var totalProjects = 0;
+var offset = 0;
+var totalViews = 0;
+var totalLoves = 0;
+var totalFaves = 0;
+var totalComments = 0;
+var mostViewedNum = -1;
+var mostLovedNum = -1;
+var mostCommentedNum  = -1;
+var mostLikedNum = -1;
+function projectStats() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var parsedJSON = JSON.parse(xmlhttp.responseText);
 
+            if (parsedJSON.length === 0 & offset !== 0) {
 
+            }
+
+            var i = 0;
+            while(i < parsedJSON.length) {
+                // Views
+                var totalViews = totalViews + Number(parsedJSON[i].stats.views);
+                if (Number(parsedJSON[i].stats.views)>mostViewedNum) {
+                    mostViewedID = parsedJSON[i].id;
+                    mostViewedTitle = parsedJSON[i].title;
+                    mostViewedNum = parsedJSON[i].stats.views;
+                    mostViewedImg = parsedJSON[i].image;}
+                //
+                // Loves
+                totalLoves = totalLoves + Number(parsedJSON[i].stats.loves);
+                if (Number(parsedJSON[i].stats.loves)>mostLovedNum) {
+                    mostLovedID = parsedJSON[i].id;
+                    mostLovedTitle = parsedJSON[i].title;
+                    mostLovedNum = parsedJSON[i].stats.loves;
+                    mostLovedImg = parsedJSON[i].image;}
+                //
+                // Faves
+                totalFaves = totalFaves + Number(parsedJSON[i].stats.favorites);
+                //
+                // Comments
+                totalComments = totalComments + Number(parsedJSON[i].stats.comments);
+                if (Number(parsedJSON[i].stats.comments)>mostCommentedNum) {
+                    mostCommentedID = parsedJSON[i].id;
+                    mostCommentedTitle = parsedJSON[i].title;
+                    mostCommentedNum = parsedJSON[i].stats.comments;
+                    mostCommentedImg = parsedJSON[i].image;}
+                //
+                // Love-View ratio
+                var ratio = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
+                if (ratio>mostLikedNum) {
+                    mostLikedID = parsedJSON[i].id;
+                    mostLikedTitle = parsedJSON[i].title;
+                    mostLikedNum = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
+                    mostLikedNum = mostLikedNum.toFixed(1);
+                    mostLikedImg = parsedJSON[i].image;}
+                //
+                totalProjects++;
+                i++;
+            }
+
+            if (parsedJSON.length === 20) {
+                offset = offset+20;
+                setTimeout(function(){projectStats(); }, 200);}
+            else {
+                showProjectStats();
+            }
+        }};
+
+}
+
+function showProjectStats(){
+    console.log(totalProjects);
+    console.log(totalViews);
+    console.log(totalLoves);
+    console.log(totalFaves);
+    console.log(totalComments);
+    console.log(mostViewedNum);
+    console.log(mostLovedNum);
+    console.log(mostViewedNum);
+}
 
 
 function c(x) { // Add comma
