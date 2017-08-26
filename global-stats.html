@@ -7,10 +7,87 @@
   <script src="./index.js"></script>
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"></link>
   <script src="./sweetalert2.min.js"></script>
+<script>
 
+function griffpatch() {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://scratch.mit.edu/users/griffpatch/followers/', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var find = response.search("<h2>");
+        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+        console.log(followersnum);
+        document.getElementById("griffpatch").innerHTML = c(followersnum)+ " followers";
+        wazzotv();
+    }
+};
+}
+
+function wazzotv() {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://scratch.mit.edu/users/wazzotv/followers/', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var find = response.search("<h2>");
+        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+        console.log(followersnum);
+        document.getElementById("wazzotv").innerHTML = c(followersnum)+ " followers";
+        hobsontv();
+    }
+};
+}
+
+function hobsontv() {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://scratch.mit.edu/users/hobson-tv/followers/', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var find = response.search("<h2>");
+        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+        document.getElementById("hobsontv").innerHTML = c(followersnum)+ " followers";
+        console.log(followersnum);
+        fajtv();
+    }
+};}
+
+function fajtv() {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://scratch.mit.edu/users/funnyanimatorjimtv/followers/', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var find = response.search("<h2>");
+        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+        console.log(followersnum);
+        document.getElementById("fajtv").innerHTML = c(followersnum)+ " followers";
+        silver();
+    }
+};}
+
+function silver() {
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://scratch.mit.edu/users/silvershimmer43/followers/', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var find = response.search("<h2>");
+        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+        console.log(followersnum);
+        document.getElementById("silvershimmer").innerHTML = c(followersnum)+ " followers";
+    }
+};}
+</script>
   </head>
 
-  <body>
+  <body onload="griffpatch()">
     <nav>
       <ul id="outerNavBar">
         <ul id="navbar">
@@ -38,6 +115,41 @@
     <br>
     <br>
     <div class="text-block">
+      <h1 class="century">Global Statistics: </h1>
+    </div>
+
+    <br><br><br>
+    <div class="text-block statstable" id="averageProjectStats">
+       <h3 class="noBottomMargin">Top 5 Most Followed Scratchers:</h3>
+       <hr>
+       <center>
+       <table style="font-size:20px;">
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/griffpatch"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/1882674_90x90.png"/><br>@Griffpatch</a></div>
+               <div style="display:block;" id="griffpatch" class="question"></div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+            <center>
+             <div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/WazzoTV"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/708436_90x90.png"/><br>@WazzoTV</a></div>
+               <div style="display:block;" id="wazzotv" class="question"></div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Hobson-Tv"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/3994425_90x90.png"/><br>@Hobson-TV</a></div>
+               <div style="display:block;" id="hobsontv" class="question"></div></center>
+          </td>
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/FunnyAnimatorJimTv"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/4291425_90x90.png"/><br>@FunnyAnimatorJimTv</a></div>
+               <div style="display:block;" id="fajtv" class="question"></div></center>
+          </td>
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Silvershimmer43"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/764067_90x90.png"/><br>@Silvershimmer43</a></div>
+               <div style="display:block;"  id="silvershimmer"class="question"></div></center>
+          </td>
+
+       </table>
+       </center>
     </div>
   </div>
   </body>
