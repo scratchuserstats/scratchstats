@@ -96,32 +96,32 @@ function avgFollows(followersnum,response) {
                     document.getElementById('avgFollowersHour').style.fontSize = "x-large";
                     document.getElementById('avgFollowersDay').innerHTML = 'Error';
                 } else {
-                    document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
+                    document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
                 }
             } else {
-                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+                document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
+                document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
             }
         } else if ((curDate.getUTCMonth() + 1) - month == 1) {
             if (curDate.getUTCDate() < day) {
                 document.getElementById('avgFollowersMonth').style.fontSize = "x-large";
                 document.getElementById('avgFollowersMonth').innerHTML = 'Error';
-                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+                document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
+                document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
             } else {
-                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-                document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
+                document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
+                document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
+                document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
             }
         } else {
-            document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-            document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-            document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
+            document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
+            document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
+            document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
         }
     } else {
         document.getElementById('avgFollowersYear').innerHTML = c(avgFollowsPerYear);
-        document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-        document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
+        document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
+        document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
         document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
     }
 }
@@ -136,7 +136,7 @@ function following(followersnum) {
             var response = xmlhttp.responseText;
             var find = response.search("<h2>");
             var following = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            document.getElementById("following").innerHTML = following;
+            document.getElementById("following").innerHTML = c(following);
         }
     };
 
@@ -299,11 +299,11 @@ function showProjectStats(){
     document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='color:red;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+mostViewedComments+"</li></ul></td></table>";
     document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='color:red;'>💬"+mostCommentedNum+"</li></ul></td></table>";
 
-    averageLoves = totalLoves/totalProjects;
-    averageFaves = totalFaves/totalProjects;
-    averageViews = totalViews/totalProjects;
-    averageComments = totalComments/totalProjects;
-    averageLikes = Number(totalLoves)/Number(totalViews)*100;
+    averageLoves = c(totalLoves/totalProjects);
+    averageFaves = c(totalFaves/totalProjects);
+    averageViews = c(totalViews/totalProjects);
+    averageComments = c(totalComments/totalProjects);
+    averageLikes = c(Number(totalLoves)/Number(totalViews)*100);
 
     document.getElementById("averageLoves").innerHTML = averageLoves.toFixed()+"💖";
     document.getElementById("averageFaves").innerHTML = averageFaves.toFixed()+"⭐";
