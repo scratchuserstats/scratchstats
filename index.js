@@ -217,9 +217,7 @@ function projectStats() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var parsedJSON = JSON.parse(xmlhttp.responseText);
 
-            if (parsedJSON.length === 0 & offset !== 0) {
-
-            }
+            if (parsedJSON.length === 0 & offset !== 0) {showProjectStats();}
 
             var i = 0;
             while(i < parsedJSON.length) {
@@ -233,7 +231,7 @@ function projectStats() {
                     mostViewedFaves = parsedJSON[i].stats.favorites;
                     mostViewedLoves = parsedJSON[i].stats.loves;
                     mostViewedComments = parsedJSON[i].stats.comments;
-                    mostViewedLikes = mostViewedLoves/mostViewedNum;
+                    mostViewedLikes = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
                     mostViewedLikes = mostViewedLikes.toFixed(1);
                   }
                 //
@@ -247,7 +245,7 @@ function projectStats() {
                     mostLovedFaves = parsedJSON[i].stats.favorites;
                     mostLovedViews = parsedJSON[i].stats.views;
                     mostLovedComments = parsedJSON[i].stats.comments;
-                    mostLovedLikes = mostLovedNum/mostLovedViews;
+                    mostLovedLikes = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
                     mostLovedLikes = mostLovedLikes.toFixed(1);
                   }
                 //
@@ -264,7 +262,7 @@ function projectStats() {
                     mostCommentedFaves = parsedJSON[i].stats.favorites;
                     mostCommentedViews = parsedJSON[i].stats.views;
                     mostCommentedLoves = parsedJSON[i].stats.loves;
-                    mostCommentedLikes = mostCommentedLoves/mostCommentedViews;
+                    mostCommentedLikes = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
                     mostCommentedLikes = mostCommentedLikes.toFixed(1);
                   }
                 //
