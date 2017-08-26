@@ -180,7 +180,7 @@ function activity() {
             document.getElementById("amtOfLovedProjects").innerHTML = c(countloves);
             var countshares = (responseactivity.match(/icon-xs black project/g) || []).length;
             var unsharedprojects = countshares-totalProjects<0 ? "?" : countshares-totalProjects;
-            document.getElementById("amtOfUnsharedProjects").innerHTML = countshares-totalProjects;
+            document.getElementById("amtOfUnsharedProjects").innerHTML = unsharedprojects;
         }};
 }
 
