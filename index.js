@@ -32,7 +32,7 @@ function getIcon(response){
     var src= 'https://cdn2.scratch.mit.edu/get_image/user/'+obj.id+'_60x60.png';
     console.log(src);
     document.getElementById('icon').src = src;
-    document.getElementById('user').innerHTML =  "<b>@" + obj.username + "</b>" + "</a>";
+    document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
 }
 
 function getID(response){
@@ -190,9 +190,25 @@ var totalLoves = 0;
 var totalFaves = 0;
 var totalComments = 0;
 var mostViewedNum = -1;
+var mostViewedLoves = -1;
+var mostViewedFaves = -1;
+var mostViewedComments = -1;
+var mostViewedLikes = -1;
 var mostLovedNum = -1;
+var mostLovedViews = -1;
+var mostLovedFaves = -1;
+var mostLovedLikes = -1;
+var mostLovedComments = -1;
 var mostCommentedNum  = -1;
+var mostCommentedViews = -1;
+var mostCommentedLoves = -1;
+var mostCommentedLikes = -1;
+var mostComentedFaves = -1;
 var mostLikedNum = -1;
+var mostLikedViews = -1;
+var mostLikedFaves = -1;
+var mostLikedLoves = -1;
+var mostLikedComments = -1;
 function projectStats() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
@@ -213,7 +229,13 @@ function projectStats() {
                     mostViewedID = parsedJSON[i].id;
                     mostViewedTitle = parsedJSON[i].title;
                     mostViewedNum = parsedJSON[i].stats.views;
-                    mostViewedImg = parsedJSON[i].image;}
+                    mostViewedImg = parsedJSON[i].image;
+                    mostViewedFaves = parsedJSON[i].stats.favorites;
+                    mostViewedLoves = parsedJSON[i].stats.loves;
+                    mostViewedComments = parsedJSON[i].stats.comments;
+                    mostViewedLikes = mostViewedLoves/mostViewedNum;
+                    mostViewedLikes = mostViewedLikes.toFixed(1);
+                  }
                 //
                 // Loves
                 totalLoves = totalLoves + Number(parsedJSON[i].stats.loves);
@@ -221,7 +243,13 @@ function projectStats() {
                     mostLovedID = parsedJSON[i].id;
                     mostLovedTitle = parsedJSON[i].title;
                     mostLovedNum = parsedJSON[i].stats.loves;
-                    mostLovedImg = parsedJSON[i].image;}
+                    mostLovedImg = parsedJSON[i].image;
+                    mostLovedFaves = parsedJSON[i].stats.favorites;
+                    mostLovedViews = parsedJSON[i].stats.views;
+                    mostLovedComments = parsedJSON[i].stats.comments;
+                    mostLovedLikes = mostLovedNum/mostLovedViews;
+                    mostLovedLikes = mostLovedLikes.toFixed(1);
+                  }
                 //
                 // Faves
                 totalFaves = totalFaves + Number(parsedJSON[i].stats.favorites);
@@ -232,7 +260,13 @@ function projectStats() {
                     mostCommentedID = parsedJSON[i].id;
                     mostCommentedTitle = parsedJSON[i].title;
                     mostCommentedNum = parsedJSON[i].stats.comments;
-                    mostCommentedImg = parsedJSON[i].image;}
+                    mostCommentedImg = parsedJSON[i].image;
+                    mostCommentedFaves = parsedJSON[i].stats.favorites;
+                    mostCommentedViews = parsedJSON[i].stats.views;
+                    mostCommentedLoves = parsedJSON[i].stats.loves;
+                    mostCommentedLikes = mostCommentedLoves/mostCommentedViews;
+                    mostCommentedLikes = mostCommentedLikes.toFixed(1);
+                  }
                 //
                 // Love-View ratio
                 var ratio = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
@@ -241,7 +275,12 @@ function projectStats() {
                     mostLikedTitle = parsedJSON[i].title;
                     mostLikedNum = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
                     mostLikedNum = mostLikedNum.toFixed(1);
-                    mostLikedImg = parsedJSON[i].image;}
+                    mostLikedImg = parsedJSON[i].image;
+                    mostLikedFaves = parsedJSON[i].stats.favorites;
+                    mostLikedViews = parsedJSON[i].stats.views;
+                    mostLikedLoves = parsedJSON[i].stats.loves;
+                    mostLikedComments = parsedJSON[i].stats.comments;
+                  }
                 //
                 totalProjects++;
                 i++;
@@ -254,6 +293,11 @@ function projectStats() {
                 showProjectStats();
             }
         }};
+        document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖: "+mostViewedLoves+"</li><li class='statistics'>⭐: "+mostViewedFaves+"</li><li class='statistics'>💬: "+mostViewedComments+"</li><li class='statistics'>👁️: "+mostViewedNum+"</li><li class='statistics'>👍: "+mostViewedLikes+"%</li><li class='statistics'></li></ul></td></table>";
+        document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖: "+mostCommentedLoves+"</li><li class='statistics'>⭐: "+mostCommentedFaves+"</li><li class='statistics'>💬: "+mostCommentedNum+"</li><li class='statistics'>👁️: "+mostCommentedViews+"</li><li class='statistics'>👍: "+mostCommentedLikes+"%</li><li class='statistics'></li></ul></td></table>";
+        document.getElementById("mostLiked").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLikedID+"/' class='projTitle'>"+mostLikedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLikedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖: "+mostLikedLoves+"</li><li class='statistics'>⭐: "+mostLikedFaves+"</li><li class='statistics'>💬: "+mostLikedComments+"</li><li class='statistics'>👁️: "+mostLikedViews+"</li><li class='statistics'>👍: "+mostLikedNum+"%</li><li class='statistics'></li></ul></td></table>";
+
+        document.getElementById("mostLoved").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLovedID+"/' class='projTitle'>"+mostLovedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLovedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖: "+mostLovedNum+"</li><li class='statistics'>⭐: "+mostLovedFaves+"</li><li class='statistics'>💬: "+mostLovedComments+"</li><li class='statistics'>👁️: "+mostLovedViews+"</li><li class='statistics'>👍: "+mostLovedLikes+"%</li><li class='statistics'></li></ul></td></table>";
 
 }
 
@@ -266,6 +310,7 @@ function showProjectStats(){
     console.log(mostViewedNum);
     console.log(mostLovedNum);
     console.log(mostViewedNum);
+    projectStats();
 }
 
 

@@ -114,10 +114,18 @@ h1, h2, h3 {
  }
 
 .statstable {
-	height: 200px;
 	width: 1100px;
 	overflow-x: hidden;
+	overflow-y: hidden;
  }
+
+.statistics {
+	font-size: 15px;
+}
+
+.projTitle {
+	font-size:20px;
+}
 
 td {
 	padding-left: 8px;
@@ -130,6 +138,10 @@ td {
 .answer {
 	font-weight: bold;
 	font-size: 50px;
+ }
+
+ .special {
+	 	font-weight: bold;
  }
 
 /*End user-stats.html specific CSS*/
