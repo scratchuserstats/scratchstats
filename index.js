@@ -314,6 +314,11 @@ function showProjectStats(){
     document.getElementById("averageViews").innerHTML = "👁️ " + c(averageViews.toFixed());
     document.getElementById("averageCommented").innerHTML = "💬 " + c(averageComments.toFixed());
     document.getElementById("averageLiked").innerHTML = "👍 " + c(averageLikes.toFixed())+"%";
+
+    document.getElementById("totalLoves").innerHTML = "💖 " + c(totalLoves);
+    document.getElementById("totalFaves").innerHTML = "⭐ " + c(totalFaves);
+    document.getElementById("totalViews").innerHTML = "👁️ " + c(totalViews);
+    document.getElementById("totalComments").innerHTML = "💬 " + c(totalComments);
 }
 
 

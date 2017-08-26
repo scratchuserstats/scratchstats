@@ -237,12 +237,37 @@ function copyTextToClipboard(text) {
          <br>
          <br>
          <br>
+         <div class="text-block statstable" id="totalProjectStats">
+            <h3 class="noBottomMargin" style="display:inline-block;">Total Loves/Faves/Comments/Views</h3>
+
+            <hr>
+            <center>
+            <table>
+               <td>
+                  <center><div style="display:block;" id="totalLoves" class="answer"></div></center>
+               </td>
+               <td>
+                  <div style="display:block;" id="totalFaves" class="answer"></div>
+               </td>
+               <td>
+                  <center><div style="display:block;" id="totalViews" class="answer"></div></center>
+               </td>
+               <td>
+                  <center><div style="display:block;" id="totalComments" class="answer"></div></center>
+               </td>
+
+            </table>
+            </center>
+         </div>
+         <br>
+         <br>
+         <br>
          <div class="text-block statstable" id="averageProjectStats">
             <h3 class="noBottomMargin" style="display:inline-block;">Average Loves/Faves/Comments/Views Per &nbsp;</h3>
             <select id="year"style="display:inline-block;height: 40px;    width: 100px;    vertical-align: super;">
-              <option>Year</option>
-              <option>Month</option>
-              <option>Day</option>
+              <option value="year">Year</option>
+              <option value="month">Month</option>
+              <option value="day">Day</option>
             </select>
 
             <hr>
@@ -259,9 +284,6 @@ function copyTextToClipboard(text) {
                </td>
                <td>
                   <center><div style="display:block;" id="averageTotalCommented" class="answer">.</div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageTotalLiked" class="answer">.</div></center>
                </td>
 
             </table>
