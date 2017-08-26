@@ -82,8 +82,26 @@ xmlhttp.onreadystatechange = function() {
         var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
         console.log(followersnum);
         document.getElementById("silvershimmer").innerHTML = c(followersnum)+ " followers";
+        projectsAndStuff();
     }
 };}
+
+function projectsAndStuff() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open('GET', 'http://anyorigin.com/go/?url=https://scratch.mit.edu/statistics/data/daily/', true);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+          var response = xmlhttp.responseText;
+          var obj = JSON.parse(response);
+
+          document.getElementById("project").innerHTML = obj.PROJECT_COUNT;
+                    document.getElementById("studios").innerHTML = obj.STUDIO_COUNT;
+
+                              document.getElementById("comments").innerHTML = obj.COMMENT_COUNT;
+      }
+  };
+}
 </script>
   </head>
 
@@ -146,6 +164,31 @@ xmlhttp.onreadystatechange = function() {
           <td style="font-size:20px;">
              <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Silvershimmer43" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/764067_90x90.png"/><br>@Silvershimmer43</a></div>
                <div style="display:block;"  id="silvershimmer"class="question"></div></center>
+          </td>
+
+       </table>
+       </center>
+    </div>
+    <br><br><br>
+    <div class="text-block statstable" id="averageProjectStats">
+       <h3 class="noBottomMargin">On Scratch There Are Currently:</h3>
+       <hr>
+       <center>
+       <table style="font-size:20px;">
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;" id="project"class="answer"></div>
+               <div style="display:block;"class="question">Projects</div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+            <center>
+             <div style="display:block;font-size:20px;" id="studios" class="answer"></div>
+               <div style="display:block;" class="question">Studios</div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;"  id="comments"class="answer"></div>
+               <div style="display:block;"class="question">Comments</div></center>
           </td>
 
        </table>

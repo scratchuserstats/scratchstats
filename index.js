@@ -311,7 +311,7 @@ function showProjectStats(){
 
     document.getElementById("averageLoves").innerHTML = "💖 " + c(averageLoves.toFixed());
     document.getElementById("averageFaves").innerHTML = "⭐ " + c(averageFaves.toFixed());
-    document.getElementById("averageViews").innerHTML = "👁: " + c(averageViews.toFixed());
+    document.getElementById("averageViews").innerHTML = "👁️ " + c(averageViews.toFixed());
     document.getElementById("averageCommented").innerHTML = "💬 " + c(averageComments.toFixed());
     document.getElementById("averageLiked").innerHTML = "👍 " + c(averageLikes.toFixed())+"%";
 }
