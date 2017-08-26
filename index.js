@@ -44,7 +44,7 @@ function getJoinDate(response){
     document.getElementById("joined").innerHTML = (obj.history.joined).substring(0, obj.history.joined.indexOf('T'));
 }
 
-function followers(response) {
+function followers(responseforavg) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://scratch.mit.edu/users/' + username + '/followers/', true);
     xmlhttp.send();
@@ -54,7 +54,7 @@ function followers(response) {
             var find = response.search("<h2>");
             var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
             document.getElementById("followers").innerHTML = followersnum;
-            avgFollows(followersnum,response);
+            avgFollows(followersnum,responseforavg);
         }
     };
 
