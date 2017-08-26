@@ -299,17 +299,17 @@ function showProjectStats(){
     document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='color:red;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+mostViewedComments+"</li></ul></td></table>";
     document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='color:red;'>💬"+mostCommentedNum+"</li></ul></td></table>";
 
-    averageLoves = c(totalLoves/totalProjects);
-    averageFaves = c(totalFaves/totalProjects);
-    averageViews = c(totalViews/totalProjects);
-    averageComments = c(totalComments/totalProjects);
-    averageLikes = c(Number(totalLoves)/Number(totalViews)*100);
+    averageLoves = totalLoves/totalProjects;
+    averageFaves = totalFaves/totalProjects;
+    averageViews = totalViews/totalProjects;
+    averageComments = totalComments/totalProjects;
+    averageLikes = Number(totalLoves)/Number(totalViews)*100;
 
-    document.getElementById("averageLoves").innerHTML = averageLoves.toFixed()+"💖";
-    document.getElementById("averageFaves").innerHTML = averageFaves.toFixed()+"⭐";
-    document.getElementById("averageViews").innerHTML = averageViews.toFixed()+"👁️";
-    document.getElementById("averageCommented").innerHTML = averageComments.toFixed()+"💬";
-    document.getElementById("averageLiked").innerHTML = averageLikes.toFixed()+"%👍";
+    document.getElementById("averageLoves").innerHTML = c(averageLoves.toFixed())+"💖";
+    document.getElementById("averageFaves").innerHTML = c(averageFaves.toFixed())+"⭐";
+    document.getElementById("averageViews").innerHTML = c(averageViews.toFixed())+"👁️";
+    document.getElementById("averageCommented").innerHTML = c(averageComments.toFixed())+"💬";
+    document.getElementById("averageLiked").innerHTML = c(averageLikes.toFixed())+"%👍";
 }
 
 
