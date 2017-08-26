@@ -226,7 +226,7 @@ function projectStats() {
                 totalViews = totalViews + Number(parsedJSON[i].stats.views);
                 if (Number(parsedJSON[i].stats.views)>mostViewedNum) {
                     mostViewedID = parsedJSON[i].id;
-                    mostViewedTitle = parsedJSON[i].title;
+                    mostViewedTitle =  parsedJSON[i].title.length>20 ?  parsedJSON[i].title.substring(0,20)+"..." : parsedJSON[i].title;
                     mostViewedNum = parsedJSON[i].stats.views;
                     mostViewedImg = parsedJSON[i].image;
                     mostViewedFaves = parsedJSON[i].stats.favorites;
@@ -240,7 +240,7 @@ function projectStats() {
                 totalLoves = totalLoves + Number(parsedJSON[i].stats.loves);
                 if (Number(parsedJSON[i].stats.loves)>mostLovedNum) {
                     mostLovedID = parsedJSON[i].id;
-                    mostLovedTitle = parsedJSON[i].title;
+                    mostLovedTitle =  parsedJSON[i].title.length>20 ?  parsedJSON[i].title.substring(0,20)+"..." : parsedJSON[i].title;
                     mostLovedNum = parsedJSON[i].stats.loves;
                     mostLovedImg = parsedJSON[i].image;
                     mostLovedFaves = parsedJSON[i].stats.favorites;
@@ -257,7 +257,7 @@ function projectStats() {
                 totalComments = totalComments + Number(parsedJSON[i].stats.comments);
                 if (Number(parsedJSON[i].stats.comments)>mostCommentedNum) {
                     mostCommentedID = parsedJSON[i].id;
-                    mostCommentedTitle = parsedJSON[i].title;
+                    mostCommentedTitle = parsedJSON[i].title.length>20 ?  parsedJSON[i].title.substring(0,20)+"..." : parsedJSON[i].title;
                     mostCommentedNum = parsedJSON[i].stats.comments;
                     mostCommentedImg = parsedJSON[i].image;
                     mostCommentedFaves = parsedJSON[i].stats.favorites;
@@ -271,7 +271,7 @@ function projectStats() {
                 var ratio = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
                 if (ratio>mostLikedNum) {
                     mostLikedID = parsedJSON[i].id;
-                    mostLikedTitle = parsedJSON[i].title;
+                    mostLikedTitle = parsedJSON[i].title.length>20 ?  parsedJSON[i].title.substring(0,20)+"..." : parsedJSON[i].title;
                     mostLikedNum = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
                     mostLikedNum = mostLikedNum.toFixed();
                     mostLikedImg = parsedJSON[i].image;
