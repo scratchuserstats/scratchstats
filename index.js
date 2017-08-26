@@ -222,7 +222,7 @@ function projectStats() {
             var i = 0;
             while(i < parsedJSON.length) {
                 // Views
-                var totalViews = totalViews + Number(parsedJSON[i].stats.views);
+                totalViews = totalViews + Number(parsedJSON[i].stats.views);
                 if (Number(parsedJSON[i].stats.views)>mostViewedNum) {
                     mostViewedID = parsedJSON[i].id;
                     mostViewedTitle = parsedJSON[i].title;
@@ -232,7 +232,7 @@ function projectStats() {
                     mostViewedLoves = parsedJSON[i].stats.loves;
                     mostViewedComments = parsedJSON[i].stats.comments;
                     mostViewedLikes = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
-                    mostViewedLikes = mostViewedLikes.toFixed(1);
+                    mostViewedLikes = mostViewedLikes.toFixed();
                 }
                 //
                 // Loves
@@ -246,7 +246,7 @@ function projectStats() {
                     mostLovedViews = parsedJSON[i].stats.views;
                     mostLovedComments = parsedJSON[i].stats.comments;
                     mostLovedLikes = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
-                    mostLovedLikes = mostLovedLikes.toFixed(1);
+                    mostLovedLikes = mostLovedLikes.toFixed();
                 }
                 //
                 // Faves
@@ -263,7 +263,7 @@ function projectStats() {
                     mostCommentedViews = parsedJSON[i].stats.views;
                     mostCommentedLoves = parsedJSON[i].stats.loves;
                     mostCommentedLikes = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
-                    mostCommentedLikes = mostCommentedLikes.toFixed(1);
+                    mostCommentedLikes = mostCommentedLikes.toFixed();
                 }
                 //
                 // Love-View ratio
@@ -272,7 +272,7 @@ function projectStats() {
                     mostLikedID = parsedJSON[i].id;
                     mostLikedTitle = parsedJSON[i].title;
                     mostLikedNum = Number(parsedJSON[i].stats.loves)/Number(parsedJSON[i].stats.views)*100;
-                    mostLikedNum = mostLikedNum.toFixed(1);
+                    mostLikedNum = mostLikedNum.toFixed();
                     mostLikedImg = parsedJSON[i].image;
                     mostLikedFaves = parsedJSON[i].stats.favorites;
                     mostLikedViews = parsedJSON[i].stats.views;
@@ -299,13 +299,17 @@ function showProjectStats(){
     document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='color:red;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+mostViewedComments+"</li></ul></td></table>";
     document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='color:red;'>💬"+mostCommentedNum+"</li></ul></td></table>";
 
+    averageLoves = totalLoves/totalProjects;
+    averageFaves = totalFaves/totalProjects;
+    averageViews = totalViews/totalProjects;
+    averageComments = totalComments/totalProjects;
     averageLikes = Number(totalLoves)/Number(totalViews)*100;
 
-    document.getElementById("averageLoves").innerHTML = totalLoves/totalProjects.toFixed(0);
-    document.getElementById("averageFaves").innerHTML = totalFaves/totalProjects.toFixed(0);
-    document.getElementById("averageViews").innerHTML = totalViews/totalProjects.toFixed(0);
-    document.getElementById("averageCommented").innerHTML = totalComments/totalProjects.toFixed(0);
-    document.getElementById("averageLiked").innerHTML = averageLikes.toFixed(1)+"%";
+    document.getElementById("averageLoves").innerHTML = averageLoves.toFixed();
+    document.getElementById("averageFaves").innerHTML = averageFaves.toFixed();
+    document.getElementById("averageViews").innerHTML = averageViews.toFixed();
+    document.getElementById("averageCommented").innerHTML = averageComments.toFixed();
+    document.getElementById("averageLiked").innerHTML = averageLikes.toFixed()+"%";
 }
 
 
