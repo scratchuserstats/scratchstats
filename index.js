@@ -301,10 +301,10 @@ function showProjectStats(){
 
     averageLikes = Number(totalLoves)/Number(totalViews)*100;
 
-    document.getElementById("averageLoves").innerHTML = totalLoves/totalProjects;
-    document.getElementById("averageFaves").innerHTML = totalFaves/totalProjects;
-    document.getElementById("averageViews").innerHTML = totalViews/totalProjects;
-    document.getElementById("averageCommented").innerHTML = totalComments/totalProjects;
+    document.getElementById("averageLoves").innerHTML = totalLoves/totalProjects.toFixed(0);
+    document.getElementById("averageFaves").innerHTML = totalFaves/totalProjects.toFixed(0);
+    document.getElementById("averageViews").innerHTML = totalViews/totalProjects.toFixed(0);
+    document.getElementById("averageCommented").innerHTML = totalComments/totalProjects.toFixed(0);
     document.getElementById("averageLiked").innerHTML = averageLikes.toFixed(1)+"%";
 }
 
