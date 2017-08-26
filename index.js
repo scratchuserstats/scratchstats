@@ -4,7 +4,7 @@ function userStatsUpdate(user) {
     sendAPIreq();
     following();
     messageCount();
-    ProjectStats();
+    projectStats();
 }
 
 // SendAPIreq -> getIcon & getID & getJoinDate & followers
