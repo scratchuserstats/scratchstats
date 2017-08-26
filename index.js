@@ -67,9 +67,12 @@ function avgFollows(followersnum,response) {
     var year = date[0];
     var month = date[1];
     var day = date[2];
+    console.log(year);
+    console.log(month);
+    console.log(day);
     var avgFollowsPerYear = (followersnum / (year + (month / 12) + (day / 365)));
     var avgFollowsPerMonth = avgFollowsPerYear / 12;
-    var avgFollowsPerDay = avgFollowsPerMonth / 30;
+    var avgFollowsPerDay = avgFollowsPerMonth / 30.44;
     var avgFollowsPerHour = avgFollowsPerDay / 24;
 
     avgFollowsPerYear = avgFollowsPerYear.toFixed(0);
