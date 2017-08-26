@@ -1,4 +1,5 @@
 function userStatsUpdate(user) {
+  document.getElementById('url').value = "http://scratchstats.cf/#" + user; 
     username = user;
     console.log(username);
     sendAPIreq();
@@ -309,11 +310,11 @@ function showProjectStats(){
     averageComments = totalComments/totalProjects;
     averageLikes = Number(totalLoves)/Number(totalViews)*100;
 
-    document.getElementById("averageLoves").innerHTML = "💖: " + c(averageLoves.toFixed());
-    document.getElementById("averageFaves").innerHTML = "⭐: " + c(averageFaves.toFixed());
-    document.getElementById("averageViews").innerHTML = "👁️: " + c(averageViews.toFixed());
-    document.getElementById("averageCommented").innerHTML = "💬: " + c(averageComments.toFixed());
-    document.getElementById("averageLiked").innerHTML = "👍: " + c(averageLikes.toFixed())+"%";
+    document.getElementById("averageLoves").innerHTML = "💖 " + c(averageLoves.toFixed());
+    document.getElementById("averageFaves").innerHTML = "⭐ " + c(averageFaves.toFixed());
+    document.getElementById("averageViews").innerHTML = "👁: " + c(averageViews.toFixed());
+    document.getElementById("averageCommented").innerHTML = "💬 " + c(averageComments.toFixed());
+    document.getElementById("averageLiked").innerHTML = "👍 " + c(averageLikes.toFixed())+"%";
 }
 
 

@@ -87,8 +87,8 @@ h1, h2, h3 {
 /*Start stats.html specific CSS*/
 .button {
 	border-radius: 20px;
-	height: 75px;
-	width: 150px;
+	height: 50px;
+	width: 180px;
 	border: none;
 	background-color: #25aff4;
 	color: white;

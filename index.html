@@ -59,15 +59,31 @@
             </ul>
          </ul>
       </nav>
+      <script>
+
+      function copy() {
+        document.getElementById("url").select();
+document.execCommand('copy');
+
+      }
+      function url() {
+        document.getElementById("url").value = window.location.href;
+      }</script>
       <div id="page">
          <br>
          <br>
          <br>
          <br>
-         <div class="text-block">
+         <div class="text-block" style="display:inline-block;">
             <h2 style="display:inline-block;font-size:50px;" class="century">Current User: &nbsp;</h2>
           <b>  <h2 style="display:inline-block;font-size:50px;" id="user" class="century" >Default</h2></b>
+          <center>
+            <input type="button" class="button"value="Change Username" style="padding-top:5px;" onclick="window.location.assign('http://scratchstats.cf');"></input>
+            <input type="button" class="button"value="Copy URL" onclick="copy()"></input>
+            <input id="url" type="textarea" value="https://scratchstats.cf"onchange="url()"onload="url()" style="display:none;"></input></center>
          </div>
+         &nbsp;
+         &nbsp;
          <br><br>
          <div class="text-block statstable" id="followers-content">
             <h3 class="noBottomMargin">Followers:</h3>
