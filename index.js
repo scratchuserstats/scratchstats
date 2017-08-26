@@ -1,5 +1,4 @@
 function userStatsUpdate(user) {
-  document.getElementById('url').value = "http://scratchstats.cf/#" + user; 
     username = user;
     console.log(username);
     sendAPIreq();
