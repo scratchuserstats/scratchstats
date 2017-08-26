@@ -12,7 +12,6 @@
      function getUser() {
 
     if(location.hash===""){
-        document.getElementById('in').select();
         swal({
             title: 'Enter a Scratch Username',
             type: 'warning',
@@ -25,6 +24,7 @@
             userStatsUpdate(username);
             location.hash=username;
         });
+        document.getElementById('in').select();
     }
     else {
         username = location.hash.substring(1);
