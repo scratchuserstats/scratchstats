@@ -1,4 +1,4 @@
-﻿function userStatsUpdate(user) {
+function userStatsUpdate(user) {
     username = user;
     console.log(username);
     sendAPIreq();
@@ -23,6 +23,9 @@ function sendAPIreq(){
             getID(response);
             followers(response);
             getJoinDate(response);
+        }
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 404) {
+            window.location="http://scratchstats.cf";
         }
     };
 }
