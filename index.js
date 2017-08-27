@@ -315,10 +315,10 @@ function showProjectStats(){
     activity();
     averagePer();
 
-    document.getElementById("mostLoved").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLovedID+"/' class='projTitle' target='blank'>"+mostLovedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLovedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+c(mostLovedNum)+"</li><li class='statistics' style='color:red;'>⭐"+c(mostLovedFaves)+"</li><li class='statistics'>👍"+mostLovedLikes+"%</li><li class='statistics'>👁️"+c(mostLovedViews)+"</li><li class='statistics'>💬"+c(mostLovedComments)+"</li></ul></td></table>";
-    document.getElementById("mostLiked").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLikedID+"/' class='projTitle' target='blank'>"+mostLikedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLikedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' >💖"+c(mostLikedLoves)+"</li><li class='statistics'>⭐"+c(mostLikedFaves)+"</li><li class='statistics' style='color:red;'>👍"+mostLikedNum+"%</li><li class='statistics'>👁️"+c(mostLikedViews)+"</li><li class='statistics'>💬"+c(mostLikedComments)+"</li></ul></td></table>";
-    document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='color:red;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+c(mostViewedComments)+"</li></ul></td></table>";
-    document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='color:red;'>💬"+c(mostCommentedNum)+"</li></ul></td></table>";
+    document.getElementById("mostLoved").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLovedID+"/' class='projTitle' target='blank'>"+mostLovedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLovedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'><span title='Love-it\'s'>💖"+c(mostLovedNum)+"</li><li class='statistics' style='color:red;'>⭐"+c(mostLovedFaves)+"</li><li class='statistics'>👍"+mostLovedLikes+"%</li><li class='statistics'>👁️"+c(mostLovedViews)+"</li><li class='statistics'>💬"+c(mostLovedComments)+"</li></ul></td></table>";
+    document.getElementById("mostLiked").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLikedID+"/' class='projTitle' target='blank'>"+mostLikedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLikedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' ><span title='Love-it\'s'>💖"+c(mostLikedLoves)+"</li><li class='statistics'>⭐"+c(mostLikedFaves)+"</li><li class='statistics' style='color:red;'>👍"+mostLikedNum+"%</li><li class='statistics'>👁️"+c(mostLikedViews)+"</li><li class='statistics'>💬"+c(mostLikedComments)+"</li></ul></td></table>";
+    document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'><span title='Love-it\'s'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='color:red;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+c(mostViewedComments)+"</li></ul></td></table>";
+    document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'><span title='Love-it\'s'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='color:red;'>💬"+c(mostCommentedNum)+"</li></ul></td></table>";
 
     averageLoves = totalLoves/totalProjects;
     averageFaves = totalFaves/totalProjects;
@@ -326,13 +326,13 @@ function showProjectStats(){
     averageComments = totalComments/totalProjects;
     averageLikes = Number(totalLoves)/Number(totalViews)*100;
 
-    document.getElementById("averageLoves").innerHTML = "💖 " + c(averageLoves.toFixed());
+    document.getElementById("averageLoves").innerHTML = "<span title='Love-it\'s'>💖 " + c(averageLoves.toFixed());
     document.getElementById("averageFaves").innerHTML = "⭐ " + c(averageFaves.toFixed());
     document.getElementById("averageViews").innerHTML = "👁️ " + c(averageViews.toFixed());
     document.getElementById("averageCommented").innerHTML = "💬 " + c(averageComments.toFixed());
     document.getElementById("averageLiked").innerHTML = "👍 " + c(averageLikes.toFixed())+"%";
 
-    document.getElementById("totalLoves").innerHTML = "💖 " + c(totalLoves);
+    document.getElementById("totalLoves").innerHTML = "<span title='Love-it\'s'>💖 " + c(totalLoves);
     document.getElementById("totalFaves").innerHTML = "⭐ " + c(totalFaves);
     document.getElementById("totalViews").innerHTML = "👁️ " + c(totalViews);
     document.getElementById("totalComments").innerHTML = "💬 " + c(totalComments);
@@ -367,21 +367,21 @@ function averagePer() {
     commentsPerDay = c(commentsPerDay.toFixed());
 
     if(document.getElementById("year").value==="year"){
-        document.getElementById("averageTotalLoves").innerHTML = "💖 " + lovesPerYear;
+        document.getElementById("averageTotalLoves").innerHTML = "<span title='Love-it\'s'>💖 " + lovesPerYear;
         document.getElementById("averageTotalFaves").innerHTML = "⭐ " + favesPerYear;
         document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerYear;
         document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerYear;
     }
 
     if(document.getElementById("year").value==="month"){
-        document.getElementById("averageTotalLoves").innerHTML = "💖 " + lovesPerMonth;
+        document.getElementById("averageTotalLoves").innerHTML = "<span title='Love-it\'s'>💖 " + lovesPerMonth;
         document.getElementById("averageTotalFaves").innerHTML = "⭐ " + favesPerMonth;
         document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerMonth;
         document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerMonth;
     }
 
     if(document.getElementById("year").value==="day"){
-        document.getElementById("averageTotalLoves").innerHTML = "💖 " + lovesPerDay;
+        document.getElementById("averageTotalLoves").innerHTML = "<span title='Love-it\'s'><span title='Love-it\'s'>💖 " + lovesPerDay;
         document.getElementById("averageTotalFaves").innerHTML = "⭐ " + favesPerDay;
         document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerDay;
         document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerDay;
