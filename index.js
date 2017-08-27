@@ -230,7 +230,7 @@ function projectStats() {
                 document.getElementById("totalProjectStats").remove();
                 document.getElementById("averageProjectStats").remove();
                 var y = 0;
-                while(y<11){
+                while(y<12){
                     document.getElementsByTagName("BR")[6].remove();
                     y++;
                 }
