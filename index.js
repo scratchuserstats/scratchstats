@@ -229,6 +229,11 @@ function projectStats() {
                 document.getElementById("averageProjectStats").remove();
                 document.getElementById("totalProjectStats").remove();
                 document.getElementById("averageProjectStats").remove();
+                var y = 0;
+                while(y<11){
+                    document.getElementsByTagName("BR")[6].remove();
+                    y++;
+                }
                 activity();}
 
             var i = 0;
