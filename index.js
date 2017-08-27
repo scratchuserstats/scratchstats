@@ -9,7 +9,7 @@ function userStatsUpdate(user) {
 
 // SendAPIreq -> getIcon & getID & getJoinDate & followers
 // Followers -> avgFollows
-// getJoinDate -> projectStats -> activity
+// getJoinDate -> projectStats -> activity & averagePer
 
 //
 function sendAPIreq(){
@@ -224,6 +224,12 @@ function projectStats() {
             var parsedJSON = JSON.parse(xmlhttp.responseText);
 
             if (parsedJSON.length === 0 & offset !== 0) {showProjectStats();}
+            if (parsedJSON.length === 0 & offset === 0) {
+                document.getElementById("mostProjectStats").remove();
+                document.getElementById("averageProjectStats").remove();
+                document.getElementById("totalProjectStats").remove();
+                document.getElementById("averageProjectStats").remove();
+                activity();}
 
             var i = 0;
             while(i < parsedJSON.length) {
