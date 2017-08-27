@@ -9,103 +9,107 @@
   <script src="./sweetalert2.min.js"></script>
 <script>
 
+function getStats(){
+    griffpatch();
+    wazzotv();
+    hobsontv();
+    fajtv();
+    silver();
+    projectsAndStuff();
+}
+
 function griffpatch() {
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', 'https://scratch.mit.edu/users/griffpatch/followers/', true);
-xmlhttp.send();
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        var response = xmlhttp.responseText;
-        var find = response.search("<h2>");
-        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-        console.log(followersnum);
-        document.getElementById("griffpatch").innerHTML = c(followersnum)+ " followers";
-        wazzotv();
-    }
-};
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://scratch.mit.edu/users/griffpatch/followers/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var find = response.search("<h2>");
+            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+            console.log(followersnum);
+            document.getElementById("griffpatch").innerHTML = c(followersnum)+ " followers";
+        }
+    };
 }
 
 function wazzotv() {
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', 'https://scratch.mit.edu/users/wazzotv/followers/', true);
-xmlhttp.send();
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        var response = xmlhttp.responseText;
-        var find = response.search("<h2>");
-        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-        console.log(followersnum);
-        document.getElementById("wazzotv").innerHTML = c(followersnum)+ " followers";
-        hobsontv();
-    }
-};
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://scratch.mit.edu/users/wazzotv/followers/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var find = response.search("<h2>");
+            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+            console.log(followersnum);
+            document.getElementById("wazzotv").innerHTML = c(followersnum)+ " followers";
+        }
+    };
 }
 
 function hobsontv() {
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', 'https://scratch.mit.edu/users/hobson-tv/followers/', true);
-xmlhttp.send();
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        var response = xmlhttp.responseText;
-        var find = response.search("<h2>");
-        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-        document.getElementById("hobsontv").innerHTML = c(followersnum)+ " followers";
-        console.log(followersnum);
-        fajtv();
-    }
-};}
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://scratch.mit.edu/users/hobson-tv/followers/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var find = response.search("<h2>");
+            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+            document.getElementById("hobsontv").innerHTML = c(followersnum)+ " followers";
+            console.log(followersnum);
+        }
+    };}
 
 function fajtv() {
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', 'https://scratch.mit.edu/users/funnyanimatorjimtv/followers/', true);
-xmlhttp.send();
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        var response = xmlhttp.responseText;
-        var find = response.search("<h2>");
-        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-        console.log(followersnum);
-        document.getElementById("fajtv").innerHTML = c(followersnum)+ " followers";
-        silver();
-    }
-};}
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://scratch.mit.edu/users/funnyanimatorjimtv/followers/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var find = response.search("<h2>");
+            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+            console.log(followersnum);
+            document.getElementById("fajtv").innerHTML = c(followersnum)+ " followers";
+        }
+    };}
 
 function silver() {
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open('GET', 'https://scratch.mit.edu/users/silvershimmer43/followers/', true);
-xmlhttp.send();
-xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-        var response = xmlhttp.responseText;
-        var find = response.search("<h2>");
-        var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-        console.log(followersnum);
-        document.getElementById("silvershimmer").innerHTML = c(followersnum)+ " followers";
-        projectsAndStuff();
-    }
-};}
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://scratch.mit.edu/users/silvershimmer43/followers/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var find = response.search("<h2>");
+            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
+            console.log(followersnum);
+            document.getElementById("silvershimmer").innerHTML = c(followersnum)+ " followers";
+        }
+    };}
 
 function projectsAndStuff() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', 'http://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/daily/', true);
-  xmlhttp.send();
-  xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-          var response = xmlhttp.responseText;
-          var obj = JSON.parse(response);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'http://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/daily/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var obj = JSON.parse(response);
 
-          document.getElementById("project").innerHTML = c(obj.PROJECT_COUNT);
-                    document.getElementById("studios").innerHTML = c(obj.STUDIO_COUNT);
+            document.getElementById("project").innerHTML = c(obj.PROJECT_COUNT);
+            document.getElementById("studios").innerHTML = c(obj.STUDIO_COUNT);
 
-                              document.getElementById("comments").innerHTML =c(obj.COMMENT_COUNT);
-      }
-  };
+            document.getElementById("comments").innerHTML =c(obj.COMMENT_COUNT);
+        }
+    };
 }
 </script>
   </head>
 
-  <body onload="griffpatch()">
+  <body onload="getStats();">
     <nav>
       <ul id="outerNavBar">
         <ul id="navbar">
