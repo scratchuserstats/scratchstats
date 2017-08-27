@@ -1,15 +1,15 @@
-function userStatsUpdate(user) {
+﻿function userStatsUpdate(user) {
     username = user;
     console.log(username);
     sendAPIreq();
     following();
     messageCount();
-    projectStats();
+    document.getElementById("year").onchange=averagePer;
 }
 
 // SendAPIreq -> getIcon & getID & getJoinDate & followers
 // Followers -> avgFollows
-// ProjectStats -> activity
+// getJoinDate -> projectStats -> activity
 
 //
 function sendAPIreq(){
@@ -43,6 +43,13 @@ function getID(response){
 function getJoinDate(response){
     var obj = JSON.parse(response);
     document.getElementById("joined").innerHTML = (obj.history.joined).substring(0, obj.history.joined.indexOf('T'));
+    var curDate = new Date();
+    var date = (obj.history.joined).split("T")[0].split("-");
+    var year = (curDate.getFullYear()) - (Number(date[0]));
+    var month = Number(date[1]);
+    var day = Number(date[2]);
+    divideperyear = (year + (month / 12) + (day / 365));
+    projectStats();
 }
 
 function followers(responseforavg) {
@@ -68,11 +75,6 @@ function avgFollows(followersnum,response) {
     var year = (curDate.getFullYear()) - (Number(date[0]));
     var month = Number(date[1]);
     var day = Number(date[2]);
-    console.log(year);
-    console.log(month);
-    console.log(day);
-    console.log(followersnum);
-    console.log(followersnum / (year + (month / 12) + (day / 365)));
     var avgFollowsPerYear = (followersnum / (year + (month / 12) + (day / 365)));
     var avgFollowsPerMonth = avgFollowsPerYear / 12;
     var avgFollowsPerDay = avgFollowsPerMonth / 30.44;
@@ -297,6 +299,7 @@ function projectStats() {
 function showProjectStats(){
 
     activity();
+    averagePer();
 
     document.getElementById("mostLoved").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLovedID+"/' class='projTitle' target='blank'>"+mostLovedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLovedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+c(mostLovedNum)+"</li><li class='statistics' style='color:red;'>⭐"+c(mostLovedFaves)+"</li><li class='statistics'>👍"+mostLovedLikes+"%</li><li class='statistics'>👁️"+c(mostLovedViews)+"</li><li class='statistics'>💬"+c(mostLovedComments)+"</li></ul></td></table>";
     document.getElementById("mostLiked").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLikedID+"/' class='projTitle' target='blank'>"+mostLikedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLikedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' >💖"+c(mostLikedLoves)+"</li><li class='statistics'>⭐"+c(mostLikedFaves)+"</li><li class='statistics' style='color:red;'>👍"+mostLikedNum+"%</li><li class='statistics'>👁️"+c(mostLikedViews)+"</li><li class='statistics'>💬"+c(mostLikedComments)+"</li></ul></td></table>";
@@ -321,6 +324,55 @@ function showProjectStats(){
     document.getElementById("totalComments").innerHTML = "💬 " + c(totalComments);
 }
 
+function averagePer() {
+    lovesPerYear = totalLoves/divideperyear;
+    lovesPerYear = c(lovesPerYear.toFixed());
+    favesPerYear = totalFaves/divideperyear;
+    favesPerYear = c(favesPerYear.toFixed());
+    viewsPerYear = totalViews/divideperyear;
+    viewsPerYear = c(viewsPerYear.toFixed());
+    commentsPerYear = totalComments/divideperyear;
+    commentsPerYear = c(commentsPerYear.toFixed());
+
+    lovesPerMonth = totalLoves/divideperyear/12;
+    lovesPerMonth = c(lovesPerMonth.toFixed());
+    favesPerMonth = totalFaves/divideperyear/12;
+    favesPerMonth = c(favesPerMonth.toFixed());
+    viewsPerMonth = totalViews/divideperyear/12;
+    viewsPerMonth = c(viewsPerMonth.toFixed());
+    commentsPerMonth = totalComments/divideperyear/12;
+    commentsPerMonth = c(commentsPerMonth.toFixed());
+
+    lovesPerDay = totalLoves/divideperyear/12/30.44;
+    lovesPerDay = c(lovesPerDay.toFixed());
+    favesPerDay = totalFaves/divideperyear/12/30.44;
+    favesPerDay = c(favesPerDay.toFixed());
+    viewsPerDay = totalViews/divideperyear/12/30.44;
+    viewsPerDay = c(viewsPerDay.toFixed());
+    commentsPerDay = totalComments/divideperyear/12/30.44;
+    commentsPerDay = c(commentsPerDay.toFixed());
+
+    if(document.getElementById("year").value==="year"){
+        document.getElementById("averageTotalLoves").innerHTML = "💖 " + lovesPerYear;
+        document.getElementById("averageTotalFaves").innerHTML = "⭐ " + favesPerYear;
+        document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerYear;
+        document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerYear;
+    }
+
+    if(document.getElementById("year").value==="month"){
+        document.getElementById("averageTotalLoves").innerHTML = "💖 " + lovesPerMonth;
+        document.getElementById("averageTotalFaves").innerHTML = "⭐ " + favesPerMonth;
+        document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerMonth;
+        document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerMonth;
+    }
+
+    if(document.getElementById("year").value==="day"){
+        document.getElementById("averageTotalLoves").innerHTML = "💖 " + lovesPerDay;
+        document.getElementById("averageTotalFaves").innerHTML = "⭐ " + favesPerDay;
+        document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerDay;
+        document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerDay;
+    }
+}
 
 function c(x) { // Add comma
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
