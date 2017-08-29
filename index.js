@@ -25,7 +25,7 @@ function sendAPIreq(){
             getJoinDate(response);
         }
         if (xmlhttp.readyState === 4 && xmlhttp.status === 404) {
-            window.location="http://scratchstats.cf/#username?";
+        newUser();
         }
     };
 }
