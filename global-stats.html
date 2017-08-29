@@ -27,6 +27,7 @@ function getStats(){
     projectsAndStuff();
     popularProjects();
     trendingProjects();
+    community();
 }
 
 function griffpatch() {
@@ -191,6 +192,23 @@ var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.vie
 }
 };
 
+function community() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'https://scratch.mit.edu/statistics/data/monthly-ga/', true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            var response = xmlhttp.responseText;
+            var obj = JSON.parse(response);
+
+            document.getElementById("pageviews").innerHTML = c(obj.pageviews);
+            document.getElementById("users").innerHTML = c(obj.users);
+
+            document.getElementById("sessions").innerHTML =c(obj.sessions);
+        }
+    };
+}
+
 </script>
   </head>
 
@@ -348,6 +366,32 @@ var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.vie
                 <div style="display:block;" id="tpopularProject4" class="special thumbnail">.</div>
                 <div style="display:block;" class="question" ><b></b></div>
               </center>
+          </td>
+
+       </table>
+       </center>
+    </div>
+
+    <br><br><br>
+    <div class="text-block statstable" id="community">
+       <h3 class="noBottomMargin">This Community Last Month:</h3>
+       <hr>
+       <center>
+       <table style="font-size:20px;">
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;" id="pageViews"class="answer"></div>
+               <div style="display:block;"class="question">Pageviews</div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+            <center>
+             <div style="display:block;font-size:20px;" id="users" class="answer"></div>
+               <div style="display:block;" class="question">Users</div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:20px;"  id="sessions"class="answer"></div>
+               <div style="display:block;"class="question">Sessions</div></center>
           </td>
 
        </table>
