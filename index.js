@@ -1,5 +1,6 @@
 function userStatsUpdate(user) {
     username = user;
+    document.getElementById("reactions").src="https://emojireact.com/embed?emojis=grinning,joy,open_mouth,slight_smile,thumbsup&url="+"scratchstats.cf/"+username;
     console.log(username);
     sendAPIreq();
     following();
