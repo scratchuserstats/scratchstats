@@ -15,6 +15,7 @@ function getStats(){
     fajtv();
     silver();
     projectsAndStuff();
+    popularProjects();
 }
 
 function griffpatch() {
@@ -104,6 +105,28 @@ function projectsAndStuff() {
             document.getElementById("comments").innerHTML =c(obj.COMMENT_COUNT);
         }
     };
+}
+
+function popularProjects () {
+  var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://api.scratch.mit.edu/explore/projects?offset=0&language=en&mode=popular&q=*', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var obj = JSON.parse(response);
+        var firstProject = obj[0];
+        var secondProject = obj[1];
+        var thirdProject = obj[2];
+        var fourthProject = obj[3];
+        var fifthProject = obj[4];
+
+        //firstProject
+var firstProjectsLikes = ((firstProject.stats.loves)/(firstProject.stats.views)).toFixed(1);
+        document.getElementById("popularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+c(firstProject.stats.loves)+"</li><li class='statistics' style='color:red;'>⭐"+c(firstProject.stats.favorites)+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+c(firstProject.views)+"</li><li class='statistics'>💬"+c(firstProject.comments)+"</li></ul></td></table>";
+
+    }
+};
 }
 </script>
   </head>
@@ -204,27 +227,35 @@ function projectsAndStuff() {
        <center>
        <table style="font-size:20px;">
           <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/griffpatch" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/1882674_90x90.png"/><br>@griffpatch</a></div>
-               <div style="display:block;" id="griffpatch" class="question">????? followers</div>
+             <center><div style="display:block;" id="popularProject1" class="special thumbnail">.</div>
+             <div style="display:block;" class="question" ><b>1.</b></div>
              </center>
           </td>
           <td style="font-size:20px;">
             <center>
-             <div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/WazzoTV" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/708436_90x90.png"/><br>@WazzoTV</a></div>
-               <div style="display:block;" id="wazzotv" class="question">????? followers</div>
+               <center><div style="display:block;" id="popularProject2" class="special thumbnail">.</div>
+               <div style="display:block;" class="question" ><b>2.</b></div>
              </center>
           </td>
           <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Hobson-Tv" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/3994425_90x90.png"/><br>@Hobson-TV</a></div>
-               <div style="display:block;" id="hobsontv" class="question">????? followers</div></center>
+             <center>
+
+                  <div style="display:block;" id="popularProject3" class="special thumbnail">.</div>
+                  <div style="display:block;" class="question" ><b>3.</b></div>
+             </center>
           </td>
           <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/FunnyAnimatorJimTv" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/4291425_90x90.png"/><br>@FunnyAnimatorJimTv</a></div>
-               <div style="display:block;" id="fajtv" class="question">????? followers</div></center>
+             <center>
+                <div style="display:block;" id="popularProject4" class="special thumbnail">.</div>
+                <div style="display:block;" class="question" ><b>4.</b></div>
+              </center>
           </td>
           <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Silvershimmer43" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/764067_90x90.png"/><br>@Silvershimmer43</a></div>
-               <div style="display:block;"  id="silvershimmer"class="question">????? followers</div></center>
+             <center>
+
+                  <div style="display:block;" id="popularProject5" class="special thumbnail">.</div>
+                  <div style="display:block;" class="question" ><b>5.</b></div>
+             </center>
           </td>
 
        </table>
