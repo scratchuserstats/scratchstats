@@ -201,7 +201,7 @@ function community() {
             var response = xmlhttp.responseText;
             var obj = JSON.parse(response);
 
-            document.getElementById("pageviews").innerHTML = c(obj.pageviews);
+            document.getElementById("pageViews").innerHTML = c(obj.pageviews);
             document.getElementById("users").innerHTML = c(obj.users);
 
             document.getElementById("sessions").innerHTML =c(obj.sessions);
