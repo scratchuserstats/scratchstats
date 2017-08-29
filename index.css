@@ -134,6 +134,10 @@ td {
 	text-align: center;
  }
 
+ .add {
+	 background-color: none;
+ }
+
 .project {
 
 	width: 260px;
