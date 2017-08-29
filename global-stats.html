@@ -141,6 +141,41 @@ var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.vie
 }
 };
 
+
+function trendingProjects () {
+  var xmlhttp = new XMLHttpRequest();
+xmlhttp.open('GET', 'https://api.scratch.mit.edu/explore/projects?offset=0&language=en&mode=trending&q=*', true);
+xmlhttp.send();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        var response = xmlhttp.responseText;
+        var obj = JSON.parse(response);
+        var firstProject = obj[0];
+        var secondProject = obj[1];
+        var thirdProject = obj[2];
+        var fourthProject = obj[3];
+        var fifthProject = obj[4];
+        console.log(firstProject.stats.views);
+        //firstProject
+var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views)).toFixed(1))*100;
+        document.getElementById("tpopularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+firstProject.stats.loves+"</li><li class='statistics' style='color:red;'>⭐"+firstProject.stats.favorites+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+firstProject.stats.views+"</li></ul></td></table>";
+
+        //secondProject
+        var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views)).toFixed(1))*100;
+                document.getElementById("tpopularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+secondProject.stats.loves+"</li><li class='statistics' style='color:red;'>⭐"+secondProject.stats.favorites+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+secondProject.stats.views+"</li></ul></td></table>";
+//thirdProject
+                var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views)).toFixed(1))*100;
+                        document.getElementById("tpopularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+thirdProject.stats.loves+"</li><li class='statistics' style='color:red;'>⭐"+thirdProject.stats.favorites+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+thirdProject.stats.views+"</li></ul></td></table>";
+//fourthProject
+
+var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views)).toFixed(1))*100;
+        document.getElementById("tpopularProject4").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+fourthProject.id+"/' class='projTitle' target='blank'>"+fourthProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+fourthProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+fourthProject.stats.loves+"</li><li class='statistics' style='color:red;'>⭐"+fourthProject.stats.favorites+"</li><li class='statistics'>👍"+fourthProjectsLikes+"%</li><li class='statistics'>👁️"+fourthProject.stats.views+"</li></ul></td></table>";
+
+
+    }
+}
+};
+
 </script>
   </head>
 
@@ -260,6 +295,39 @@ var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.vie
           <td style="font-size:20px;">
              <center>
                 <div style="display:block;" id="popularProject4" class="special thumbnail">.</div>
+                <div style="display:block;" class="question" ><b></b></div>
+              </center>
+          </td>
+
+       </table>
+       </center>
+    </div>
+    <div class="text-block statstable" id="mostTrendingProjects">
+       <h3 class="noBottomMargin">Top 4 Trending Projects (from Explore tab):</h3>
+       <hr>
+       <center>
+       <table style="font-size:20px;">
+          <td style="font-size:20px;">
+             <center><div style="display:block;" id="tpopularProject1" class="special thumbnail">.</div>
+             <div style="display:block;" class="question" ><b></b></div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+            <center>
+               <center><div style="display:block;" id="tpopularProject2" class="special thumbnail">.</div>
+               <div style="display:block;" class="question" ><b></b></div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+             <center>
+
+                  <div style="display:block;" id="tpopularProject3" class="special thumbnail">.</div>
+                  <div style="display:block;" class="question" ><b></b></div>
+             </center>
+          </td>
+          <td style="font-size:20px;">
+             <center>
+                <div style="display:block;" id="tpopularProject4" class="special thumbnail">.</div>
                 <div style="display:block;" class="question" ><b></b></div>
               </center>
           </td>
