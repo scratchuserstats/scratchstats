@@ -339,6 +339,10 @@ function showProjectStats(){
 }
 
 function averagePer() {
+    
+    if(divideperyear<1){document.getElementById("yearoption").remove();}
+    if(divideperyear<0,083){document.getElementById("monthoption").remove();}
+
     lovesPerYear = totalLoves/divideperyear;
     lovesPerYear = c(lovesPerYear.toFixed());
     favesPerYear = totalFaves/divideperyear;
