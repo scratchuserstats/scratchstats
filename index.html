@@ -9,30 +9,31 @@
       </link>
       <script src="./sweetalert2.min.js"></script>
       <script>
-     function getUser() {
-
+function getUser() {
     if(location.hash===""){
-        swal({
-            title: 'Enter a Scratch Username',
-            type: 'warning',
-            html: '<br><input id="in" value="griffpatch" placeholder="griffpatch"autofocus/> ',
-            showCancelButton: false,
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Get stats'
-        }).then(function () {
-            username = document.getElementById('in').value;
-            if(username.startsWith("@")){username=username.substring(1);}
-            userStatsUpdate(username);
-            location.hash=username;
-        });
-        document.getElementById('in').select();
-        document.getElementById('in').focus();
+        userStatsUpdate("griffpatch");
     }
     else {
         username = location.hash.substring(1);
         userStatsUpdate(username);
     }
+}
 
+function newUser(){
+    swal({
+        title: 'Enter a Scratch Username',
+        type: 'warning',
+        html: '<br><input id="in" value="griffpatch" placeholder="griffpatch"autofocus/> ',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Get stats'
+    }).then(function () {
+        username = document.getElementById('in').value;
+        if(username.startsWith("@")){username=username.substring(1);}
+        window.location="http://scratchstats.cf/#"+username;
+    });
+    document.getElementById('in').select();
+    document.getElementById('in').focus();
 }
 
 function copy() {
@@ -134,7 +135,7 @@ function copyTextToClipboard(text) {
             <h2 style="display:inline-block;font-size:50px;" class="century">Current User: &nbsp;</h2>
           <b>  <h2 style="display:inline-block;font-size:50px;" id="user" class="century" >Default</h2></b>
           <center>
-            <input type="button" class="button"value="Change Username" style="padding-top:5px;" onclick="window.location.assign('http://scratchstats.cf');"></input>
+            <input type="button" class="button"value="Change Username" style="padding-top:5px;" onclick="newUser();"></input>
             <input type="button" class="button"value="Copy URL to stats" onclick="copy()"></input>
             <input id="url" type="textarea" value="https://scratchstats.cf" onchange="url()" onload="url()" style="display:none;"></input></center>
          </div>
