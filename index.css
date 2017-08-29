@@ -134,12 +134,12 @@ td {
 	text-align: center;
  }
 
- .add {
+ a.emoji_react_link.add {
 	 border-color: rgba(79,176,252,.75);
     background-color: rgba(79,176,252,.08);
  }
 
- .remove {
+ a.emoji_react_link.remove {
 	 background-color:white;
  }
 
