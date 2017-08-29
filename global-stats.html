@@ -128,6 +128,10 @@ var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views)
         //secondProject
         var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views)).toFixed(1))*100;
                 document.getElementById("popularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+secondProject.stats.loves+"</li><li class='statistics' style='color:red;'>⭐"+secondProject.stats.favorites+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+secondProject.stats.views+"</li></ul></td></table>";
+//thirdProject
+                var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views)).toFixed(1))*100;
+                        document.getElementById("popularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='color:red;'>💖"+thirdProject.stats.loves+"</li><li class='statistics' style='color:red;'>⭐"+thirdProject.stats.favorites+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+thirdProject.stats.views+"</li></ul></td></table>";
+
 
     }
 }
