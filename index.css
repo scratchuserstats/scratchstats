@@ -135,7 +135,12 @@ td {
  }
 
  .add {
-	 background-color: none;
+	 border-color: rgba(79,176,252,.75);
+    background-color: rgba(79,176,252,.08);
+ }
+
+ .remove {
+	 background-color:white;
  }
 
 .project {
