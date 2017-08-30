@@ -81,47 +81,10 @@ function avgFollows(followersnum,response) {
     avgFollowsPerDay = c(Number(avgFollowsPerDay.toFixed(1)));
     avgFollowsPerHour = c(Number(avgFollowsPerHour.toFixed(2)));
 
-    if (year < 1) {
-        document.getElementById('avgFollowersYear').style.fontSize = "x-large";
-        document.getElementById('avgFollowersYear').innerHTML = 'Error';
-        if ((curDate.getUTCMonth() + 1) - month === 0) {
-            document.getElementById('avgFollowersMonth').style.fontSize = "x-large";
-            document.getElementById('avgFollowersMonth').innerHTML = 'Error';
-            if (curDate.getUTCDate() == day) {
-                document.getElementById('avgFollowersDay').style.fontSize = "x-large";
-                document.getElementById('avgFollowersDay').innerHTML = 'Error';
-                if (curDate.getUTCHours() == hour) {
-                    document.getElementById('avgFollowersHour').style.fontSize = "x-large";
-                    document.getElementById('avgFollowersDay').innerHTML = 'Error';
-                } else {
-                    document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                }
-            } else {
-                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-            }
-        } else if ((curDate.getUTCMonth() + 1) - month == 1) {
-            if (curDate.getUTCDate() < day) {
-                document.getElementById('avgFollowersMonth').style.fontSize = "x-large";
-                document.getElementById('avgFollowersMonth').innerHTML = 'Error';
-                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-            } else {
-                document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-                document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-                document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
-            }
-        } else {
-            document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-            document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-            document.getElementById('avgFollowersMonth').innerHTML = avgFollowsPerMonth;
-        }
-    } else {
-        document.getElementById('avgFollowersYear').innerHTML = c(avgFollowsPerYear);
-        document.getElementById('avgFollowersHour').innerHTML = avgFollowsPerHour;
-        document.getElementById('avgFollowersDay').innerHTML = avgFollowsPerDay;
-        document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
-    }
+    document.getElementById('avgFollowersYear').innerHTML = c(avgFollowsPerYear);
+    document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
+    document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
+    document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
 }
 //
 
