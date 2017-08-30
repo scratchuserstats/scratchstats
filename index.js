@@ -47,12 +47,7 @@ function getID(response){
 function getJoinDate(response){
     var obj = JSON.parse(response);
     document.getElementById("joined").innerHTML = (obj.history.joined).substring(0, obj.history.joined.indexOf('T'));
-    var curDate = new Date();
-    var date = (obj.history.joined).split("T")[0].split("-");
-    var year = (curDate.getFullYear()) - (Number(date[0]));
-    var month = Number(date[1]);
-    var day = Number(date[2]);
-    divideperyear = (year + (month / 12) + (day / 365));
+    divideperyear = (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952
     projectStats();
 }
 
@@ -74,12 +69,7 @@ function followers(responseforavg) {
 
 function avgFollows(followersnum,response) {
     var obj = JSON.parse(response);
-    var curDate = new Date();
-    var date = (obj.history.joined).split("T")[0].split("-");
-    var year = (curDate.getFullYear()) - (Number(date[0]));
-    var month = Number(date[1]);
-    var day = Number(date[2]);
-    var avgFollowsPerYear = (followersnum / (year + (month / 12) + (day / 365)));
+    var avgFollowsPerYear = (followersnum / (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952);
     var avgFollowsPerMonth = avgFollowsPerYear / 12;
     var avgFollowsPerDay = avgFollowsPerMonth / 30.44;
     var avgFollowsPerHour = avgFollowsPerDay / 24;
