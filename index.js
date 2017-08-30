@@ -69,7 +69,7 @@ function followers(responseforavg) {
 
 function avgFollows(followersnum,response) {
     var obj = JSON.parse(response);
-    console.log((Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952);
+    var year = (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952;
     var avgFollowsPerYear = followersnum/((Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952);
     var avgFollowsPerMonth = avgFollowsPerYear / 12;
     var avgFollowsPerDay = avgFollowsPerMonth / 30.44;
@@ -227,7 +227,8 @@ function projectStats() {
                     document.getElementsByTagName("BR")[6].remove();
                     y++;
                 }
-                activity();}
+                activity();
+                avgFollows();}
 
             var i = 0;
             while(i < parsedJSON.length) {
