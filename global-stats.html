@@ -113,7 +113,7 @@ function projectsAndStuff() {
 
             document.getElementById("project").innerHTML = c(obj.PROJECT_COUNT);
             document.getElementById("studios").innerHTML = c(obj.STUDIO_COUNT);
-
+            document.getElementById('user').innerHTML = c(obj.USER_COUNT);
             document.getElementById("comments").innerHTML =c(obj.COMMENT_COUNT);
         }
     };
@@ -296,6 +296,11 @@ function community() {
           <td style="font-size:20px;">
              <center><div style="display:block;font-size:50px;"  id="comments"class="answer"></div>
                <div style="display:block;"class="question">Comments</div></center>
+          </td>
+          
+          <td style="font-size:20px;">
+             <center><div style="display:block;font-size:50px;"  id="user"class="answer"></div>
+               <div style="display:block;"class="question">Users</div></center>
           </td>
 
        </table>
