@@ -69,10 +69,12 @@ function followers(responseforavg) {
 
 function avgFollows(followersnum,response) {
     var obj = JSON.parse(response);
+    console.log(Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952);
     var avgFollowsPerYear = (followersnum / (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952);
     var avgFollowsPerMonth = avgFollowsPerYear / 12;
     var avgFollowsPerDay = avgFollowsPerMonth / 30.44;
     var avgFollowsPerHour = avgFollowsPerDay / 24;
+    console.log(avgFollowsPerYear);
 
     avgFollowsPerYear = c(Number(avgFollowsPerYear.toFixed(0)));
     avgFollowsPerMonth = c(Number(avgFollowsPerMonth.toFixed(1)));
