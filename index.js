@@ -37,7 +37,7 @@ function getIcon(response){ // ga.js and username
     console.log(src);
     document.getElementById('icon').src = src;
     document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
-    ga('set', 'page', '/user/'+obj.username);		
+    ga('set', 'page', '/user/#'+obj.username);		
     ga('send', 'pageview');
 }
 
