@@ -31,12 +31,14 @@ function sendAPIreq(){
     };
 }
 
-function getIcon(response){
+function getIcon(response){ // ga.js and username
     var obj = JSON.parse(response);
     var src= 'https://cdn2.scratch.mit.edu/get_image/user/'+obj.id+'_60x60.png';
     console.log(src);
     document.getElementById('icon').src = src;
     document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
+    ga('set', 'page', '/user/'+obj.username);		
+    ga('send', 'pageview');
 }
 
 function getID(response){
