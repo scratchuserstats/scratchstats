@@ -13,7 +13,9 @@ body {
 	padding-left: 70px;
 	left: 50%;
  }
-
+.statistics {
+	text-align: left;
+}
 hr {
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
