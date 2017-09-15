@@ -141,9 +141,6 @@ function activity() {
             var responseactivity  = xmlhttp.responseText;
             var countloves = (responseactivity.match(/icon-xs black love/g) || []).length;
             document.getElementById("amtOfLovedProjects").innerHTML = c(countloves);
-            var countshares = (responseactivity.match(/icon-xs black project/g) || []).length;
-            var unsharedprojects = countshares-totalProjects<0 ? "?" : countshares-totalProjects;
-            document.getElementById("amtOfUnsharedProjects").innerHTML = unsharedprojects;
         }};
 }
 
