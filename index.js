@@ -108,13 +108,13 @@ function following(followersnum) {
 function messageCount() {
     if (username.toLowerCase() !== "griffpatch"){
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('GET','https://api.scratch.mit.edu/users/'+username+'/messages/count',true);
+        xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/'+username+'/activity/count',true);
         xmlhttp.send();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
-                document.getElementById('messageCount').innerHTML = c(obj.count);
+                document.getElementById('messageCount').innerHTML = c(obj.msg_count);
             }
         };
     }
