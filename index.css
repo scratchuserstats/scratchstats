@@ -9,6 +9,12 @@ body {
 	background-color: orange;
  }
 
+#year {
+    font-size: 20px;
+    border-radius: 20px;
+    outline: none;
+}
+
 #page {
 	padding-left: 70px;
 	left: 50%;
