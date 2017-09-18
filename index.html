@@ -106,8 +106,15 @@ function copyTextToClipboard(text) {
   }
 
   document.body.removeChild(textArea);
+   
+    modal.style.display = "block";
+   
 }
-
+         
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+    modal.style.display = "none";
+}
       </script>
    </head>
    <body onload="getUser()">
