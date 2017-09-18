@@ -106,7 +106,7 @@ function copyTextToClipboard(text) {
   }
 
   document.body.removeChild(textArea);
-   document.getElementById("bodyTextModal").innerHTML = window.location.href +"&nbsp;" + document.getElementById("bodyTextModal").innerHTML;
+   document.getElementById("bodyTextModal").innerHTML = "<a href='"+window.location.href+"'>"+window.location.href +"</a>&nbsp;" + document.getElementById("bodyTextModal").innerHTML;
 var modal = document.getElementById('myModal');
     modal.style.display = "block";
             
