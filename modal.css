@@ -1,4 +1,13 @@
 /* The Modal (background) */
+a:active {
+    color: royalblue;
+}
+a {
+ color: dodgerblue;   
+}
+a:visited {
+    color:darkblue;
+}
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
