@@ -46,6 +46,7 @@ h1, h2, h3 {
 	padding-right: 30px;
 	padding-bottom: 30px;
 	display: inline-block;
+	box-shadow: 5px 3px 3px lightgrey;
  }
 
 /*End General CSS*/
