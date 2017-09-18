@@ -1,13 +1,16 @@
 /* The Modal (background) */
 a:active, a:hover {
     color: royalblue;
+    transition: all 0.5s ease;
 }
 a {
     text-decoration: none;
  color: dodgerblue;   
+    transition: all 0.5s ease;
 }
 a:visited {
     color:steelblue;
+    transition: all 0.5s ease;
 }
 .modal {
     display: none; /* Hidden by default */
