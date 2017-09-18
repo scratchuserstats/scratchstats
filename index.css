@@ -9,6 +9,10 @@ body {
 	background-color: orange;
  }
 
+img {
+	border-radius: 20px;	
+}
+
 #year {
     font-size: 20px;
     border-radius: 20px;
