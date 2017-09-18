@@ -1,8 +1,9 @@
 /* The Modal (background) */
 a:active {
-    color: royalblue;
+    color: steelblue;
 }
 a {
+    text-decoration: none;
  color: dodgerblue;   
 }
 a:visited {
