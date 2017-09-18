@@ -8,10 +8,6 @@ a {
  color: dodgerblue;   
     transition: all 0.5s ease;
 }
-a:visited {
-    color:steelblue;
-    transition: all 0.5s ease;
-}
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
