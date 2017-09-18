@@ -105,6 +105,8 @@ h1, h2, h3 {
 	.button:hover {
 		cursor: pointer;
 		background-color: #219DDB;
+		
+ transition: all 0.5s ease;
 	 }
 
 /*End stats.html specific CSS*/
