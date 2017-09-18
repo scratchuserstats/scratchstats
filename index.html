@@ -106,7 +106,7 @@ function copyTextToClipboard(text) {
   }
 
   document.body.removeChild(textArea);
-   
+   document.getElementById("bodyTextModal").innerHTML = window.location.href +"&nbsp;" + document.getElementById("bodyTextModal").innerHTML;
 var modal = document.getElementById('myModal');
     modal.style.display = "block";
             
@@ -155,7 +155,7 @@ span.onclick = function() {
       <h2 style="font-family:'calibri';">ScratchStats.cf</h2>
     </div>
     <div class="modal-body">
-      <h3 style="font-family:calibri; font-weight:normal;">Copied to clipboard</h3>
+      <h3 style="font-family:calibri; font-weight:normal;" id="bodyTextModal"> has been copied to the clipboard</h3>
     </div>
     <div class="modal-footer">
       <h4 style="font-family:calibri';">ScratchStats.cf is made by @PackersRuleGoPack and @World_Languages</h4>
