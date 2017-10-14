@@ -238,7 +238,7 @@ function activity() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var responseactivity  = xmlhttp.responseText;
             var countloves = (responseactivity.match(/icon-xs black love/g) || []).length;
-            document.getElementById("amtOfLovedProjects").innerHTML = c(countloves);
+            document.getElementById("amtOfLovedProjects").innerHTML = countloves===20?"20+":countloves;
         }};
 }
 
