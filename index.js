@@ -28,7 +28,7 @@ function newUser(){
 }
 
 function copy() {
-copyTextToClipboard("http://scratchstats.cf/#"+username);
+copyTextToClipboard("http://scratchstats.cf/"+username);
 }
 
 function copyTextToClipboard(text) {
