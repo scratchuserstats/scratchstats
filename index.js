@@ -4,7 +4,6 @@ function getUser() {
     }
     else {
         username = location.hash.substring(1);
-        url = "http://scratchstats.cf/"+username;
         userStatsUpdate(username);
     }
 }
@@ -29,7 +28,6 @@ function newUser(){
 
 function copy() {
 copyTextToClipboard("http://scratchstats.cf/"+username);
-    url = "http://scratchstats.cf/"+username;
 }
 
 function copyTextToClipboard(text) {
@@ -87,7 +85,6 @@ function copyTextToClipboard(text) {
   }
 
   document.body.removeChild(textArea);
-   document.getElementById("bodyTextModal").innerHTML = "<a class='modal-a'href='"+url+"'>"+url +"</a>&nbsp;" + document.getElementById("bodyTextModal").innerHTML;
 var modal = document.getElementById('myModal');
     modal.style.display = "block";
             
