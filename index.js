@@ -1,4 +1,4 @@
-var url;
+var url = location.href;
 function getUser() {
     if(location.hash===""){
         userStatsUpdate("griffpatch");
@@ -20,7 +20,7 @@ function newUser(){
     }).then(function () {
         username = document.getElementById('in').value;
         if(username.startsWith("@")){username=username.substring(1);}
-        window.location="http://scratchstats.cf/"+username;
+        window.location="http://scratchstats.cf/#"+username;
         location.reload();
     });
     document.getElementById('in').select();
