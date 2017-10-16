@@ -1,4 +1,4 @@
-
+var url;
 function getUser() {
     if(location.hash===""){
         userStatsUpdate("griffpatch");
@@ -29,6 +29,7 @@ function newUser(){
 
 function copy() {
 copyTextToClipboard("http://scratchstats.cf/"+username);
+    url = "http://scratchstats.cf/"+username;
 }
 
 function copyTextToClipboard(text) {
@@ -86,7 +87,7 @@ function copyTextToClipboard(text) {
   }
 
   document.body.removeChild(textArea);
-   document.getElementById("bodyTextModal").innerHTML = "<a class='modal-a'href='"+window.location.href+"'>"+window.location.href +"</a>&nbsp;" + document.getElementById("bodyTextModal").innerHTML;
+   document.getElementById("bodyTextModal").innerHTML = "<a class='modal-a'href='"+url+"'>"+url +"</a>&nbsp;" + document.getElementById("bodyTextModal").innerHTML;
 var modal = document.getElementById('myModal');
     modal.style.display = "block";
             
