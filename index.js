@@ -1,10 +1,10 @@
-var url = location.href;
 function getUser() {
     if(location.hash===""){
         userStatsUpdate("griffpatch");
     }
     else {
         username = location.hash.substring(1);
+        url = "http://scratchstats.cf/"+username;
         userStatsUpdate(username);
     }
 }
