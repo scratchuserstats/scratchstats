@@ -71,7 +71,7 @@
          <br>
          <br>
          <br>
-         <center><iframe data-aa='747669' src='//ad.a-ads.com/747669?size=990x90' scrolling='no' style='width:990px; height:90px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe></center>
+         <center><iframe id="ad" data-aa='747669' src='//ad.a-ads.com/747669?size=990x90' scrolling='no' style='width:990px; height:90px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe></center>
          <br>
          <br>
          <center>
@@ -94,13 +94,13 @@
    function onload() {
       var a = getRandom(0 , 2);
       console.log(a);
-      if (a == 1) {
+      if (a > 1) {
          document.getElementById("ad").style.display = none;
       }
       getUser();
    }
 </script>
-         <center><iframe id="ad" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
+         <center><iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
          <br>
          <div class="text-block statstable" id="followers-content">
             <h3 class="noBottomMargin">Followers</h3>
