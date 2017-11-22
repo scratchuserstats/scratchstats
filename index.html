@@ -22,7 +22,7 @@
 
       </script>
    </head>
-   <body onload="getUser()">
+   <body onload="onload()">
       <nav>
          <ul id="outerNavBar">
             <ul id="navbar">
@@ -87,7 +87,20 @@
          &nbsp;
          &nbsp;
          <br>
-         <center><iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
+<script>
+   function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+   }
+   function onload() {
+      var a = getRandom(0 , 2);
+      console.log(a);
+      if (a == 1) {
+         document.getElementById("ad").style.display = none;
+      }
+      getUser();
+   }
+</script>
+         <center><iframe id="ad" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
          <br>
          <div class="text-block statstable" id="followers-content">
             <h3 class="noBottomMargin">Followers</h3>
