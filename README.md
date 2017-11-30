@@ -1,3 +1,4 @@
+<p align="center"> <img src="https://github.com/scratchuserstats/scratchstats/blob/master/images/logo.png"/> </p>
 <h1 align="center"> Scratchstats </h1>
 <p align="center"> The Official Code Repository for ScratchStats.cf </p>
 
