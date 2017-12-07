@@ -99,7 +99,6 @@ function userStatsUpdate(user) {
     document.getElementById("reactions").src="https://emojireact.com/embed?emojis=grinning,joy,open_mouth,slight_smile,thumbsup&url="+"scratchstats.cf/"+username;
     console.log(username);
     sendAPIreq();
-    following();
     messageCount();
     document.getElementById("year").onchange=averagePer;
 }
@@ -111,14 +110,13 @@ function userStatsUpdate(user) {
 //
 function sendAPIreq(){
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username, true);
+    xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "?" + Math.floor(Date.now() / 1000), true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var response = xmlhttp.responseText;
             getIcon(response);
             getID(response);
-            followers(response);
             getJoinDate(response);
         }
         if (xmlhttp.readyState === 4 && xmlhttp.status === 404) {
@@ -148,74 +146,10 @@ function getJoinDate(response){
     document.getElementById("joined").innerHTML = (obj.history.joined).substring(0, obj.history.joined.indexOf('T'));
     divideperyear = (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952
     projectStats();
-}
-
-function followers(responseforavg) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/' + username + '/followers/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            document.getElementById("followers").innerHTML = c(followersnum);
-            avgFollows(followersnum,responseforavg);
-        }
-    };
-
-}
-
-function avgFollows(followersnum,response) {
-    var obj = JSON.parse(response);
-    var year = (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952;
-    var avgFollowsPerYear = followersnum/((Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952);
-    var avgFollowsPerMonth = avgFollowsPerYear / 12;
-    var avgFollowsPerDay = avgFollowsPerMonth / 30.44;
-    var avgFollowsPerHour = avgFollowsPerDay / 24;
-    console.log(avgFollowsPerYear);
-
-    avgFollowsPerYear = c(Number(avgFollowsPerYear.toFixed(0)));
-    avgFollowsPerMonth = c(Number(avgFollowsPerMonth.toFixed(1)));
-    avgFollowsPerDay = c(Number(avgFollowsPerDay.toFixed(1)));
-    avgFollowsPerHour = c(Number(avgFollowsPerHour.toFixed(2)));
-
-    document.getElementById('avgFollowersYear').innerHTML = c(avgFollowsPerYear);
-    document.getElementById('avgFollowersHour').innerHTML = c(avgFollowsPerHour);
-    document.getElementById('avgFollowersDay').innerHTML = c(avgFollowsPerDay);
-    document.getElementById('avgFollowersMonth').innerHTML = c(avgFollowsPerMonth);
-}
-//
-
-function following(followersnum) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/' + username + '/following/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var following = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            document.getElementById("following").innerHTML = c(following);
-        }
-    };
-
+	messagesRead(obj);
 }
 
 function messageCount() {
-    if (username.toLowerCase() !== "griffpatch"){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/'+username+'/activity/count',true);
-        xmlhttp.send();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                var response = xmlhttp.responseText;
-                var obj = JSON.parse(response);
-                document.getElementById('messageCount').innerHTML = c(obj.msg_count);
-            }
-        };
-    }
-    else {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/griffpatch/activity/count?'+Math.floor(Date.now() / 1000),true);
         xmlhttp.send();
@@ -226,18 +160,29 @@ function messageCount() {
                 document.getElementById('messageCount').innerHTML = c(obj.msg_count);
             }
         };
-    }
 }
 
 function activity() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/messages/ajax/user-activity/?user=' + username + '&max=1000000', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var responseactivity  = xmlhttp.responseText;
+    var activity = new XMLHttpRequest();
+    activity.open('GET', 'https://scratch.mit.edu/messages/ajax/user-activity/?user=' + username + '&max=1000000', true);
+    activity.send();
+    activity.onreadystatechange = function() {
+        if (activity.readyState === 4 && activity.status === 200) {
+            var responseactivity  = activity.responseText;
             var countloves = (responseactivity.match(/icon-xs black love/g) || []).length;
-            document.getElementById("amtOfLovedProjects").innerHTML = countloves===20?"20+":countloves;
+            var countfaves = (responseactivity.match(/icon-xs black favorite/g) || []).length;
+			var countstudiofollows = (responseactivity.match(/is now following the studio/g) || []).length;
+			var countfollows = (responseactivity.match(/is now following/g) || []).length-countstudiofollows;
+			var countcurations = (responseactivity.match(/became a curator of/g) || []).length;
+			var countshares = (responseactivity.match(/shared the project/g) || []).length;
+			var countactivity = (responseactivity.match(/<li>/g) || []).length;
+            document.getElementById("amtLoved").innerHTML = (countloves===20?"20+":countloves)+"💖 ";
+            document.getElementById("amtFaved").innerHTML = (countfaves===20?"20+":countfaves)+"⭐ ";
+            document.getElementById("amtFollowed").innerHTML = countfollows===0?"0?":countfollows;
+            document.getElementById("amtStudiosFollowed").innerHTML = countstudiofollows===0?"0?":countstudiofollows;
+            document.getElementById("amtCurated").innerHTML = countcurations===0?"0?":countcurations;
+            document.getElementById("amtShared").innerHTML = countshares===0?"0?":countshares;
+            document.getElementById("amtActivity").innerHTML = countactivity;
         }};
 }
 
@@ -275,19 +220,11 @@ function projectStats() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             var parsedJSON = JSON.parse(xmlhttp.responseText);
 
-            if (parsedJSON.length === 0 & offset !== 0) {showProjectStats();}
             if (parsedJSON.length === 0 & offset === 0) {
-                document.getElementById("mostProjectStats").remove();
-                document.getElementById("averageProjectStats").remove();
-                document.getElementById("totalProjectStats").remove();
-                document.getElementById("averageProjectStats").remove();
-                var y = 0;
-                while(y<12){
-                    document.getElementsByTagName("BR")[6].remove();
-                    y++;
-                }
+				location.hash="averageProjectStats2";
+				location.hash=username;
                 activity();
-                avgFollows();}
+				return;}
 
             var i = 0;
             while(i < parsedJSON.length) {
@@ -384,11 +321,6 @@ function showProjectStats(){
     document.getElementById("averageViews").innerHTML = "👁️ " + c(averageViews.toFixed());
     document.getElementById("averageCommented").innerHTML = "💬 " + c(averageComments.toFixed());
     document.getElementById("averageLiked").innerHTML = "<span title=\"Love-view ratio\">👍 " + c(averageLikes.toFixed())+"%</span>";
-
-    document.getElementById("totalLoves").innerHTML = "💖 " + c(totalLoves);
-    document.getElementById("totalFaves").innerHTML = "⭐ " + c(totalFaves);
-    document.getElementById("totalViews").innerHTML = "👁️ " + c(totalViews);
-    document.getElementById("totalComments").innerHTML = "💬 " + c(totalComments);
 }
 
 function averagePer() {
@@ -445,6 +377,24 @@ console.log(divideperyear);
         document.getElementById("averageTotalViews").innerHTML = "👁️ " + viewsPerDay;
         document.getElementById("averageTotalCommented").innerHTML = "💬 " + commentsPerDay;
     }
+	
+    if(document.getElementById("year").value==="total"){
+    document.getElementById("averageTotalLoves").innerHTML = "💖 " + c(totalLoves);
+    document.getElementById("averageTotalFaves").innerHTML = "⭐ " + c(totalFaves);
+    document.getElementById("averageTotalViews").innerHTML = "👁️ " + c(totalViews);
+    document.getElementById("averageTotalCommented").innerHTML = "💬 " + c(totalComments);
+	}
+	
+}
+
+function messagesRead(obj) {
+	if(obj.history.lastReadMessages===null){
+		document.getElementById("messagesRead").innerHTML = "?"
+	}
+	else {
+	var timeago = moment(new Date(obj.history.lastReadMessages).valueOf()).fromNow();
+	document.getElementById("messagesRead").innerHTML = timeago;
+	}
 }
 
 function c(x) { // Add comma

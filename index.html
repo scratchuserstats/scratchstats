@@ -18,9 +18,7 @@
       <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
       </link>
       <script src="./sweetalert2.min.js"></script>
-      <script>
-
-      </script>
+	  <script src="https://momentjs.com/downloads/moment.min.js"></script>
    </head>
    <body onload="getUser()">
       <nav>
@@ -86,42 +84,34 @@
          <br>
          <center><iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
          <br>
-         <div class="text-block statstable" id="followers-content">
-            <h3 class="noBottomMargin">Followers</h3>
+         <div class="text-block statstable" id="averageProjectStats">
+            <h3 class="noBottomMargin" style="display:inline-block;">Average Project Stats</h3>
+
             <hr>
             <center>
             <table>
                <td>
-                  <div style="display:block;" id="following" class="answer">.</div>
-                  <div style="display:block;" class="question">Following</div>
+                  <center><div style="display:block;" id="averageLoves" class="answer">.</div></center>
                </td>
                <td>
-                  <div style="display:block;" id="followers" class="answer">.</div>
-                  <div style="display:block;" class="question">Followers</div>
+                  <div style="display:block;" id="averageFaves" class="answer">.</div>
                </td>
                <td>
-                  <div style="display:block;" id="avgFollowersHour" class="answer">.</div>
-                  <div style="display:block;" class="question">Average Followers Per Hour</div>
+                  <center><div style="display:block;" id="averageViews" class="answer">.</div></center>
                </td>
                <td>
-                  <div style="display:block;" id="avgFollowersDay" class="answer">.</div>
-                  <div style="display:block;" class="question">Average Followers Per Day</div>
+                  <center><div style="display:block;" id="averageCommented" class="answer">.</div></center>
                </td>
                <td>
-                  <div style="display:block;" id="avgFollowersMonth" class="answer">.</div>
-                  <div style="display:block;" class="question">Average Followers Per Month</div>
+                  <center><div style="display:block;" id="averageLiked" class="answer">.</div></center>
                </td>
-               <td>
-                  <div style="display:block;" id="avgFollowersYear" class="answer">.</div>
-                  <div style="display:block;" class="question">Average Followers Per Year</div>
-               </td>
+
             </table>
             </center>
          </div>
-
-         <br>
-         <br>
-         <br>
+		 <br>
+		 <br>
+		 <br>
          <div class="text-block statstable" id="mostProjectStats">
             <h3 class="noBottomMargin">Most Loved/Liked/Commented/Viewed projects</h3>
             <hr>
@@ -154,66 +144,15 @@
          <br>
          <br>
          <br>
-         <div class="text-block statstable" id="averageProjectStats">
-            <h3 class="noBottomMargin" style="display:inline-block;">Average Project Stats</h3>
-
-            <hr>
-            <center>
-            <table>
-               <td>
-                  <center><div style="display:block;" id="averageLoves" class="answer">.</div></center>
-               </td>
-               <td>
-                  <div style="display:block;" id="averageFaves" class="answer">.</div>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageViews" class="answer">.</div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageCommented" class="answer">.</div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageLiked" class="answer">.</div></center>
-               </td>
-
-            </table>
-            </center>
-         </div>
-         <br>
-         <br>
-         <br>
-         <div class="text-block statstable" id="totalProjectStats">
-            <h3 class="noBottomMargin" style="display:inline-block;">Total Loves/Faves/Comments/Views</h3>
-
-            <hr>
-            <center>
-            <table>
-               <td>
-                  <center><div style="display:block;font-size:49px;" id="totalLoves" class="answer"></div></center>
-               </td>
-               <td>
-                  <div style="display:block;font-size:49px;" id="totalFaves" class="answer"></div>
-               </td>
-               <td>
-                  <center><div style="display:block;font-size:49px;" id="totalViews" class="answer"></div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;font-size:49px;" id="totalComments" class="answer"></div></center>
-               </td>
-
-            </table>
-            </center>
-         </div>
-         <br>
-         <br>
-         <br>
-         <div class="text-block statstable" id="averageProjectStats">
-            <h3 class="noBottomMargin" style="display:inline-block;">Average Loves/Faves/Comments/Views Per &nbsp;</h3>
-            <select id="year"style="display:inline-block;height: 40px;    width: 100px;    vertical-align: super;">
-              <option value="year" id="yearoption">Year</option>
-              <option value="month" id="monthoption">Month</option>
-              <option value="day">Day</option>
+         <div class="text-block statstable" id="averageProjectStats2">
+            <h3 class="noBottomMargin" style="display:inline-block;">
+			  <select id="year"style="display:inline-block;height: 40px;    width: 100px;    vertical-align: super;">
+              <option value="total">Total</option>
+              <option value="year" id="yearoption">Yearly</option>
+              <option value="month" id="monthoption">Monthly</option>
+              <option value="day">Daily</option>
             </select>
+			Amount Of Loves/Faves/Views/Comments</h3>
 
             <hr>
             <center>
@@ -234,6 +173,43 @@
             </table>
             </center>
          </div>
+         <br>
+         <br>
+         <br>
+         <div class="text-block statstable" id="average-content">
+           <h3 class="noBottomMargin">Activity by the user the last 12 months</h3>
+           <hr>
+            <center>
+           <table>
+     <td>
+       <div style="display:block;" id="amtLoved" class="answer">.</div>
+     </td>
+     <td>
+       <div style="display:block;" id="amtFaved" class="answer">.</div>
+     </td>
+     <td>
+       <div style="display:block;" id="amtFollowed" class="answer">.</div>
+        <div style="display:block;" class="question">Users Followed</div>
+     </td>
+     <td>
+       <div style="display:block;" id="amtStudiosFollowed" class="answer">.</div>
+        <div style="display:block;" class="question">Studios Followed</div>
+     </td>
+     <td>
+       <div style="display:block;" id="amtCurated" class="answer">.</div>
+        <div style="display:block;" class="question">New Studios Curated</div>
+     </td>
+     <td>
+       <div style="display:block;" id="amtShared" class="answer">.</div>
+        <div style="display:block;" class="question">New Projects Shared</div>
+     </td>
+     <td>
+       <div style="display:block;" id="amtActivity" class="answer">.</div>
+        <div style="display:block;" class="question">Total Activity Actions</div>
+     </td>
+       </table>
+         </center>
+       </div>
          <br>
          <br>
          <br>
@@ -261,8 +237,8 @@
        <div style="display:block;" class="question">Current Message Count</div>
      </td>
      <td>
-       <div style="display:block;" id="amtOfLovedProjects" class="answer">.</div>
-       <div style="display:block;" class="question">Projects loved last year</div>
+       <div style="display:block;" id="messagesRead" class="answer" style="font-size=35px">.</div>
+       <div style="display:block;" class="question">Messages last read</div>
      </td>
        </table>
          </center>

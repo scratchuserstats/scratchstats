@@ -133,17 +133,17 @@ function popularProjects () {
             var fourthProject = obj[3];
             console.log(firstProject.stats.views);
             //firstProject
-            var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views))*100).toFixed(1);
+            var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views))*100).toFixed();
             document.getElementById("popularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(firstProject.stats.loves)+"</li><li class='statistics'>⭐"+c(firstProject.stats.favorites)+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+c(firstProject.stats.views)+"</li></ul></td></table>";
 
             //secondProject
-            var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views))*100).toFixed(1);
+            var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views))*100).toFixed();
             document.getElementById("popularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(secondProject.stats.loves)+"</li><li class='statistics'>⭐"+c(secondProject.stats.favorites)+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+c(secondProject.stats.views)+"</li></ul></td></table>";
             //thirdProject
-            var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views))*100).toFixed(1);
+            var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views))*100).toFixed();
             document.getElementById("popularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(thirdProject.stats.loves)+"</li><li class='statistics'>⭐"+c(thirdProject.stats.favorites)+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+c(thirdProject.stats.views)+"</li></ul></td></table>";
             //fourthProject
-            var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views))*100).toFixed(1);
+            var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views))*100).toFixed();
             document.getElementById("popularProject4").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+fourthProject.id+"/' class='projTitle' target='blank'>"+fourthProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+fourthProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(fourthProject.stats.loves)+"</li><li class='statistics'>⭐"+c(fourthProject.stats.favorites)+"</li><li class='statistics'>👍"+fourthProjectsLikes+"%</li><li class='statistics'>👁️"+c(fourthProject.stats.views)+"</li></ul></td></table>";
 
 
@@ -167,19 +167,19 @@ function trendingProjects () {
             console.log(firstProject.stats.views);
             //firstProject
             var firstProjecttitle = firstProject.title.length>20 ?  firstProject.title.substring(0,20)+"..." : firstProject.title;
-            var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views))*100).toFixed(1);
+            var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(firstProject.stats.loves)+"</li><li class='statistics'>⭐"+c(firstProject.stats.favorites)+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+c(firstProject.stats.views)+"</li></ul></td></table>";
             //secondProject
             var secondProjecttitle = secondProject.title.length>20 ?  secondProject.title.substring(0,20)+"..." : secondProject.title;
-            var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views))*100).toFixed(1);
+            var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(secondProject.stats.loves)+"</li><li class='statistics'>⭐"+c(secondProject.stats.favorites)+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+c(secondProject.stats.views)+"</li></ul></td></table>";
             //thirdProject
             var thirdProjecttitle = thirdProject.title.length>20 ?  thirdProject.title.substring(0,20)+"..." : thirdProject.title;
-            var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views))*100).toFixed(1);
+            var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(thirdProject.stats.loves)+"</li><li class='statistics'>⭐"+c(thirdProject.stats.favorites)+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+c(thirdProject.stats.views)+"</li></ul></td></table>";
             //fourthProject
             var fourthProjecttitle = fourthProject.title.length>20 ?  fourthProject.title.substring(0,20)+"..." : fourthProject.title;
-            var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views))*100).toFixed(1);
+            var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject4").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+fourthProject.id+"/' class='projTitle' target='blank'>"+fourthProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+fourthProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(fourthProject.stats.loves)+"</li><li class='statistics'>⭐"+c(fourthProject.stats.favorites)+"</li><li class='statistics'>👍"+fourthProjectsLikes+"%</li><li class='statistics'>👁️"+c(fourthProject.stats.views)+"</li></ul></td></table>";
 
 
@@ -274,7 +274,7 @@ function community() {
     </div>
     <br><br><br>
     <div class="text-block statstable" id="mostPopularProjects">
-      <h3 class="noBottomMargin">Most Popular Projects <small>(From Explore)</small></h3>
+      <h3 class="noBottomMargin">Popular Projects <small>(From Explore)</small></h3>
        <hr>
        <center>
        <table style="font-size:20px;">
