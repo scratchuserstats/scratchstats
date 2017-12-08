@@ -150,8 +150,8 @@ function getJoinDate(response){
 }
 
 function messageCount() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/griffpatch/activity/count?'+Math.floor(Date.now() / 1000),true);
+	var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/'+username+'/activity/count',true);
         xmlhttp.send();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
