@@ -1,11 +1,11 @@
 /* The Modal (background) */
 a:active, a:hover {
-    color: royalblue;
+    color: white;
     transition: all 0.5s ease;
 }
 a {
     text-decoration: none;
- color: white;   
+ color: white;
     transition: all 0.5s ease;
 }
 .modal {
