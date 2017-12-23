@@ -178,3 +178,8 @@ td {
  }
 
 /*End user-stats.html specific CSS*/
+
+h1, h2, h3, h4, h5, p, div, span {
+	font-family: Montserrat;
+	font-weight:900;
+}
