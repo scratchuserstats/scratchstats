@@ -4,8 +4,8 @@
 /*Start General CSS*/
 
 body {
-	font-family: Arial;
-	font-weight: lighter;
+	font-family: Montserrat;
+	font-weight: 700;
 	background-color: #F1F1F1;
  }
 
@@ -25,6 +25,8 @@ img {
  }
 .statistics {
 	text-align: left;
+	font-family:Montserrat;
+	font-weight: 900;
 }
 hr {
 	border-bottom-style: solid;
@@ -34,7 +36,7 @@ hr {
 .topfive {
 	width:22s0px;
 }
-.century {font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;}
+
 
 h1 {font-size: 85px;}
 
@@ -43,8 +45,8 @@ h2 {font-size: 40px;}
 h3 {font-size: 30px;}
 
 h1, h2, h3 {
-	font-weight: 500;
-	font-family: 'encode sans';
+	font-weight: 900;
+	font-family: 'Montserrat';
  }
 
 .noBottomMargin {margin-bottom: 0px;}
