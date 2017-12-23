@@ -5,7 +5,7 @@ a:active, a:hover {
 }
 a {
     text-decoration: none;
- color: dodgerblue;   
+ color: white;   
     transition: all 0.5s ease;
 }
 .modal {
@@ -39,7 +39,7 @@ a {
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
+    from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
 
@@ -76,4 +76,3 @@ a {
     background-color: orange;
     color: white;
     }
-    
