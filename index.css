@@ -6,11 +6,11 @@
 body {
 	font-family: Arial;
 	font-weight: lighter;
-	background-color: orange;
+	background-color: #F1F1F1;
  }
 
 img {
-	border-radius: 20px;	
+	border-radius: 20px;
 }
 
 #year {
@@ -50,12 +50,15 @@ h1, h2, h3 {
 .noBottomMargin {margin-bottom: 0px;}
 
 .text-block {
-	background-color: #F1F1F1;
+	background-color: #3D6BFF;
 	border-radius: 10px;
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-bottom: 30px;
 	display: inline-block;
+	color: white;
+	font-family: Montserrat;
+	font-weight: 900;
 	box-shadow: 0 4px 6px rgba(34,25,25,0.3);
  }
 
@@ -87,7 +90,7 @@ h1, h2, h3 {
 	padding-left: 8px;
 	padding-right: 8px;
 	color: white;
-	font-family: Arial;
+	font-family: Montserrat;
 	vertical-align: middle;
 	width: 100px;
  }
@@ -115,7 +118,7 @@ h1, h2, h3 {
 	.button:hover {
 		cursor: pointer;
 		background-color: #219DDB;
-		
+
  transition: all 0.5s ease;
 	 }
 
