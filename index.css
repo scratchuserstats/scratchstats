@@ -27,7 +27,7 @@ img {
 .statistics {
 	text-align: left;
 	font-family:Montserrat;
-	font-weight: 900;
+	font-weight: 800;
 }
 hr {
 	border-bottom-style: solid;
@@ -46,7 +46,7 @@ h2 {font-size: 40px;}
 h3 {font-size: 30px;}
 
 h1, h2, h3 {
-	font-weight: 900;
+	font-weight: 800;
 	font-family: 'Montserrat';
  }
 
@@ -61,7 +61,7 @@ h1, h2, h3 {
 	display: inline-block;
 	color: white;
 	font-family: Montserrat;
-	font-weight: 900;
+	font-weight: 800;
 	box-shadow: 0 4px 6px rgba(34,25,25,0.3);
  }
 
@@ -95,7 +95,7 @@ h1, h2, h3 {
 	color: white;
 	font-family: Montserrat;
 	vertical-align: middle;
-	width: 100px;
+	width: 120px;
  }
 
 .navbar-text {line-height: 45px;}
@@ -184,5 +184,5 @@ td {
 
 h1, h2, h3, h4, h5, p, div, span {
 	font-family: Montserrat;
-	font-weight:900;
+	font-weight:800;
 }
