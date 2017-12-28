@@ -27,7 +27,7 @@ function getStats(){
 
 function projectsAndStuff() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'http://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/daily/', true);
+    xmlhttp.open('GET', 'https://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/daily/', true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -112,7 +112,7 @@ function trendingProjects () {
 
 function community() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'http://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/monthly-ga/', true);
+    xmlhttp.open('GET', 'https://cors-anywhere.herokuapp.com/https://scratch.mit.edu/statistics/data/monthly-ga/', true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
