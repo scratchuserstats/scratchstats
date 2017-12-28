@@ -32,7 +32,6 @@ a:hover {
 }
 
 #page {
-	padding-left: 70px;
 	left: 50%;
  }
 .statistics {
@@ -61,7 +60,9 @@ h1, h2, h3 {
 	font-family: 'Montserrat';
  }
 
-.noBottomMargin {margin-bottom: 0px;}
+.noBottomMargin {margin-bottom: 0px;
+	text-align:left;
+}
 
 .text-block {
 	background-color: #3D6BFF;
@@ -187,7 +188,7 @@ td {
 
 .answer {
 	font-weight: bold;
-	font-size: 49px;
+	font-size: 45px;
  }
 
  .special {
@@ -198,9 +199,13 @@ td {
  	font-weight: 500;
  }
 
+ #messagesRead {
+	 font-size: 40px;
+ }
+
 /*End user-stats.html specific CSS*/
 
-h1, h2, h3, h4, h5, p, div, span {
+h1, h2, h3, h4, h5, p, div {
 	font-family: Montserrat;
 	font-weight:800;
 }

@@ -47,7 +47,7 @@
          </ul>
       </nav>
       <div id="page">
-         
+
 <div id="myModal" class="modal">
 
   <!-- Credit to w3schools for most of the code. -->
@@ -58,9 +58,6 @@
     </div>
     <div class="modal-body">
       <h3 style="font-family:calibri; font-weight:normal;" id="bodyTextModal">Link copied to the clipboard</h3>
-    </div>
-    <div class="modal-footer">
-       <h4 style="font-family:calibri';">ScratchStats.cf is made by <a class="modal-a" href="https://scratch.mit.edu/users/PackersRuleGoPack">PackersRuleGoPack</a> and <a class="modal-a" href="https://scratch.mit.edu/users/World_Languages">@World_Languages</a></h4>
     </div>
   </div>
 
@@ -84,8 +81,9 @@
          <br>
          <center><iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
          <br>
+         <center>
          <div class="text-block statstable" id="averageProjectStats">
-            <h3 class="noBottomMargin" style="display:inline-block;">Average Project Stats</h3>
+            <h3 class="noBottomMargin">Average Project Stats</h3>
 
             <hr>
             <center>
@@ -104,6 +102,7 @@
                </td>
                <td>
                   <center><div style="display:block;" id="averageLiked" class="answer">.</div></center>
+                  <div style="display:block;" class="question"><b>Love To View Ratio</b></div>
                </td>
 
             </table>
@@ -119,7 +118,7 @@
             <table>
                <td class="project">
                   <center><div style="display:block;" id="mostLoved" class="special thumbnail">.</div></center>
-                  <div style="display:block;" class="question"><b>Most 💖 Project</b></div>
+                  <div style="display:block;" class="question"><b>Most 💖/⭐ Project</b></div>
                </td>
                <!-- <td>
                   <div style="display:block;" id="mostFavorited" class="special thumbnail">.</div>
@@ -127,7 +126,7 @@
                </td> -->
                <td class="project">
                   <center><div style="display:block;" id="mostLiked" class="special thumbnail">.</div></center>
-                  <div style="display:block;" class="question"><b>Most 👍 Project (💖-👁️ ratio)</b></div>
+                  <div style="display:block;" class="question"><b>Most 👍 Project</b></div>
                </td>
                <td class="project">
                   <center><div style="display:block;" id="mostViewed" class="special thumbnail">.</div></center>
@@ -145,7 +144,7 @@
          <br>
          <br>
          <div class="text-block statstable" id="averageProjectStats2">
-            <h3 class="noBottomMargin" style="display:inline-block;">
+            <h3 class="noBottomMargin">
 			  <select id="year"style="display:inline-block;height: 40px;    width: 100px;    vertical-align: super;">
               <option value="total">Total</option>
               <option value="year" id="yearoption">Yearly</option>
@@ -226,23 +225,40 @@
      </td>
      <td>
        <div style="display:block;" id="joined" class="answer">.</div>
-       <div style="display:block;" class="question">Join Date</div>
+       <div style="display:block;" class="question">Join Date (UTC)</div>
      </td>
      <td>
        <div style="display:block;" id="id" class="answer">.</div>
        <div style="display:block;" class="question">ID Number</div>
      </td>
      <td>
+       <div style="display:block;" id="flag" class="answer">.</div>
+       <div style="display:block;" id="flagquestion" class="question">Country</div>
+     </td>
+
+   </table>
+   <br>
+   <table>
+     <td>
        <div style="display:block;" id="messageCount" class="answer">.</div>
        <div style="display:block;" class="question">Current Message Count</div>
      </td>
      <td>
-       <div style="display:block;" id="messagesRead" class="answer" style="font-size=35px">.</div>
+       <div style="display:block;" id="messagesRead" class="answer" style="font-family:Arial;">.</div>
        <div style="display:block;" class="question">Messages Last Read</div>
+     </td>
+     <td>
+       <div style="display:block;" id="browser" class="answer">.</div>
+       <div style="display:block;" class="question">Browser</div>
+     </td>
+     <td>
+       <div style="display:block;" id="OS" class="answer">.</div>
+       <div style="display:block;" class="question">Operative System</div>
      </td>
        </table>
          </center>
        </div>
+     </center>
        <br>
        <br>
        <br>

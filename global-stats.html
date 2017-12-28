@@ -19,88 +19,11 @@
   <script src="./sweetalert2.min.js"></script>
 <script>
 function getStats(){
-    griffpatch();
-    wazzotv();
-    hobsontv();
-    Willwam();
-    fajtv();
     projectsAndStuff();
     popularProjects();
     trendingProjects();
     community();
 }
-
-function griffpatch() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/griffpatch/followers/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            console.log(followersnum);
-            document.getElementById("griffpatch").innerHTML = c(followersnum)+ " followers";
-        }
-    };
-}
-
-function wazzotv() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/wazzotv/followers/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            console.log(followersnum);
-            document.getElementById("wazzotv").innerHTML = c(followersnum)+ " followers";
-        }
-    };
-}
-
-function hobsontv() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/hobson-tv/followers/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            document.getElementById("hobsontv").innerHTML = c(followersnum)+ " followers";
-            console.log(followersnum);
-        }
-    };}
-
-function fajtv() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/funnyanimatorjimtv/followers/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            console.log(followersnum);
-            document.getElementById("fajtv").innerHTML = c(followersnum)+ " followers";
-        }
-    };}
-
-function Willwam() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://scratch.mit.edu/users/Will_Wam/followers/', true);
-    xmlhttp.send();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            var find = response.search("<h2>");
-            var followersnum = response.substring(find, find + 200).match(/\(([^)]+)\)/)[1];
-            console.log(followersnum);
-            document.getElementById("silvershimmer").innerHTML = c(followersnum)+ " followers";
-        }
-    };}
 
 function projectsAndStuff() {
     var xmlhttp = new XMLHttpRequest();
@@ -134,17 +57,17 @@ function popularProjects () {
             console.log(firstProject.stats.views);
             //firstProject
             var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views))*100).toFixed();
-            document.getElementById("popularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(firstProject.stats.loves)+"</li><li class='statistics'>⭐"+c(firstProject.stats.favorites)+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+c(firstProject.stats.views)+"</li></ul></td></table>";
+            document.getElementById("popularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProject.title.substring(0,21)+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(firstProject.stats.loves)+"</li><li class='statistics'>⭐"+c(firstProject.stats.favorites)+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+c(firstProject.stats.views)+"</li></ul></td></table>";
 
             //secondProject
             var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views))*100).toFixed();
-            document.getElementById("popularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(secondProject.stats.loves)+"</li><li class='statistics'>⭐"+c(secondProject.stats.favorites)+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+c(secondProject.stats.views)+"</li></ul></td></table>";
+            document.getElementById("popularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProject.title.substring(0,21)+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(secondProject.stats.loves)+"</li><li class='statistics'>⭐"+c(secondProject.stats.favorites)+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+c(secondProject.stats.views)+"</li></ul></td></table>";
             //thirdProject
             var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views))*100).toFixed();
-            document.getElementById("popularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(thirdProject.stats.loves)+"</li><li class='statistics'>⭐"+c(thirdProject.stats.favorites)+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+c(thirdProject.stats.views)+"</li></ul></td></table>";
+            document.getElementById("popularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProject.title.substring(0,21)+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(thirdProject.stats.loves)+"</li><li class='statistics'>⭐"+c(thirdProject.stats.favorites)+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+c(thirdProject.stats.views)+"</li></ul></td></table>";
             //fourthProject
             var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views))*100).toFixed();
-            document.getElementById("popularProject4").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+fourthProject.id+"/' class='projTitle' target='blank'>"+fourthProject.title+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+fourthProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(fourthProject.stats.loves)+"</li><li class='statistics'>⭐"+c(fourthProject.stats.favorites)+"</li><li class='statistics'>👍"+fourthProjectsLikes+"%</li><li class='statistics'>👁️"+c(fourthProject.stats.views)+"</li></ul></td></table>";
+            document.getElementById("popularProject4").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+fourthProject.id+"/' class='projTitle' target='blank'>"+fourthProject.title.substring(0,21)+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+fourthProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(fourthProject.stats.loves)+"</li><li class='statistics'>⭐"+c(fourthProject.stats.favorites)+"</li><li class='statistics'>👍"+fourthProjectsLikes+"%</li><li class='statistics'>👁️"+c(fourthProject.stats.views)+"</li></ul></td></table>";
 
 
         }
@@ -166,19 +89,19 @@ function trendingProjects () {
             var fourthProject = obj[3];
             console.log(firstProject.stats.views);
             //firstProject
-            var firstProjecttitle = firstProject.title.length>20 ?  firstProject.title.substring(0,20)+"..." : firstProject.title;
+            var firstProjecttitle = firstProject.title.substring(0,21);
             var firstProjectsLikes = (((firstProject.stats.loves)/(firstProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject1").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+firstProject.id+"/' class='projTitle' target='blank'>"+firstProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+firstProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(firstProject.stats.loves)+"</li><li class='statistics'>⭐"+c(firstProject.stats.favorites)+"</li><li class='statistics'>👍"+firstProjectsLikes+"%</li><li class='statistics'>👁️"+c(firstProject.stats.views)+"</li></ul></td></table>";
             //secondProject
-            var secondProjecttitle = secondProject.title.length>20 ?  secondProject.title.substring(0,20)+"..." : secondProject.title;
+            var secondProjecttitle = secondProject.title.substring(0,21);
             var secondProjectsLikes = (((secondProject.stats.loves)/(secondProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject2").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+secondProject.id+"/' class='projTitle' target='blank'>"+secondProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+secondProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(secondProject.stats.loves)+"</li><li class='statistics'>⭐"+c(secondProject.stats.favorites)+"</li><li class='statistics'>👍"+secondProjectsLikes+"%</li><li class='statistics'>👁️"+c(secondProject.stats.views)+"</li></ul></td></table>";
             //thirdProject
-            var thirdProjecttitle = thirdProject.title.length>20 ?  thirdProject.title.substring(0,20)+"..." : thirdProject.title;
+            var thirdProjecttitle = thirdProject.title.substring(0,21);
             var thirdProjectsLikes = (((thirdProject.stats.loves)/(thirdProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject3").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+thirdProject.id+"/' class='projTitle' target='blank'>"+thirdProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+thirdProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(thirdProject.stats.loves)+"</li><li class='statistics'>⭐"+c(thirdProject.stats.favorites)+"</li><li class='statistics'>👍"+thirdProjectsLikes+"%</li><li class='statistics'>👁️"+c(thirdProject.stats.views)+"</li></ul></td></table>";
             //fourthProject
-            var fourthProjecttitle = fourthProject.title.length>20 ?  fourthProject.title.substring(0,20)+"..." : fourthProject.title;
+            var fourthProjecttitle = fourthProject.title.substring(0,21);
             var fourthProjectsLikes = (((fourthProject.stats.loves)/(fourthProject.stats.views))*100).toFixed();
             document.getElementById("tpopularProject4").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+fourthProject.id+"/' class='projTitle' target='blank'>"+fourthProjecttitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+fourthProject.image+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(fourthProject.stats.loves)+"</li><li class='statistics'>⭐"+c(fourthProject.stats.favorites)+"</li><li class='statistics'>👍"+fourthProjectsLikes+"%</li><li class='statistics'>👁️"+c(fourthProject.stats.views)+"</li></ul></td></table>";
 
@@ -240,39 +163,7 @@ function community() {
     </center>
 
     <br><br><br>
-    <div class="text-block statstable" id="mostFollowedScratchers">
-       <h3 class="noBottomMargin">Most Followed Scratchers</h3>
-       <hr>
-       <center>
-       <table style="font-size:20px;">
-          <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/griffpatch" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/1882674_90x90.png"/><br>@griffpatch</a></div>
-               <div style="display:block;" id="griffpatch" class="question">????? followers</div>
-             </center>
-          </td>
-          <td style="font-size:20px;">
-            <center>
-             <div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/WazzoTV" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/708436_90x90.png"/><br>@WazzoTV</a></div>
-               <div style="display:block;" id="wazzotv" class="question">????? followers</div>
-             </center>
-          </td>
-          <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Hobson-Tv" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/3994425_90x90.png"/><br>@Hobson-TV</a></div>
-               <div style="display:block;" id="hobsontv" class="question">????? followers</div></center>
-          </td>
-          <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/Will_Wam" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/3051823_90x90.png"/><br>@Will_Wam</a></div>
-               <div style="display:block;"  id="silvershimmer"class="question">????? followers</div></center>
-          </td>
-          <td style="font-size:20px;">
-             <center><div style="display:block;font-size:20px;" class="answer topfive"><a href="https://scratch.mit.edu/users/FunnyAnimatorJimTv" target="_blank"><img style="width:90px;height:90px;" src="https://cdn2.scratch.mit.edu/get_image/user/4291425_90x90.png"/><br>@FunnyAnimatorJimTv</a></div>
-               <div style="display:block;" id="fajtv" class="question">????? followers</div></center>
-          </td>
-
-       </table>
-       </center>
-    </div>
-    <br><br><br>
+    <center>
     <div class="text-block statstable" id="mostPopularProjects">
       <h3 class="noBottomMargin">Popular Projects <small>(From Explore)</small></h3>
        <hr>
@@ -398,25 +289,9 @@ function community() {
        </table>
        </center>
     </div>
+  </center>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div class="text-block" id="footer">
-      <br>
-<small>
-<small>
-<center>
-Note: We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.
-</center>
-</small>
-</small>
-</div>
   </div>
   </body>
 </html>
