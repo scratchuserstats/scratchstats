@@ -1,6 +1,6 @@
 function getUser() {
   var listofads = ["Formulate_ADD.jpg","mason-ad.jpg"];
-  var linksofads = ["https://dribbble.com/formulate", "https://scratch.mit.edu/users/masonthecoolguy"]
+  var linksofads = ["https://is.gd/do53w0", "https://is.gd/gSfHlq"]
   var rnd = Math.round(Math.random())>0.5?0:1
   document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[rnd];
   document.getElementById("ad1link").href = linksofads[rnd];
