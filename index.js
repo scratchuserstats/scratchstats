@@ -30,6 +30,10 @@ function copy() {
 copyTextToClipboard("http://scratchstats.cf/"+username);
 }
 
+function copy(text) {
+copyTextToClipboard(text);
+}
+
 function copyTextToClipboard(text) {
   var textArea = document.createElement("textarea");
 

@@ -16,11 +16,19 @@ img {
 
 a {
 	text-decoration: none;
-	color: white
+	color: white;
 	transition: all, ease, 0.5s;
 }
-
-a:hover {
+.donate-button {
+	padding: 10px 20px;
+	font-size: 20px;
+	font-family: Montserrat;
+	border: none;
+	font-weight: bold;
+	border-radius: 10px;
+	color: white;
+}
+a:hover, a:focus, a:visited {
 	text-decoration: underline;
 	transition: all, ease, 0.5s;
 }
