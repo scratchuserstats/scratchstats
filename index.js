@@ -1,9 +1,6 @@
-window.onload = function() {
-  var listofads = ["Formulate_ADD.jpg","mazon-ad"];
-document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[Math.round(Math.random())>0.5?0:1];
-};
-
 function getUser() {
+  var listofads = ["Formulate_ADD.jpg","mazon-ad.jpg"];
+document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[Math.round(Math.random())>0.5?0:1];
     if(location.hash===""){
         userStatsUpdate("griffpatch");
     }
