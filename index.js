@@ -1,5 +1,5 @@
 function getUser() {
-  var listofads = ["Formulate_ADD.jpg","mazon-ad.jpg"];
+  var listofads = ["Formulate_ADD.jpg","mason-ad.jpg"];
 document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[Math.round(Math.random())>0.5?0:1];
     if(location.hash===""){
         userStatsUpdate("griffpatch");
