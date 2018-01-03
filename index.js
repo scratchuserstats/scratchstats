@@ -31,8 +31,8 @@ function newUser(){
     document.getElementById('in').focus();
 }
 
-function copy() {
-copyTextToClipboard("http://scratchstats.cf/"+username);
+function copyURL() {
+copyTextToClipboard("https://scratchstats.cf/"+username);
 }
 
 function copy(text) {
