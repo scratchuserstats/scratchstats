@@ -88,7 +88,6 @@ function copyTextToClipboard(text) {
   try {
     var successful = document.execCommand('copy');
     var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copying text command was ' + msg);
   } catch (err) {
     console.log('Oops, unable to copy');
   }
@@ -106,7 +105,6 @@ span.onclick = function() {
 function userStatsUpdate(user) {
     username = user;
     document.getElementById("reactions").src="https://emojireact.com/embed?emojis=grinning,joy,open_mouth,slight_smile,thumbsup&url="+"scratchstats.cf/"+username;
-    console.log(username);
     sendAPIreq();
     messageCount();
     document.getElementById("year").onchange=averagePer;
@@ -138,7 +136,6 @@ function sendAPIreq(){
 function getIcon(response){ // ga.js and username
     var obj = JSON.parse(response);
     var src= 'https://cdn2.scratch.mit.edu/get_image/user/'+obj.id+'_60x60.png';
-    console.log(src);
     document.getElementById('icon').src = src;
     document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
     username = obj.username;
@@ -167,7 +164,6 @@ function getCountryFlag(response){
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
         var response = JSON.parse(xmlhttp.responseText);
-        console.log(JSON.stringify(response));
         document.getElementById("flag").innerHTML="<img src='"+response[response.length-1].flag+"' width='58'>";
         document.getElementById("flagquestion").innerHTML+= ": "+response[response.length-1].alpha2Code;
       }
@@ -185,7 +181,7 @@ function messageCount() {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
-                document.getElementById('messageCount').innerHTML = c(obj.msg_count);
+                messageCountVar = c(obj.msg_count);
             }
         };
 }
@@ -367,7 +363,6 @@ function showProjectStats(){
 
 function averagePer() {
 
-console.log(divideperyear);
 
     if(divideperyear<1&&document.getElementById("yearoption")){document.getElementById("yearoption").remove();}
     if(divideperyear<0.083&&document.getElementById("monthoption")){document.getElementById("monthoption").remove();}
@@ -431,11 +426,11 @@ console.log(divideperyear);
 
 function messagesRead(obj) {
 	if(obj.history.lastReadMessages===null){
-		document.getElementById("messagesRead").innerHTML = "?"
+		messagesReadVar = "?"
 	}
 	else {
 	var timeago = moment(new Date(obj.history.lastReadMessages).valueOf()).fromNow();
-	document.getElementById("messagesRead").innerHTML = "<span title='"+obj.history.lastReadMessages.replace("T"," ").replace(".000Z"," UTC")+"'>"+timeago+"</span>";
+	messagesReadVar = "<span title='"+obj.history.lastReadMessages.replace("T"," ").replace(".000Z"," UTC")+"'>"+timeago+"</span>";
 	}
 }
 
@@ -448,8 +443,8 @@ function getBrowser(id,id2){
         useragent = JSON.parse(checkua.responseText).info.userAgent;
         if(useragent===undefined){
           if(id2!==0)getBrowser(id2,0);
-          document.getElementById("browser").innerHTML = "?";
-          document.getElementById("OS").innerHTML = "?";
+          browser = "?";
+          os = "?";
           return;
         }
         getinfo = new XMLHttpRequest();
@@ -457,19 +452,33 @@ function getBrowser(id,id2){
         getinfo.send();
         getinfo.onreadystatechange = function() {
                     if (getinfo.readyState === 4 && getinfo.status === 200) {
-            document.getElementById("browser").innerHTML = JSON.parse(getinfo.responseText).browser;
+            browser = JSON.parse(getinfo.responseText).browser;
         getinfo = new XMLHttpRequest();
         getinfo.open("GET", 'https://cors-anywhere.herokuapp.com/http://www.useragentstring.com/?uas=' + encodeURI(useragent) + "&getJSON=os_name", true);
         getinfo.send();
         getinfo.onreadystatechange = function() {
                   if (getinfo.readyState === 4 && getinfo.status === 200) {
-                      document.getElementById("OS").innerHTML= JSON.parse(getinfo.responseText).os_name;
+                      os = JSON.parse(getinfo.responseText).os_name;
                               }
                             };
 }
 }
 };
 };
+}
+
+function captchaDone(){
+  setTimeout(function(){document.getElementById("captcha").style.display="none";},500);
+  setTimeout(function(){
+  document.getElementById('messageCount').innerHTML = messageCountVar;
+  document.getElementById("messagesRead").innerHTML = messagesReadVar;
+  document.getElementById("browser").innerHTML = browser;
+  document.getElementById("OS").innerHTML = os;
+},1000);
+}
+
+function hashesDone(){
+  localStorage.setItem("captchas", Number(localStorage.getItem("captchas"))+1);
 }
 
 function c(x) { // Add comma

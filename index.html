@@ -251,6 +251,39 @@
    </table>
    <br>
    <table>
+     <td id="captcha">
+   <script src="https://authedmine.com/lib/captcha.min.js" async="" onload='captchaLoad()'></script>
+   <script> function captchaLoad() {
+     document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].id="captchaiframe";
+     document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginLeft="-30px";
+     document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginTop="-30px";
+     var myConfObj = {
+  iframeMouseOver : false
+}
+window.addEventListener('blur',function(){
+  if(myConfObj.iframeMouseOver){
+    captchaDone();
+  }
+});
+
+document.getElementById('captchaiframe').addEventListener('mouseover',function(){
+   myConfObj.iframeMouseOver = true;
+   console.log("mouseover");
+});
+document.getElementById('captchaiframe').addEventListener('mouseout',function(){
+    window.focus();
+    myConfObj.iframeMouseOver = false;
+console.log("mouseout");
+});
+}
+</script>
+   <div style="display:block;" class="question" id="pleasepress">Please press the box to load the data below.</div>
+   <center><div style="border: 3px solid #efefef; width:19px; height:19px; overflow: hidden;">
+<div class="coinhive-captcha" data-hashes="1024" data-key="MLTfpPkOJfb9Sbozh5dE44Z8cDd4aArN" data-whitelabel="true" data-callback="hashesDone"> <em>Load the stats below by clicking <a onclick="captchaDone()">here</a></em> </div>
+</div></center>
+<br>
+ </td>
+   <table>
      <td>
        <div style="display:block;" id="messageCount" class="answer">.</div>
        <div style="display:block;" class="question">Current Message Count</div>
@@ -285,7 +318,8 @@
 <small>
 <small>
   <center>
-Note: We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.
+Note: We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.<br>
+By pressing the white box you are allowing us to use your processor for calculations until the webpage is closed, refreshed or changed. The calculations are securely executed in your Browser's sandbox.
 </center>
 </small>
 </small>
