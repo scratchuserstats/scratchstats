@@ -4,6 +4,10 @@ function getUser() {
   var rnd = Math.round(Math.random())>0.5?0:1
   document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[rnd];
   document.getElementById("ad1link").href = linksofads[rnd];
+  window.onhashchange = function(){3
+    location.reload();
+  };
+
     if(location.hash===""){
         userStatsUpdate("griffpatch");
     }
@@ -24,8 +28,7 @@ function newUser(){
     }).then(function () {
         username = document.getElementById('in').value;
         if(username.startsWith("@")){username=username.substring(1);}
-        window.location="https://scratchstats.cf/#"+username;
-        location.reload();
+        location.hash = username;
     });
     document.getElementById('in').select();
     document.getElementById('in').focus();
@@ -257,8 +260,6 @@ function projectStats() {
             var parsedJSON = JSON.parse(xmlhttp.responseText);
 
             if (parsedJSON.length === 0 & offset === 0) {
-				location.hash="averageProjectStats2";
-				location.hash=username;
                 activity();
 				return;}
 
