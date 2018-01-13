@@ -264,11 +264,13 @@ function projectStats() {
 				return;}
 
             var i = 0;
+
+            if(parsedJSON.length>0) {
+            lastProject = parsedJSON[parsedJSON.length-1].id;
+            lastProject2 = parsedJSON.length!==1?parsedJSON[parsedJSON.length-2].id:0;
+          }
+
             while(i < parsedJSON.length) {
-
-              var lastProject = parsedJSON[parsedJSON.length-1].id;
-              var lastProject2 = parsedJSON.length!==1?parsedJSON[parsedJSON.length-2].id:0;
-
                 // Views
                 totalViews = totalViews + Number(parsedJSON[i].stats.views);
                 if (Number(parsedJSON[i].stats.views)>mostViewedNum) {
