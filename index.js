@@ -156,7 +156,6 @@ function getJoinDate(response){
     document.getElementById("joined").innerHTML = (obj.history.joined).substring(0, obj.history.joined.indexOf('T')) + " " + obj.history.joined.substring(11,19) + " <small>(" + moment(new Date(obj.history.joined).valueOf()).fromNow() + ")</small>";
     divideperyear = (Math.floor(Date.now() / 1000)-new Date(obj.history.joined).valueOf()/1000)/31556952
     projectStats();
-	messagesRead(obj);
 }
 
 function getCountryFlag(response){
@@ -185,6 +184,7 @@ function messageCount() {
                 var response = xmlhttp.responseText;
                 var obj = JSON.parse(response);
                 messageCountVar = c(obj.msg_count);
+                document.getElementById('messageCount').innerHTML = messageCountVar;
             }
         };
 }
@@ -263,10 +263,12 @@ function projectStats() {
                 activity();
 				return;}
 
-        if(offset===0 && parsedJSON.length !== 0)getBrowser(parsedJSON[0].id,parsedJSON.length!==1?parsedJSON[1].id:0); // Get browser & OS
-
             var i = 0;
             while(i < parsedJSON.length) {
+
+              var lastProject = parsedJSON[parsedJSON.length-1].id;
+              var lastProject2 = parsedJSON.length!==1?parsedJSON[parsedJSON.length-2].id:0;
+
                 // Views
                 totalViews = totalViews + Number(parsedJSON[i].stats.views);
                 if (Number(parsedJSON[i].stats.views)>mostViewedNum) {
@@ -335,6 +337,7 @@ function projectStats() {
                 setTimeout(function(){projectStats(); }, 200);}
             else {
                 showProjectStats();
+                getBrowser(lastProject,lastProject2);
             }
         }};
 }
@@ -425,16 +428,6 @@ function averagePer() {
 
 }
 
-function messagesRead(obj) {
-	if(obj.history.lastReadMessages===null){
-		messagesReadVar = "?"
-	}
-	else {
-	var timeago = moment(new Date(obj.history.lastReadMessages).valueOf()).fromNow();
-	messagesReadVar = "<span title='"+obj.history.lastReadMessages.replace("T"," ").replace(".000Z"," UTC")+"'>"+timeago+"</span>";
-	}
-}
-
 function getBrowser(id,id2){
     checkua = new XMLHttpRequest();
     checkua.open("GET", 'https://cdn.projects.scratch.mit.edu/internalapi/project/' + id + '/get/', true);
@@ -444,7 +437,7 @@ function getBrowser(id,id2){
         useragent = JSON.parse(checkua.responseText).info.userAgent;
         if(useragent===undefined){
           if(id2!==0)getBrowser(id2,0);
-          browser = "?";
+          document.getElementById("browser").innerHTML = "?";
           os = "?";
           return;
         }
@@ -453,33 +446,20 @@ function getBrowser(id,id2){
         getinfo.send();
         getinfo.onreadystatechange = function() {
                     if (getinfo.readyState === 4 && getinfo.status === 200) {
-            browser = JSON.parse(getinfo.responseText).browser;
+            document.getElementById("browser").innerHTML = JSON.parse(getinfo.responseText).browser;
         getinfo = new XMLHttpRequest();
         getinfo.open("GET", 'https://cors-anywhere.herokuapp.com/http://www.useragentstring.com/?uas=' + encodeURI(useragent) + "&getJSON=os_name", true);
         getinfo.send();
         getinfo.onreadystatechange = function() {
                   if (getinfo.readyState === 4 && getinfo.status === 200) {
                       os = JSON.parse(getinfo.responseText).os_name;
+                      document.getElementById("OS").innerHTML = os;
                               }
                             };
 }
 }
 };
 };
-}
-
-function captchaDone(){
-  setTimeout(function(){document.getElementById("captcha").style.display="none";},500);
-  setTimeout(function(){
-  document.getElementById('messageCount').innerHTML = messageCountVar;
-  document.getElementById("messagesRead").innerHTML = messagesReadVar;
-  document.getElementById("browser").innerHTML = browser;
-  document.getElementById("OS").innerHTML = os;
-},1000);
-}
-
-function hashesDone(){
-  localStorage.setItem("captchas", Number(localStorage.getItem("captchas"))+1);
 }
 
 function c(x) { // Add comma
