@@ -1,10 +1,14 @@
 function getUser() {
-  var listofads = ["Formulate_ADD.jpg","mason-ad.jpg"];
-  var linksofads = ["https://is.gd/do53w0", "https://is.gd/gSfHlq"]
+  var listofads = ["mason-ad.jpg"];
+  var linksofads = ["https://is.gd/gSfHlq"]
   var rnd = Math.round(Math.random())>0.5?0:1
-  document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[rnd];
-  document.getElementById("ad1link").href = linksofads[rnd];
-  window.onhashchange = function(){3
+  if(rnd===0) {
+  document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[0];
+  document.getElementById("ad1link").href = linksofads[0];
+} else {
+  document.getElementById("ad1").remove();
+}
+  window.onhashchange = function(){
     location.reload();
   };
 
