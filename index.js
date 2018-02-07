@@ -1,5 +1,5 @@
 function getUser() {
-  var listofads = ["mason-ad.jpg"];
+  /*var listofads = ["mason-ad.jpg"];
   var linksofads = ["https://is.gd/gSfHlq"]
   var rnd = Math.round(Math.random())>0.5?0:1
   if(rnd===0) {
@@ -7,10 +7,11 @@ function getUser() {
   document.getElementById("ad1link").href = linksofads[0];
 } else {
   document.getElementById("ad1").remove();
-}
-  window.onhashchange = function(){
+}*/
+document.getElementById("ad1").style.display = "none";
+  /*window.onhashchange = function(){
     location.reload();
-  };
+  };*/
 
     if(location.hash===""){
         userStatsUpdate("griffpatch");
@@ -30,9 +31,16 @@ function newUser(){
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Get stats'
     }).then(function () {
-        username = document.getElementById('in').value;
+        var username = document.getElementById('in').value;
         if(username.startsWith("@")){username=username.substring(1);}
         location.hash = username;
+        document.getElementById("flagquestion").innerText = "Country"
+        for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
+          if(i!==16)
+          document.getElementsByClassName("answer")[i].innerText = ".";
+        }
+        document.getElementById("mostProjectStats").innerHTML = document.getElementById("mostProjectStatsTemplate").innerHTML;
+        userStatsUpdate(username);
     });
     document.getElementById('in').select();
     document.getElementById('in').focus();
@@ -110,6 +118,32 @@ span.onclick = function() {
 }
 
 function userStatsUpdate(user) {
+    totalProjects = 0;
+    offset = 0;
+    totalViews = 0;
+    totalLoves = 0;
+    totalFaves = 0;
+    totalComments = 0;
+    mostViewedNum = -1;
+    mostViewedLoves = -1;
+    mostViewedFaves = -1;
+    mostViewedComments = -1;
+    mostViewedLikes = -1;
+    mostLovedNum = -1;
+    mostLovedViews = -1;
+    mostLovedFaves = -1;
+    mostLovedLikes = -1;
+    mostLovedComments = -1;
+    mostCommentedNum  = -1;
+    mostCommentedViews = -1;
+    mostCommentedLoves = -1;
+    mostCommentedLikes = -1;
+    mostComentedFaves = -1;
+    mostLikedNum = -1;
+    mostLikedViews = -1;
+    mostLikedFaves = -1;
+    mostLikedLoves = -1;
+    mostLikedComments = -1;
     username = user;
     document.getElementById("reactions").src="https://emojireact.com/embed?emojis=grinning,joy,open_mouth,slight_smile,thumbsup&url="+"scratchstats.cf/"+username;
     sendAPIreq();
@@ -229,32 +263,6 @@ function activity() {
         }};
 }
 
-var totalProjects = 0;
-var offset = 0;
-var totalViews = 0;
-var totalLoves = 0;
-var totalFaves = 0;
-var totalComments = 0;
-var mostViewedNum = -1;
-var mostViewedLoves = -1;
-var mostViewedFaves = -1;
-var mostViewedComments = -1;
-var mostViewedLikes = -1;
-var mostLovedNum = -1;
-var mostLovedViews = -1;
-var mostLovedFaves = -1;
-var mostLovedLikes = -1;
-var mostLovedComments = -1;
-var mostCommentedNum  = -1;
-var mostCommentedViews = -1;
-var mostCommentedLoves = -1;
-var mostCommentedLikes = -1;
-var mostComentedFaves = -1;
-var mostLikedNum = -1;
-var mostLikedViews = -1;
-var mostLikedFaves = -1;
-var mostLikedLoves = -1;
-var mostLikedComments = -1;
 function projectStats() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
@@ -374,8 +382,8 @@ function showProjectStats(){
 function averagePer() {
 
 
-    if(divideperyear<1&&document.getElementById("yearoption")){document.getElementById("yearoption").remove();}
-    if(divideperyear<0.083&&document.getElementById("monthoption")){document.getElementById("monthoption").remove();}
+    if(divideperyear<1&&document.getElementById("yearoption")){document.getElementById("yearoption").style.display = "none";}
+    if(divideperyear<0.083&&document.getElementById("monthoption")){document.getElementById("monthoption").style.display = "none";}
 
     lovesPerYear = totalLoves/divideperyear;
     lovesPerYear = c(lovesPerYear.toFixed());
