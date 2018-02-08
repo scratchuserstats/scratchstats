@@ -484,9 +484,7 @@ function captchaDone(){
   setTimeout(function(){
   document.getElementById("lastRowLoading").style.display = "none";
   document.getElementById("lastRow").style.display = "";
-  document.getElementById("loadWithoutCoinhive").style.visibility = "hidden";
-  document.getElementById("pleasepress").innerText = "Thanks for supporting us! :)";
-  document.getElementById("captchaDiv").innerHTML = '<span style="font-size:19px;background-color: white;border: 3px solid #efefef;">✔️</span><br><br>';
+  document.getElementById("captchaRow").style.display = "none";
 },1000);
 }
 
