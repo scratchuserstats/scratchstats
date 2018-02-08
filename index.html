@@ -273,10 +273,8 @@
        <div style="display:block;" id="flag" class="answer">.</div>
        <div style="display:block;" id="flagquestion" class="question">Country</div>
      </td>
-
    </table>
-   <br>
-   <table>
+   <table id="lastRow" style="display:none;">
      <td>
        <div style="display:block;" id="messageCount" class="answer">.</div>
        <div style="display:block;" class="question">Current Message Count</div>
@@ -290,25 +288,64 @@
        <div style="display:block;" class="question">Operative System</div>
      </td>
        </table>
+       <table id="lastRowLoading">
+         <td>
+           <div style="display:block;" id="messageCount" class="answer">↓</div>
+           <div style="display:block;" class="question">Current Message Count</div>
+         </td>
+         <td>
+           <div style="display:block;" id="browser" class="answer">↓</div>
+           <div style="display:block;" class="question">Browser</div>
+         </td>
+         <td>
+           <div style="display:block;" id="OS" class="answer">↓</div>
+           <div style="display:block;" class="question">Operative System</div>
+         </td>
+           </table>
+           <br>
+           <table id="captchaRow">
+             <td id="captcha">
+               <script src="https://authedmine.com/lib/captcha.min.js" async="" onload='captchaLoad()'></script>
+               <script> function captchaLoad() {
+                 document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].id="captchaiframe";
+                 document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginLeft="-30px";
+                 document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginTop="-30px";
+                 var myConfObj = {
+                   iframeMouseOver : false
+                 }
+                 window.addEventListener('blur',function(){
+                   if(myConfObj.iframeMouseOver){
+                     captchaDone();
+                   }
+                 });
+                 document.getElementById('captchaiframe').addEventListener('mouseover',function(){
+                   myConfObj.iframeMouseOver = true;
+                   setTimeout(function(){document.getElementById("loadWithoutCoinhive").style.visibility="visible";},500);
+                 });
+                 document.getElementById('captchaiframe').addEventListener('mouseout',function(){
+                   window.focus();
+                   myConfObj.iframeMouseOver = false;
+          });
+          }
+          </script>
+          <div style="display:block;color:yellow;font-size:20px;" class="question" id="pleasepress"><b>Please press the box to load the data above.</b></div>
+          <center id="captchaDiv"><div style="border: 3px solid #efefef; width:19px; height:19px; overflow: hidden;">
+            <div class="coinhive-captcha" data-hashes="512" data-key="MLTfpPkOJfb9Sbozh5dE44Z8cDd4aArN" data-whitelabel="true" data-callback="hashesDone"> <em>Load the stats below by clicking <a onclick="captchaDone()">here</a></em> </div>
+          </div><a id="loadWithoutCoinhive" style="visibility:hidden;cursor:pointer;" onclick="loadClick()"><span style="font-size:9px;">Load without calculations</span></a></center>
+        </td>
+        </table>
          </center>
        </div>
      </center>
        <br>
        <br>
        <br>
-       <br>
-       <br>
-       <br>
-       <br>
-       <br>
-
-       <div class="text-block" id="footer">
+       <div id="footer">
          <br>
-<small>
-<small>
+<small style="font-size:12px;font-weight:500;">
   <center>
-Note: We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.</center>
-</small>
+We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.
+<br>By clicking the white box you are allowing us to use a part of the power of your processor for math calculations.</center>
 </small>
 </div>
       </div>

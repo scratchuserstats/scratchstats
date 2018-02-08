@@ -479,3 +479,19 @@ function getBrowser(id,id2){
 function c(x) { // Add comma
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function captchaDone(){
+  setTimeout(function(){
+  document.getElementById("lastRowLoading").style.display = "none";
+  document.getElementById("lastRow").style.display = "";
+  document.getElementById("loadWithoutCoinhive").style.visibility = "hidden";
+  document.getElementById("pleasepress").innerText = "Thanks for supporting us! :)";
+  document.getElementById("captchaDiv").innerHTML = '<span style="font-size:19px;background-color: white;border: 3px solid #efefef;">✔️</span><br><br>';
+},1000);
+}
+
+function loadClick() {
+  document.getElementById("lastRowLoading").style.display = "none";
+  document.getElementById("lastRow").style.display = "";
+  document.getElementById("captchaRow").style.display = "none";
+}
