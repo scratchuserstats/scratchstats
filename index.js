@@ -7,6 +7,10 @@ window.addEventListener('hashchange', function() {
   if(shouldrefresh===1){
     var userToUpdate = location.hash.substring(1)==="" ? "griffpatch" : location.hash.substring(1);
     userStatsUpdate(userToUpdate);
+    for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
+      if(i!==16)
+      document.getElementsByClassName("answer")[i].innerText = ".";
+    }
     hashChange();
   }
   else shouldrefresh = 1;
@@ -48,12 +52,10 @@ function newUser(){
     }).then(function () {
         var username = document.getElementById('in').value;
         if(username.startsWith("@")){username=username.substring(1);}
-        document.getElementById("flagquestion").innerText = "Country"
         for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
           if(i!==16)
           document.getElementsByClassName("answer")[i].innerText = ".";
         }
-        document.getElementById("mostProjectStats").innerHTML = document.getElementById("mostProjectStatsTemplate").innerHTML;
         userStatsUpdate(username);
     });
     document.getElementById('in').select();
@@ -215,7 +217,7 @@ function getCountryFlag(response){
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
         var response = JSON.parse(xmlhttp.responseText);
         document.getElementById("flag").innerHTML="<img src='"+response[response.length-1].flag+"' width='58'>";
-        document.getElementById("flagquestion").innerHTML+= ": "+response[response.length-1].alpha2Code;
+        document.getElementById("flagquestion").innerHTML= "Country: "+response[response.length-1].alpha2Code;
       }
       if (xmlhttp.readyState === 4 && xmlhttp.status === 404) {
         document.getElementById("flag").innerHTML="?";
