@@ -1,3 +1,7 @@
+window.addEventListener('popstate', function(event) {
+  location.reload();
+});
+
 function getUser() {
   /*var listofads = ["mason-ad.jpg"];
   var linksofads = ["https://is.gd/gSfHlq"]
@@ -33,7 +37,6 @@ function newUser(){
     }).then(function () {
         var username = document.getElementById('in').value;
         if(username.startsWith("@")){username=username.substring(1);}
-        location.hash = username;
         document.getElementById("flagquestion").innerText = "Country"
         for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
           if(i!==16)
@@ -47,11 +50,12 @@ function newUser(){
 }
 
 function copyURL() {
-copyTextToClipboard("https://scratchstats.cf/"+username);
+  copyTextToClipboard("https://scratchstats.cf/"+username);
+  swal("Copied to clipboard", "", "success")
 }
 
 function copy(text) {
-copyTextToClipboard(text);
+  copyTextToClipboard(text);
 }
 
 function copyTextToClipboard(text) {
@@ -108,13 +112,6 @@ function copyTextToClipboard(text) {
   }
 
   document.body.removeChild(textArea);
-var modal = document.getElementById('myModal');
-    modal.style.display = "block";
-
-var span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-    modal.style.display = "none";
-}
 }
 
 function userStatsUpdate(user) {
@@ -180,6 +177,7 @@ function getIcon(response){ // ga.js and username
     document.getElementById('icon').src = src;
     document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
     username = obj.username;
+    history.pushState({}, null, "/"+username);
     ga('set', 'page', '/user/#'+obj.username);
     ga('send', 'pageview');
 }

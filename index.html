@@ -54,22 +54,6 @@
          </ul>
       </nav>
       <div id="page">
-
-<div id="myModal" class="modal">
-
-  <!-- Credit to w3schools for most of the code. -->
-  <div class="modal-content" >
-    <div class="modal-header" style="font-family:Century Gothic,CenturyGothic,AppleGothic,sans-serif;">
-      <span class="close">&times;</span>
-      <h2 style="font-family:'calibri';">ScratchStats.cf</h2>
-    </div>
-    <div class="modal-body">
-      <h3 style="font-family:calibri; font-weight:normal;" id="bodyTextModal">Link copied to the clipboard</h3>
-    </div>
-  </div>
-
-</div>
-         <br>
          <br>
          <br>
          <center>
@@ -302,14 +286,15 @@
            <div style="display:block;" class="question">Operative System</div>
          </td>
            </table>
-           <br>
            <table id="captchaRow">
              <td id="captcha">
+               <br>
                <script src="https://authedmine.com/lib/captcha.min.js" async="" onload='captchaLoad()'></script>
                <script> function captchaLoad() {
                  document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].id="captchaiframe";
                  document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginLeft="-30px";
                  document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginTop="-30px";
+                 document.getElementById("iframeDiv").setAttribute("style","border: 3px solid #efefef; width:19px; height:19px; overflow: hidden;")
                  var myConfObj = {
                    iframeMouseOver : false
                  }
@@ -320,7 +305,7 @@
                  });
                  document.getElementById('captchaiframe').addEventListener('mouseover',function(){
                    myConfObj.iframeMouseOver = true;
-                   setTimeout(function(){document.getElementById("loadWithoutCoinhive").style.visibility="visible";},500);
+                   document.getElementById("loadWithoutCoinhive").style.visibility="visible";
                  });
                  document.getElementById('captchaiframe').addEventListener('mouseout',function(){
                    window.focus();
@@ -328,10 +313,10 @@
           });
           }
           </script>
-          <div style="display:block;color:yellow;font-size:20px;" class="question" id="pleasepress"><b>Please press the box to load the data above.</b></div>
-          <center><div style="border: 3px solid #efefef; width:19px; height:19px; overflow: hidden;">
-            <div class="coinhive-captcha" data-hashes="512" data-key="MLTfpPkOJfb9Sbozh5dE44Z8cDd4aArN" data-whitelabel="true" data-callback="hashesDone"> <em>Load the stats by clicking <a onclick="captchaDone()">here</a></em> </div>
-          </div><a id="loadWithoutCoinhive" style="visibility:hidden;cursor:pointer;" onclick="loadClick()"><span style="font-size:9px;">Load without calculations</span></a></center>
+          <div style="color:yellow;font-size:20px;" class="question" id="pleasepress"><b>Please press the box to load the data above <a style="cursor:pointer;text-decoration:none;" onclick="swal('By pressing the box you are supporting ScratchStats allowing us to calculate a low amount of complex math operations. If you do not want your computer to calculate these operations, click \'\'Load without operations\'\' below the box.');document.getElementById('loadWithoutCoinhive').style.visibility='visible';">🛈</a></b></div>
+          <center><div id="iframeDiv">
+            <div class="coinhive-captcha" data-hashes="512" data-key="MLTfpPkOJfb9Sbozh5dE44Z8cDd4aArN" data-whitelabel="true" data-callback="hashesDone"> <span><a onclick="captchaDone()" style="font-size:19px;cursor:pointer;">▇</a></span> </div>
+          </div><span id="loadWithoutCoinhive" style="visibility:hidden;font-size:9px;">By pressing the box you are supporting ScratchStats allowing us to calculate a low amount of complex math operations.<br><a style="cursor:pointer;" onclick="loadClick()">Load without calculations</a></span></center>
         </td>
         </table>
          </center>
