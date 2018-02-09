@@ -5,7 +5,8 @@ hashChange();
 function hashChange() {
 window.addEventListener('hashchange', function() {
   if(shouldrefresh===1){
-    userStatsUpdate(location.hash.substring(1));
+    var userToUpdate = location.hash.substring(1)==="" ? "griffpatch" : location.hash.substring(1);
+    userStatsUpdate(userToUpdate);
     hashChange();
   }
   else shouldrefresh = 1;
