@@ -1,6 +1,16 @@
-window.addEventListener('popstate', function(event) {
-  location.reload();
+shouldrefresh = 1;
+
+hashChange();
+
+function hashChange() {
+window.addEventListener('hashchange', function() {
+  if(shouldrefresh===1){
+    userStatsUpdate(location.hash.substring(1));
+    hashChange();
+  }
+  else shouldrefresh = 1;
 });
+}
 
 function getUser() {
   /*var listofads = ["mason-ad.jpg"];
@@ -142,7 +152,7 @@ function userStatsUpdate(user) {
     mostLikedLoves = -1;
     mostLikedComments = -1;
     username = user;
-    document.getElementById("reactions").src="https://emojireact.com/embed?emojis=grinning,joy,open_mouth,slight_smile,thumbsup&url="+"scratchstats.cf/"+username;
+    document.getElementById("reactions").contentWindow.location.replace("https://emojireact.com/embed?emojis=grinning,joy,open_mouth,slight_smile,thumbsup&url="+"scratchstats.cf/"+username);
     sendAPIreq();
     messageCount();
     document.getElementById("year").onchange=averagePer;
@@ -177,7 +187,8 @@ function getIcon(response){ // ga.js and username
     document.getElementById('icon').src = src;
     document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
     username = obj.username;
-    history.pushState({}, null, "/"+username);
+    shouldrefresh = 0;
+    location.hash = username;
     ga('set', 'page', '/user/#'+obj.username);
     ga('send', 'pageview');
 }
