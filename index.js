@@ -63,7 +63,7 @@ function newUser(){
 }
 
 function copyURL() {
-  copyTextToClipboard("https://www.scratchstats.cf/"+username);
+  copyTextToClipboard("https://scratchstats.cf/"+username);
   swal("Copied to clipboard", "", "success")
 }
 
