@@ -2,18 +2,24 @@ shouldrefresh = 1;
 
 hashChange();
 
+document.onkeydown = function () {
+    if (event.which == 13 || event.keyCode == 13) {
+        if(document.getElementsByClassName("swal2-confirm swal2-styled")[0]) document.getElementsByClassName("swal2-confirm swal2-styled")[0].click();
+        return false;
+    }
+    return true;
+};
+
 function hashChange() {
 window.addEventListener('hashchange', function() {
   if(shouldrefresh===1){
     var userToUpdate = location.hash.substring(1)==="" ? "griffpatch" : location.hash.substring(1);
     userStatsUpdate(userToUpdate);
     for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
-      if(i!==16)
       document.getElementsByClassName("answer")[i].innerText = ".";
-    }
-    hashChange();
+      hashChange();
   }
-  else shouldrefresh = 1;
+} else shouldrefresh = 1;
 });
 }
 
@@ -188,7 +194,7 @@ function getIcon(response){ // ga.js and username
     var obj = JSON.parse(response);
     var src= 'https://cdn2.scratch.mit.edu/get_image/user/'+obj.id+'_60x60.png';
     document.getElementById('icon').src = src;
-    document.getElementById('user').innerHTML =  "@" + obj.username+ "</a>";
+    document.getElementById('user').innerHTML =  obj.username;
     username = obj.username;
     shouldrefresh = 0;
     location.hash = username;
@@ -276,6 +282,7 @@ function activity() {
 }
 
 function projectStats() {
+    document.getElementById("projectstable").style.display = "";
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
     xmlhttp.send();
@@ -284,6 +291,7 @@ function projectStats() {
             var parsedJSON = JSON.parse(xmlhttp.responseText);
 
             if (parsedJSON.length === 0 & offset === 0) {
+              document.getElementById("projectstable").style.display = "none";
                 activity();
 				return;}
 
@@ -373,10 +381,10 @@ function showProjectStats(){
     activity();
     averagePer();
 
-    document.getElementById("mostLoved").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLovedID+"/' class='projTitle' target='blank'>"+mostLovedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLovedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='font-weight:bold;'>💖"+c(mostLovedNum)+"</li><li class='statistics' style='font-weight:bold;'>⭐"+c(mostLovedFaves)+"</li><li class='statistics'>👍"+mostLovedLikes+"%</li><li class='statistics'>👁️"+c(mostLovedViews)+"</li><li class='statistics'>💬"+c(mostLovedComments)+"</li></ul></td></table>";
-    document.getElementById("mostLiked").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLikedID+"/' class='projTitle' target='blank'>"+mostLikedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLikedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' >💖"+c(mostLikedLoves)+"</li><li class='statistics'>⭐"+c(mostLikedFaves)+"</li><li class='statistics' style='font-weight:bold;'>👍"+mostLikedNum+"%</li><li class='statistics'>👁️"+c(mostLikedViews)+"</li><li class='statistics'>💬"+c(mostLikedComments)+"</li></ul></td></table>";
-    document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='font-weight:bold;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+c(mostViewedComments)+"</li></ul></td></table>";
-    document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='font-weight:bold;'>💬"+c(mostCommentedNum)+"</li></ul></td></table>";
+    document.getElementById("mostLoved").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLovedID+"/' class='projTitle' target='blank' style='white-space: nowrap;'>"+mostLovedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLovedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics'style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' style='font-weight:bold;'>💖"+c(mostLovedNum)+"</li><li class='statistics' style='font-weight:bold;'>⭐"+c(mostLovedFaves)+"</li><li class='statistics'>👍"+mostLovedLikes+"%</li><li class='statistics'>👁️"+c(mostLovedViews)+"</li><li class='statistics'>💬"+c(mostLovedComments)+"</li></ul></td></table>";
+    document.getElementById("mostLiked").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostLikedID+"/' class='projTitle' target='blank' style='white-space: nowrap;'>"+mostLikedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostLikedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics' >💖"+c(mostLikedLoves)+"</li><li class='statistics'>⭐"+c(mostLikedFaves)+"</li><li class='statistics' style='font-weight:bold;'>👍"+mostLikedNum+"%</li><li class='statistics'>👁️"+c(mostLikedViews)+"</li><li class='statistics'>💬"+c(mostLikedComments)+"</li></ul></td></table>";
+    document.getElementById("mostViewed").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostViewedID+"/' class='projTitle' target='blank' style='white-space: nowrap;'>"+mostViewedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostViewedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostViewedLoves)+"</li><li class='statistics'>⭐"+c(mostViewedFaves)+"</li><li class='statistics'>👍"+mostViewedLikes+"%</li><li class='statistics' style='font-weight:bold;'>👁️"+c(mostViewedNum)+"</li><li class='statistics'>💬"+c(mostViewedComments)+"</li></ul></td></table>";
+    document.getElementById("mostCommented").innerHTML = "<center><a href='https://scratch.mit.edu/projects/"+mostCommentedID+"/' class='projTitle' target='blank' style='white-space: nowrap;'>"+mostCommentedTitle+"</a></center><table style='margin:0px;padding:0px;'><td style='margin:0px;padding:0px;'><img style='display:inline; width:132px;height:96px;'src='"+mostCommentedImg+"'></img></td>&nbsp;<td style='margin:0px;padding:0px;'><ul  class='statistics' style='top:0px;padding:0px;list-style-type:none;display:inline-block;font-size:15px;'><li class='statistics'>💖"+c(mostCommentedLoves)+"</li><li class='statistics'>⭐"+c(mostCommentedFaves)+"</li><li class='statistics'>👍"+mostCommentedLikes+"%</li><li class='statistics'>👁️"+c(mostCommentedViews)+"</li><li class='statistics' style='font-weight:bold;'>💬"+c(mostCommentedNum)+"</li></ul></td></table>";
 
     averageLoves = totalLoves/totalProjects;
     averageFaves = totalFaves/totalProjects;
