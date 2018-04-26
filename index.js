@@ -33,7 +33,7 @@ function getUser() {
 } else {
   document.getElementById("ad1").remove();
 }*/
-document.getElementById("ad1").style.display = "none";
+/*document.getElementById("ad1").style.display = "none";*/
   /*window.onhashchange = function(){
     location.reload();
   };*/
