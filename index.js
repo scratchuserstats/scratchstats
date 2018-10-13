@@ -28,7 +28,7 @@ function getUser() {
   var linksofads = ["https://is.gd/gSfHlq"]
   var rnd = Math.round(Math.random())>0.5?0:1
   if(rnd===0) {
-  document.getElementById("ad1").src = "https://scratchstats.cf/ads/" + listofads[0];
+  document.getElementById("ad1").src = "https://scratchstats.com/ads/" + listofads[0];
   document.getElementById("ad1link").href = linksofads[0];
 } else {
   document.getElementById("ad1").remove();
@@ -69,7 +69,7 @@ function newUser(){
 }
 
 function copyURL() {
-  copyTextToClipboard("https://scratchstats.cf/"+username);
+  copyTextToClipboard("https://scratchstats.com/"+username);
   swal("Copied to clipboard", "", "success")
 }
 
