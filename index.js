@@ -247,7 +247,7 @@ function messageCount() {
 
 function activity() {
     var activity = new XMLHttpRequest();
-    activity.open('GET', 'https://scratch.mit.edu/messages/ajax/user-activity/?user=' + username + '&max=1000000', true);
+    activity.open('GET', 'https://cors.io/?https://scratch.mit.edu/messages/ajax/user-activity/?user=' + username + '&max=1000000', true);
     activity.send();
     activity.onreadystatechange = function() {
         if (activity.readyState === 4 && activity.status === 200) {
@@ -265,19 +265,10 @@ function activity() {
             document.getElementById("amtFaved").innerHTML = (countfaves===20?"20+":countfaves)+"⭐ ";
             document.getElementById("amtActivity").innerHTML = countactivity;
 
-            if(countloves!==(responseactivity.match(/loved/g) || []).length)
-            {
-              document.getElementById("amtFollowed").innerHTML = "?";
-              document.getElementById("amtStudiosFollowed").innerHTML = "?";
-              document.getElementById("amtCurated").innerHTML = "?";
-              document.getElementById("amtShared").innerHTML = "?";
-              return;
-            }
-
-            document.getElementById("amtFollowed").innerHTML = countfollows===0?"0":countfollows;
-            document.getElementById("amtStudiosFollowed").innerHTML = countstudiofollows===0?"0":countstudiofollows;
-            document.getElementById("amtCurated").innerHTML = countcurations===0?"0":countcurations;
-            document.getElementById("amtShared").innerHTML = countshares===0?"0":countshares;
+            document.getElementById("amtFollowed").innerHTML = countfollows;
+            document.getElementById("amtStudiosFollowed").innerHTML = countstudiofollows;
+            document.getElementById("amtCurated").innerHTML = countcurations;
+            document.getElementById("amtShared").innerHTML = countshares;
         }};
 }
 
