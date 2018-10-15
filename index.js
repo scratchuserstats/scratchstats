@@ -265,7 +265,7 @@ function activity() {
             document.getElementById("amtFaved").innerHTML = (countfaves===20?"20+":countfaves)+"⭐ ";
             document.getElementById("amtActivity").innerHTML = countactivity;
 
-            if(countloves!==(responseactivity.match(/loved/g) || []))
+            if(countloves!==(responseactivity.match(/loved/g) || []).length)
             {
               document.getElementById("amtFollowed").innerHTML = "?";
               document.getElementById("amtStudiosFollowed").innerHTML = "?";
