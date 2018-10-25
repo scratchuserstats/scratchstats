@@ -263,12 +263,12 @@ function activity() {
 
             document.getElementById("amtLoved").innerHTML = (countloves===20?"20+":countloves)+"💖 ";
             document.getElementById("amtFaved").innerHTML = (countfaves===20?"20+":countfaves)+"⭐ ";
-            document.getElementById("amtActivity").innerHTML = countactivity;
+            document.getElementById("amtActivity").innerHTML = countactivity===20?"20+":countactivity;
 
-            document.getElementById("amtFollowed").innerHTML = countfollows;
-            document.getElementById("amtStudiosFollowed").innerHTML = countstudiofollows;
-            document.getElementById("amtCurated").innerHTML = countcurations;
-            document.getElementById("amtShared").innerHTML = countshares;
+            document.getElementById("amtFollowed").innerHTML = countfollows===20?"20+":countfollows;
+            document.getElementById("amtStudiosFollowed").innerHTML = countstudiofollows===20?"20+":countstudiofollows;
+            document.getElementById("amtCurated").innerHTML = countcurations===20?"20+":countcurations;
+            document.getElementById("amtShared").innerHTML = countshares===20?"20+":countshares;
         }};
 }
 
