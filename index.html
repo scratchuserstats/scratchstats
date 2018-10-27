@@ -1,309 +1,314 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <script>
+<head>
+  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-81213477-3', 'auto');
 
 </script>
-      <title>Stats | ScratchStats.com</title>
-      <link rel="stylesheet" href="./index.css">
-      <link rel="stylesheet" href="./modal.css">
-      <link rel="stylesheet" href="./sweetalert2.min.css">
-      <script src="./index.js"></script>
-      <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-      </link>
-      <script src="./sweetalert2.min.js"></script>
-	  <script src="https://momentjs.com/downloads/moment.min.js"></script>
-	<meta name="google-site-verification" content="obZDiZD_Qjmf_Y4zDY_mbiNcT1ITDsXY_xC3Mi-a_-o" />
-   </head>
-   <body onload="getUser()">
-      <nav>
-         <ul id="outerNavBar">
-            <ul id="navbar">
-               <li class="navbar-item">
-                  <a href="./">
-                     <center><img src="./images/icon.png" width="50px"></img></center>
-                  </a>
-               </li>
-               <li class="navbar-item">
-                  <a href="./global-stats">
-                     <div class="navbar-text">
-                        <center>Global Stats</center>
-                     </div>
-                  </a>
-               </li>
-               <li class="navbar-item">
-                  <a href="./about">
-                     <div class="navbar-text">
-                        <center>About</center>
-                     </div>
-                  </a>
-               </li>
-               <li class="navbar-item">
-                  <a href="./donate">
-                     <div class="navbar-text">
-                        <center>Donate</center>
-                     </div>
-                  </a>
-               </li>
-            </ul>
-         </ul>
-      </nav>
-      <div id="page">
-         <br>
-         <br>
-         <center>
-		 <!--<a id="ad1link" target="_blank"><img id="ad1" height="100" width="400"></img><br></a>-->
-     <br><small>Get an ad here by <a href="donate.html" style="color:darkgray">donating</a>.</small>
-        <br><br>
-         <div class="text-block" style="display:inline-block;width:600px;">
-            <img id="icon" style="height:60px;width:60px;" src="https://cdn2.scratch.mit.edu/get_image/user/2641_60x60.png"></img>
-          <b>  <h2 style="display:inline-block;font-size:40px;cursor:pointer;margin-left:5px;" title="Click to change username" id="user" class="century" onclick="newUser();">Loading...</h2></b>
+<title>Stats | ScratchStats.com</title>
+<link rel="stylesheet" href="./index.css">
+<link rel="stylesheet" href="./modal.css">
+<link rel="stylesheet" href="./sweetalert2.min.css">
+<script src="./index.js"></script>
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+</link>
+<script src="./sweetalert2.min.js"></script>
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
+<meta name="google-site-verification" content="obZDiZD_Qjmf_Y4zDY_mbiNcT1ITDsXY_xC3Mi-a_-o"/>
+<script async src="/ads.js" onerror="adBlockDetected()"></script>
+</head>
+<body onload="getUser()">
+  <nav>
+    <ul id="outerNavBar">
+      <ul id="navbar">
+        <li class="navbar-item">
+          <a href="./">
+            <center><img src="./images/icon.png" width="50px"></img></center>
+          </a>
+        </li>
+        <li class="navbar-item">
+          <a href="./global-stats">
+            <div class="navbar-text">
+              <center>Global Stats</center>
+            </div>
+          </a>
+        </li>
+        <li class="navbar-item">
+          <a href="./about">
+            <div class="navbar-text">
+              <center>About</center>
+            </div>
+          </a>
+        </li>
+        <li class="navbar-item">
+          <a href="./donate">
+            <div class="navbar-text">
+              <center>Donate</center>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </ul>
+  </nav>
+  <div id="page">
+    <br>
+    <br>
+    <center>
+      <!--<a id="ad1link" target="_blank"><img id="ad1" height="100" width="400"></img><br></a>-->
+      <br><small>Get an ad here by <a href="donate.html" style="color:darkgray">donating</a>.</small>
+      <br><br>
+      <div class="text-block" style="display:inline-block;width:600px;">
+        <img id="icon" style="height:60px;width:60px;" src="https://cdn2.scratch.mit.edu/get_image/user/2641_60x60.png"></img>
+        <b>  <h2 style="display:inline-block;font-size:40px;cursor:pointer;margin-left:5px;" title="Click to change username" id="user" class="century" onclick="newUser();">Loading...</h2></b>
+        <center>
+          <input type="button" class="button"value="Change Username" style="padding-top:5px;" onclick="newUser();"></input>
+          <input type="button" class="button"value="Copy URL to stats" onclick="copyURL()"></input>
+          <input id="url" type="textarea" value="https://scratchstats.com" onchange="url()" onload="url()" style="display:none;"></input></center>
+        </div>
+      </center>
+      &nbsp;
+      &nbsp;
+      <br>
+      <center><iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
+      <br>
+      <center>
+        <div class="text-block statstable" id="averageProjectStats">
+          <h3 class="noBottomMargin">Average project stats</h3>
+
+          <hr>
           <center>
-            <input type="button" class="button"value="Change Username" style="padding-top:5px;" onclick="newUser();"></input>
-            <input type="button" class="button"value="Copy URL to stats" onclick="copyURL()"></input>
-            <input id="url" type="textarea" value="https://scratchstats.com" onchange="url()" onload="url()" style="display:none;"></input></center>
-         </div>
-       </center>
-         &nbsp;
-         &nbsp;
-         <br>
-         <center><iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:325px; height:35px;" allowtransparency="true" id="reactions"></iframe></center>
-         <br>
-         <center>
-         <div class="text-block statstable" id="averageProjectStats">
-            <h3 class="noBottomMargin">Average project stats</h3>
-
-            <hr>
-            <center>
             <table>
-               <td>
-                  <center><div style="display:block;" id="averageLoves" class="answer">.</div></center>
-               </td>
-               <td>
-                  <div style="display:block;" id="averageFaves" class="answer">.</div>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageViews" class="answer">.</div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageCommented" class="answer">.</div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageLiked" class="answer">.</div></center>
-                  <div style="display:block;" class="question"><b>Love To View Ratio</b></div>
-               </td>
+              <td>
+                <center><div style="display:block;" id="averageLoves" class="answer">.</div></center>
+              </td>
+              <td>
+                <div style="display:block;" id="averageFaves" class="answer">.</div>
+              </td>
+              <td>
+                <center><div style="display:block;" id="averageViews" class="answer">.</div></center>
+              </td>
+              <td>
+                <center><div style="display:block;" id="averageCommented" class="answer">.</div></center>
+              </td>
+              <td>
+                <center><div style="display:block;" id="averageLiked" class="answer">.</div></center>
+                <div style="display:block;" class="question"><b>Love To View Ratio</b></div>
+              </td>
 
             </table>
-            </center>
-         </div>
-		 <br>
-		 <br>
-		 <br>
-         <div class="text-block statstable" id="mostProjectStats">
-            <h3 class="noBottomMargin">Best project per stat</h3>
-            <hr>
-            <center>
+          </center>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="text-block statstable" id="mostProjectStats">
+          <h3 class="noBottomMargin">Best project per stat</h3>
+          <hr>
+          <center>
             <table id="projectstable">
-               <td class="project">
-                  <center><div style="display:block;" id="mostLoved" class="special thumbnail">.</div></center>
-                  <div style="display:block;" class="question"><b>Most 💖/⭐ Project</b></div>
-               </td>
-               <!-- <td>
-                  <div style="display:block;" id="mostFavorited" class="special thumbnail">.</div>
-                  <div style="display:block;" class="question">Most ⭐ Project</div>
-               </td> -->
-               <td class="project">
-                  <center><div style="display:block;" id="mostLiked" class="special thumbnail">.</div></center>
-                  <div style="display:block;" class="question"><b>Most 👍 Project</b></div>
-               </td>
-               <td class="project">
-                  <center><div style="display:block;" id="mostViewed" class="special thumbnail">.</div></center>
-                  <div style="display:block;" class="question"><b>Most 👁️ Project</b></div>
-               </td>
-               <td class="project">
-                  <center><div style="display:block;" id="mostCommented" class="special thumbnail">.</div></center>
-                  <div style="display:block;" class="question"><b>Most 💬 Project</b></div>
-               </td>
+              <td class="project">
+                <center><div style="display:block;" id="mostLoved" class="special thumbnail">.</div></center>
+                <div style="display:block;" class="question"><b>Most 💖/⭐ Project</b></div>
+              </td>
+              <!-- <td>
+              <div style="display:block;" id="mostFavorited" class="special thumbnail">.</div>
+              <div style="display:block;" class="question">Most ⭐ Project</div>
+            </td> -->
+            <td class="project">
+              <center><div style="display:block;" id="mostLiked" class="special thumbnail">.</div></center>
+              <div style="display:block;" class="question"><b>Most 👍 Project</b></div>
+            </td>
+            <td class="project">
+              <center><div style="display:block;" id="mostViewed" class="special thumbnail">.</div></center>
+              <div style="display:block;" class="question"><b>Most 👁️ Project</b></div>
+            </td>
+            <td class="project">
+              <center><div style="display:block;" id="mostCommented" class="special thumbnail">.</div></center>
+              <div style="display:block;" class="question"><b>Most 💬 Project</b></div>
+            </td>
 
-            </table>
-            </center>
-         </div>
-         <br>
-         <br>
-         <iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe><iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe>         <br>
-         <br>
-         <br>
-         <div class="text-block statstable" id="averageProjectStats2">
-            <h3 class="noBottomMargin">
-			  <select id="year"style="display:inline-block;height: 40px;    width: 100px;    vertical-align: super;">
-              <option value="total">Total</option>
-              <option value="year" id="yearoption">Yearly</option>
-              <option value="month" id="monthoption">Monthly</option>
-              <option value="day">Daily</option>
-            </select>
-			Amount per stat</h3>
-
-            <hr>
-            <center>
-            <table>
-               <td>
-                  <center><div style="display:block;" id="averageTotalLoves" class="answer">.</div></center>
-               </td>
-               <td>
-                  <div style="display:block;" id="averageTotalFaves" class="answer">.</div>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageTotalViews" class="answer">.</div></center>
-               </td>
-               <td>
-                  <center><div style="display:block;" id="averageTotalCommented" class="answer">.</div></center>
-               </td>
-
-            </table>
-            </center>
-         </div>
-         <br>
-         <br>
-         <br>
-         <div class="text-block statstable" id="average-content">
-           <h3 class="noBottomMargin">Activity by the user last 12 months</h3>
-           <hr>
-            <center>
-           <table>
-     <td>
-       <div style="display:block;" id="amtLoved" class="answer">.</div>
-     </td>
-     <td>
-       <div style="display:block;" id="amtFaved" class="answer">.</div>
-     </td>
-     <td>
-       <div style="display:block;" id="amtFollowed" class="answer">.</div>
-        <div style="display:block;" class="question">Users Followed</div>
-     </td>
-     <td>
-       <div style="display:block;" id="amtStudiosFollowed" class="answer">.</div>
-        <div style="display:block;" class="question">Studios Followed</div>
-     </td>
-     <td>
-       <div style="display:block;" id="amtCurated" class="answer">.</div>
-        <div style="display:block;" class="question">New Studios Curated</div>
-     </td>
-     <td>
-       <div style="display:block;" id="amtShared" class="answer">.</div>
-        <div style="display:block;" class="question">New Projects Shared</div>
-     </td>
-     <td>
-       <div style="display:block;" id="amtActivity" class="answer">.</div>
-        <div style="display:block;" class="question">Total Activity Actions</div>
-     </td>
-       </table>
-         </center>
-       </div>
-         <br>
-         <br>
-         <br>
-         <div class="text-block statstable" id="average-content">
-           <h3 class="noBottomMargin">Miscellaneous</h3>
-           <hr>
-            <center>
-           <table>
-     <td>
-       <div style="display:block;" id="joined" class="answer">.</div>
-       <div style="display:block;" class="question">Join Date (UTC)</div>
-     </td>
-     <td>
-       <div style="display:block;" id="id" class="answer">.</div>
-       <div style="display:block;" class="question">ID Number</div>
-     </td>
-     <td>
-       <div style="display:block;" id="flag" class="answer">.</div>
-       <div style="display:block;" id="flagquestion" class="question">Country</div>
-     </td>
-   </table>
-   <table id="lastRow">
-     <td>
-       <div style="display:block;" id="messageCount" class="answer">.</div>
-       <div style="display:block;" class="question">Current Message Count</div>
-     </td>
-     <td>
-       <div style="display:block;" id="browser" class="answer">.</div>
-       <div style="display:block;" class="question">Browser</div>
-     </td>
-     <td>
-       <div style="display:block;" id="OS" class="answer">.</div>
-       <div style="display:block;" class="question">Operating System</div>
-     </td>
-       </table>
-       <table id="lastRowLoading" style="display:none;">
-         <td>
-           <div style="display:block;" id="messageCount" class="answer">↓</div>
-           <div style="display:block;" class="question">Current Message Count</div>
-         </td>
-         <td>
-           <div style="display:block;" id="browser" class="answer">↓</div>
-           <div style="display:block;" class="question">Browser</div>
-         </td>
-         <td>
-           <div style="display:block;" id="OS" class="answer">↓</div>
-           <div style="display:block;" class="question">Operating System</div>
-         </td>
-           </table>
-           <table id="captchaRow" style="display:none;">
-             <td id="captcha">
-               <br>
-               <!--<script src="https://authedmine.com/lib/captcha.min.js" async="" onload='captchaLoad()'></script>-->
-               <script> function captchaLoad() {
-                 document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].id="captchaiframe";
-                 document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginLeft="-30px";
-                 document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginTop="-30px";
-                 document.getElementById("iframeDiv").setAttribute("style","border: 3px solid #efefef; width:19px; height:19px; overflow: hidden;")
-                 var myConfObj = {
-                   iframeMouseOver : false
-                 }
-                 window.addEventListener('blur',function(){
-                   if(myConfObj.iframeMouseOver){
-                     captchaDone();
-                   }
-                 });
-                 document.getElementById('captchaiframe').addEventListener('mouseover',function(){
-                   myConfObj.iframeMouseOver = true;
-                   document.getElementById("loadWithoutCoinhive").style.visibility="visible";
-                 });
-                 document.getElementById('captchaiframe').addEventListener('mouseout',function(){
-                   window.focus();
-                   myConfObj.iframeMouseOver = false;
-          });
-          }
-          </script>
-          <div style="color:yellow;font-size:20px;" class="question" id="pleasepress"><b>Please press the box to load the data above <a style="cursor:pointer;text-decoration:none;" onclick="swal('By pressing the box you are supporting ScratchStats allowing us to calculate a low amount of complex math operations. If you do not want your computer to calculate these, click \'\'Load without operations\'\' below the box.');document.getElementById('loadWithoutCoinhive').style.visibility='visible';">🛈</a></b></div>
-          <center><div id="iframeDiv">
-            <div class="coinhive-captcha" data-hashes="25600" data-key="MLTfpPkOJfb9Sbozh5dE44Z8cDd4aArN" data-whitelabel="true" data-callback="hashesDone"> <span><a onclick="captchaDone()" style="font-size:19px;cursor:pointer;">▇</a></span> </div>
-          </div><span id="loadWithoutCoinhive" style="visibility:hidden;font-size:9px;">By pressing the box you are supporting ScratchStats allowing us to calculate a low amount of complex math operations.<br><a style="cursor:pointer;" onclick="loadClick()">Load without calculations</a></span></center>
-        </td>
-        </table>
-         </center>
-       </div>
-     </center>
-       <br>
-       <br>
-       <center>
-       <iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe><iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe>         <br>
-     </center>
-       <br>
-       <br>
-       <div id="footer">
-         <br>
-<small style="font-size:12px;font-weight:500;">
-  <center>
-We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.</center>
-</small>
-</div>
+          </table>
+        </center>
       </div>
-   </body>
-</html>
+      <br>
+      <br>
+      <div id="aads1">
+        <iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe><iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe>
+        <br>
+      </div>
+      <br>
+      <div class="text-block statstable" id="averageProjectStats2">
+        <h3 class="noBottomMargin">
+          <select id="year"style="display:inline-block;height: 40px;    width: 100px;    vertical-align: super;">
+            <option value="total">Total</option>
+            <option value="year" id="yearoption">Yearly</option>
+            <option value="month" id="monthoption">Monthly</option>
+            <option value="day">Daily</option>
+          </select>
+          Amount per stat</h3>
+
+          <hr>
+          <center>
+            <table>
+              <td>
+                <center><div style="display:block;" id="averageTotalLoves" class="answer">.</div></center>
+              </td>
+              <td>
+                <div style="display:block;" id="averageTotalFaves" class="answer">.</div>
+              </td>
+              <td>
+                <center><div style="display:block;" id="averageTotalViews" class="answer">.</div></center>
+              </td>
+              <td>
+                <center><div style="display:block;" id="averageTotalCommented" class="answer">.</div></center>
+              </td>
+
+            </table>
+          </center>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="text-block statstable" id="average-content">
+          <h3 class="noBottomMargin">Activity by the user last 12 months</h3>
+          <hr>
+          <center>
+            <table>
+              <td>
+                <div style="display:block;" id="amtLoved" class="answer">.</div>
+              </td>
+              <td>
+                <div style="display:block;" id="amtFaved" class="answer">.</div>
+              </td>
+              <td>
+                <div style="display:block;" id="amtFollowed" class="answer">.</div>
+                <div style="display:block;" class="question">Users Followed</div>
+              </td>
+              <td>
+                <div style="display:block;" id="amtStudiosFollowed" class="answer">.</div>
+                <div style="display:block;" class="question">Studios Followed</div>
+              </td>
+              <td>
+                <div style="display:block;" id="amtCurated" class="answer">.</div>
+                <div style="display:block;" class="question">New Studios Curated</div>
+              </td>
+              <td>
+                <div style="display:block;" id="amtShared" class="answer">.</div>
+                <div style="display:block;" class="question">New Projects Shared</div>
+              </td>
+              <td>
+                <div style="display:block;" id="amtActivity" class="answer">.</div>
+                <div style="display:block;" class="question">Total Activity Actions</div>
+              </td>
+            </table>
+          </center>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="text-block statstable" id="average-content">
+          <h3 class="noBottomMargin">Miscellaneous</h3>
+          <hr>
+          <center>
+            <table>
+              <td>
+                <div style="display:block;" id="joined" class="answer">.</div>
+                <div style="display:block;" class="question">Join Date (UTC)</div>
+              </td>
+              <td>
+                <div style="display:block;" id="id" class="answer">.</div>
+                <div style="display:block;" class="question">ID Number</div>
+              </td>
+              <td>
+                <div style="display:block;" id="flag" class="answer">.</div>
+                <div style="display:block;" id="flagquestion" class="question">Country</div>
+              </td>
+            </table>
+            <table id="lastRow">
+              <td>
+                <div style="display:block;" id="messageCount" class="answer">.</div>
+                <div style="display:block;" class="question">Current Message Count</div>
+              </td>
+              <td>
+                <div style="display:block;" id="browser" class="answer">.</div>
+                <div style="display:block;" class="question">Browser</div>
+              </td>
+              <td>
+                <div style="display:block;" id="OS" class="answer">.</div>
+                <div style="display:block;" class="question">Operating System</div>
+              </td>
+            </table>
+            <table id="lastRowLoading" style="display:none;">
+              <td>
+                <div style="display:block;" id="messageCount" class="answer">↓</div>
+                <div style="display:block;" class="question">Current Message Count</div>
+              </td>
+              <td>
+                <div style="display:block;" id="browser" class="answer">↓</div>
+                <div style="display:block;" class="question">Browser</div>
+              </td>
+              <td>
+                <div style="display:block;" id="OS" class="answer">↓</div>
+                <div style="display:block;" class="question">Operating System</div>
+              </td>
+            </table>
+            <table id="captchaRow" style="display:none;">
+              <td id="captcha">
+                <br>
+                <!--<script src="https://authedmine.com/lib/captcha.min.js" async="" onload='captchaLoad()'></script>-->
+                <script> function captchaLoad() {
+                  document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].id="captchaiframe";
+                  document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginLeft="-30px";
+                  document.getElementsByClassName("coinhive-captcha")[0].childNodes[0].style.marginTop="-30px";
+                  document.getElementById("iframeDiv").setAttribute("style","border: 3px solid #efefef; width:19px; height:19px; overflow: hidden;")
+                  var myConfObj = {
+                    iframeMouseOver : false
+                  }
+                  window.addEventListener('blur',function(){
+                    if(myConfObj.iframeMouseOver){
+                      captchaDone();
+                    }
+                  });
+                  document.getElementById('captchaiframe').addEventListener('mouseover',function(){
+                    myConfObj.iframeMouseOver = true;
+                    document.getElementById("loadWithoutCoinhive").style.visibility="visible";
+                  });
+                  document.getElementById('captchaiframe').addEventListener('mouseout',function(){
+                    window.focus();
+                    myConfObj.iframeMouseOver = false;
+                  });
+                }
+                </script>
+                <div style="color:yellow;font-size:20px;" class="question" id="pleasepress"><b>Please press the box to load the data above <a style="cursor:pointer;text-decoration:none;" onclick="swal('By pressing the box you are supporting ScratchStats allowing us to calculate a low amount of complex math operations. If you do not want your computer to calculate these, click \'\'Load without operations\'\' below the box.');document.getElementById('loadWithoutCoinhive').style.visibility='visible';">🛈</a></b></div>
+                <center><div id="iframeDiv">
+                  <div class="coinhive-captcha" data-hashes="25600" data-key="MLTfpPkOJfb9Sbozh5dE44Z8cDd4aArN" data-whitelabel="true" data-callback="hashesDone"> <span><a onclick="captchaDone()" style="font-size:19px;cursor:pointer;">▇</a></span> </div>
+                </div><span id="loadWithoutCoinhive" style="visibility:hidden;font-size:9px;">By pressing the box you are supporting ScratchStats allowing us to calculate a low amount of complex math operations.<br><a style="cursor:pointer;" onclick="loadClick()">Load without calculations</a></span></center>
+              </td>
+            </table>
+          </center>
+        </div>
+      </center>
+      <br>
+      <br>
+      <div id="aads2">
+        <center>
+          <iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe><iframe data-aa='1022169' src='https://acceptable.a-ads.com/1022169?size=Adaptive&background_color=f1f1f1&text_color=000000&title_color=3d6bff&title_hover_color=3d6bff&link_color=3d6bff&link_hover_color=3d6bff' scrolling='no' style='border:0px;padding:0;overflow:hidden; height: 15vh;width: 37vw;' allowtransparency='true'></iframe>
+        </center>
+      </div>
+      <br>
+      <br>
+      <div id="footer">
+        <br>
+        <small style="font-size:12px;font-weight:500;">
+          <center>
+            We collect some data using Google Analytics. Information collected and processed by Google Analytics includes the network location, URLs visited and geographic location. Google Analytics acquires all its information directly from the user, by installing a cookie on your computer, if you have enabled JavaScript. Google does not collect any personally identifying information about you.</center>
+          </small>
+        </div>
+      </div>
+    </body>
+    </html>
