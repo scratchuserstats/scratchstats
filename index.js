@@ -179,7 +179,7 @@ function userStatsUpdate(user) {
 //
 function sendAPIreq(){
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "?" + Math.floor(Date.now() / 1000), true);
+  xmlhttp.open('GET', 'https://cors.io/?https://api.scratch.mit.edu/users/' + username + "?" + Math.floor(Date.now() / 1000), true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -238,7 +238,7 @@ function getCountryFlag(response){
 
 function messageCount() {
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('GET','https://api.scratch.mit.edu/proxy/users/'+username+'/activity/count',true);
+  xmlhttp.open('GET','https://cors.io/?https://api.scratch.mit.edu/proxy/users/'+username+'/activity/count',true);
   xmlhttp.send();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -280,7 +280,7 @@ function activity() {
   function projectStats() {
     document.getElementById("projectstable").style.display = "";
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
+    xmlhttp.open('GET', 'https://cors.io/?https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
