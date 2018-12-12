@@ -283,7 +283,7 @@ function activity() {
   function projectStats() {
     document.getElementById("projectstable").style.display = "";
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'https://cors.io/?https://api.scratch.mit.edu/users/' + username + "/projects?offset=" + offset, true);
+    xmlhttp.open('GET', 'https://cors.io/?https://api.scratch.mit.edu/users/' + username + "/projects?limit=40&offset=" + offset, true);
     xmlhttp.send();
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -365,9 +365,9 @@ function activity() {
             i++;
           }
 
-          if (parsedJSON.length === 20) {
-            offset = offset+20;
-            setTimeout(function(){projectStats(); }, 200);}
+          if (parsedJSON.length === 40) {
+            offset = offset+40;
+            setTimeout(function(){projectStats(); }, /*200*/0);}
             else {
               showProjectStats();
               getBrowser(lastProject,lastProject2);
