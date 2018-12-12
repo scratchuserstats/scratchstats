@@ -205,7 +205,7 @@ function getIcon(response){ // ga.js and username
   document.getElementById('user').innerHTML =  obj.username;
   username = obj.username;
   shouldrefresh = 0;
-  location.hash = username;
+  /*location.hash = username;*/
   ga('set', 'page', '/user/#'+obj.username);
   ga('send', 'pageview');
 }
