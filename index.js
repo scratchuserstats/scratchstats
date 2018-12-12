@@ -17,14 +17,15 @@ function adBlockDetected() {
 
 function hashChange() {
   window.addEventListener('hashchange', function() {
-    if(shouldrefresh===1){
+    /*if(shouldrefresh===1){
       var userToUpdate = location.hash.substring(1)==="" ? "griffpatch" : location.hash.substring(1);
       userStatsUpdate(userToUpdate);
       for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
         document.getElementsByClassName("answer")[i].innerText = ".";
         hashChange();
       }
-    } else shouldrefresh = 1;
+    } else shouldrefresh = 1;*/
+    location.reload();
   });
 }
 
@@ -63,11 +64,13 @@ function newUser(){
   }).then(function () {
     var username = document.getElementById('in').value;
     if(username.startsWith("@")){username=username.substring(1);}
-    for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
+    /*for (i = 0; i < document.getElementsByClassName("answer").length; i++) {
       if(i!==16)
       document.getElementsByClassName("answer")[i].innerText = ".";
     }
-    userStatsUpdate(username);
+    userStatsUpdate(username);*/
+    location.hash = username;
+    location.reload();
   });
   document.getElementById('in').select();
   document.getElementById('in').focus();
