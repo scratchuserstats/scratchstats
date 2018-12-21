@@ -142,6 +142,11 @@ function copyTextToClipboard(text) {
 }
 
 function userStatsUpdate(user) {
+  swal({
+    type: "warning",
+    title: "IMPORTANT: project info may be inaccurate because of a bug introduced by the Scratch Team",
+    showConfirmButton: true
+  });
   totalProjects = 0;
   offset = 0;
   totalViews = 0;
